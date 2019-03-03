@@ -1,0 +1,40 @@
+  host: 192.168.1.102
+  lights:
+  switches:
+    R1D1:
+      name: Dual USBs
+    R1D2:
+      name: Seagate 1
+    R1D3:
+      name: Defiant
+    R1D4:
+      name: PC Light
+    R1D5:
+      name: Seagate 2
+    R1D6:
+      name: TV D/L Disks
+    R2D1:
+      name: LED Lights
+    R2D2:
+      name: Porch Light
+    R2D3:
+      name: Fridge
+    R2D5:
+      name: Hall Light
+    R3D1:
+      name: Picture Light
+    R3D2:
+      name: Unit Lights
+    R3D3:
+      name: Standing Light
+    R3D5:
+      name: Bass Amp
+    R3D6:
+      name: Landing Light
+    R4D1:
+      name: Lounge Kodi USB
+    R5D1:
+      name: Kodi USB 2
+    R6D1:
+      name: Excelsior
+

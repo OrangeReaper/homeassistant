@@ -1,0 +1,40 @@
+switch.bass_amp:
+  assumed_state: true
+switch.defiant:
+  assumed_state: true
+switch.dual_usbs:
+  assumed_state: true
+switch.excelsior:
+  assumed_state: true
+switch.fridge:
+  assumed_state: true
+switch.hall_light:
+  assumed_state: true
+switch.kodi_usb_2:
+  assumed_state: true
+switch.led_lights:
+  assumed_state: true
+switch.landing_light:
+  assumed_state: true
+switch.lounge_kodi_usb:
+  assumed_state: true
+switch.pc_light:
+  assumed_state: true
+switch.picture_light:
+  assumed_state: true
+switch.porch_light:
+  assumed_state: true
+switch.seagate_1:
+  assumed_state: true
+switch.seagate_2:
+  assumed_state: true
+switch.standing_light:
+  assumed_state: true
+switch.tv_d_l_disks:
+  assumed_state: true
+switch.unit_lights:
+  assumed_state: true
+group.tracker_andy: {}
+binary_sensor.andy_s_phone:
+  device_class: presence
+person.andy: {}

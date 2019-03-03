@@ -1,0 +1,9 @@
+alias: Lounge Kodi USB ON
+initial_state: false
+trigger:
+  platform: state  
+  entity_id: device_tracker.wetek_core
+  to: "home" 
+action:
+  - service: switch.turn_on
+    entity_id: switch.lounge_kodi_usb

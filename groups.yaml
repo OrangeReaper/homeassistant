@@ -1,0 +1,31 @@
+  tracker_andy:
+    name: Andy
+    view: no
+    entities:
+      - device_tracker.andy_phone_bt
+      - device_tracker.andy_phone_wifi
+
+  tracker_paula:
+    name: Paula
+    view: no
+    entities:
+      - device_tracker.paula_phone_wifi
+      - device_tracker.paula_phone_bt
+
+  lounge_lights:
+    name: Lounge Lights
+    view: no
+    entities:
+      - switch.picture_light
+      - switch.standing_light
+      - switch.unit_lights
+
+  main_pc_usb_drives:
+    name: MainPC USB Drives
+    view: no
+    entities:
+      - switch.dual_usbs
+      - switch.seagate_1
+      - switch.seagate_2
+      - switch.tv_d_l_disks
+

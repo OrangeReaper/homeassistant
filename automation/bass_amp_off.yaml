@@ -1,0 +1,9 @@
+alias: Bass Amp OFF
+initial_state: false
+trigger:
+  platform: state  
+  entity_id: device_tracker.lounge_amp
+  to: "not_home" 
+action:
+  - service: switch.turn_off
+    entity_id: switch.bass_amp

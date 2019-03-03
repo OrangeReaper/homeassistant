@@ -1,0 +1,71 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude 
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/London
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Show the introduction message on startup.
+introduction:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - igd
+
+# Enables support for tracking state changes over time
+history:
+  include:
+    domains:
+      - media_player
+      - device_tracker
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Allow diagnosing system problems
+system_health:
+
+
+# Sensors
+sensor:
+  # Weather prediction
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+lightwave: !include lightwave.yaml
+group: !include groups.yaml
+automation: !include_dir_list automation/
+script: !include scripts.yaml
+device_tracker: !include device_tracker.yaml
+tuya: !include tuya.yaml
+
+binary_sensor:
+  - platform: rpi_gpio
+    pull_mode: DOWN
+    ports:
+      17: PIR Hall

@@ -1,0 +1,14 @@
+
+alias: Turn off hall light
+trigger:
+  platform: state
+  entity_id: binary_sensor.pir_hall
+  to: "off"
+  for:
+    minutes: 1
+action:
+  - service: switch.turn_off
+    entity_id: switch.hall_light
+  - service: switch.turn_off
+    entity_id: switch.pc_light
+

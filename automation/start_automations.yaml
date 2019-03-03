@@ -1,0 +1,16 @@
+alias: start automations on startup
+hide_entity: True
+trigger:
+  platform: homeassistant
+  event: start
+action:
+  - delay: 20
+  - service: automation.turn_on
+    entity_id:
+      - automation.defiant_switched_off
+      - automation.excelsior_switched_off
+      - automation.bass_amp_on
+      - automation.bass_amp_off
+      - automation.lounge_kodi_usb_on
+      - automation.lounge_kodi_usb_off
+      - automation.usb_drives_off

@@ -1,0 +1,10 @@
+alias: Excelsior Switched Off
+initial_state: false
+trigger:
+  platform: state  
+  entity_id: device_tracker.excelsior
+  from: "home"
+  to: "not_home" 
+action:
+  - service: switch.turn_off
+    entity_id: switch.excelsior

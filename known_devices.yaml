@@ -1,0 +1,260 @@
+
+router_r860:
+  hide_if_away: false
+  icon:
+  mac: C0:4A:00:BC:16:46
+  name: Router R860
+  picture:
+  track: true
+
+voyager:
+  hide_if_away: false
+  icon:
+  mac: AC:84:C6:6B:2F:74
+  name: Voyager AP
+  picture:
+  track: true
+
+youview:
+  hide_if_away: false
+  icon:
+  mac: 34:6B:D3:9F:62:30
+  name: You View
+  picture:
+  track: true
+
+smart_socket:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:E0:FA:9B
+  name: Smart Socket
+  picture:
+  track: true
+
+mywiki:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:31:07:64
+  name: My Wiki
+  picture:
+  track: true
+
+tt_router:
+  hide_if_away: false
+  icon:
+  mac: D8:A7:56:0F:D8:F9
+  name: TalkTalk Router
+  picture:
+  track: true
+
+discovery:
+  hide_if_away: false
+  icon:
+  mac: 84:39:BE:69:92:09
+  name: Discovery
+  picture:
+  track: true
+
+andymote_mc:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:08:B3:0C
+  name: AndyMOTE MC
+  picture:
+  track: true
+
+roberts_radio:
+  hide_if_away: false
+  icon:
+  mac: 00:22:61:C7:31:A1
+  name: Robert's Radio
+  picture:
+  track: true
+
+enterprise:
+  hide_if_away: false
+  icon:
+  mac: E8:94:F6:EC:32:15
+  name: Enterprise AP
+  picture:
+  track: true
+
+andy_ubuntu:
+  hide_if_away: false
+  icon:
+  mac: 40:16:7E:7B:D3:CC
+  name: Main PC
+  picture:
+  track: true
+
+andy_phone_bt:
+  hide_if_away: false
+  icon:
+  mac: BT_A4:50:46:10:13:00
+  name: Andy's Phone BT
+  picture:
+  track: true
+
+lounge_radio:
+  hide_if_away: false
+  icon:
+  mac: E0:B9:4D:A4:1E:96
+  name: Lounge Radio
+  picture:
+  track: true
+
+andy_phone_wifi:
+  hide_if_away: false
+  icon:
+  mac: A4:50:46:10:13:01
+  name: Andy's Phone WIFI
+  picture:
+  track: true
+
+paula_ipad:
+  hide_if_away: false
+  icon:
+  mac: CC:44:63:EC:47:AE
+  name: Paula's iPad
+  picture:
+  track: true
+
+samsung_tablet_sm_t520:
+  hide_if_away: false
+  icon:
+  mac: 7C:F9:0E:7C:74:37
+  name: Samsung Tablet (SMT520)
+  picture:
+  track: true
+
+galaxy_tab_a:
+  hide_if_away: false
+  icon:
+  mac: D8:5B:2A:A8:6E:53
+  name: Galaxy Tab A
+  picture:
+  track: true
+
+paula_phone_wifi:
+  hide_if_away: false
+  icon:
+  mac: C0:BD:D1:EA:68:0D
+  name: Paula's Phone WIFI
+  picture:
+  track: true
+
+tv_mancave:
+  hide_if_away: false
+  icon:
+  mac: 70:58:12:99:C7:C8
+  name: Panasonic TV
+  picture:
+  track: true
+
+tv_lounge:
+  hide_if_away: false
+  icon:
+  mac: CC:2D:8C:A0:F3:37
+  name: TV Lounge
+  picture:
+  track: true
+
+defiant:
+  hide_if_away: false
+  icon:
+  mac: 2C:B0:5D:BE:C6:BA
+  name: Defiant
+  picture:
+  track: true
+  consider_home: 30
+
+bluray_mc:
+  hide_if_away: false
+  icon:
+  mac: 3C:BD:D8:44:5C:E8
+  name: ManCave Bluray
+  picture:
+  track: true
+
+3c_bd_d8_6f_74_9d:
+  hide_if_away: false
+  icon:
+  mac: 3C:BD:D8:6F:74:9D
+  name: 3c bd d8 6f 74 9d
+  picture:
+  track: true
+
+paula_phone_bt:
+  hide_if_away: false
+  icon:
+  mac: BT_90:00:DB:C3:20:C3
+  name: Paula's Phone BT
+  picture:
+  track: true
+
+wetek_core:
+  hide_if_away: false
+  icon:
+  mac: E8:18:63:50:9F:CA
+  name: Wetek Core
+  picture:
+  track: true
+  consider_home: 30
+
+lounge_amp:
+  hide_if_away: false
+  icon:
+  mac: 74:5E:1C:11:65:FC
+  name: Lounge Amp
+  picture:
+  track: true
+  consider_home: 30
+
+sandralaptop:
+  hide_if_away: false
+  icon:
+  mac: BT_00:1E:64:F9:C0:7B
+  name: SANDRALAPTOP
+  picture:
+  track: false
+
+printer:
+  hide_if_away: false
+  icon:
+  mac: 10:62:E5:AC:BE:84
+  name: NPIACBE84
+  picture:
+  track: true
+
+excelsior:
+  hide_if_away: false
+  icon:
+  mac: 1C:1B:0D:9C:D1:CC
+  name: Excelsior
+  picture:
+  track: true
+  consider_home: 30
+
+iphone:
+  hide_if_away: false
+  icon:
+  mac: BT_AC:29:3A:AD:61:8D
+  name: iPhone
+  picture:
+  track: false
+
+p10000_pro:
+  hide_if_away: false
+  icon:
+  mac: BT_8A:96:46:00:00:C3
+  name: P10000 Pro
+  picture:
+  track: false
+
+p10000_pro_2:
+  hide_if_away: false
+  icon:
+  mac: BT_6E:12:46:00:00:9B
+  name: P10000 Pro
+  picture:
+  track: true

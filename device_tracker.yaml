@@ -1,0 +1,5 @@
+  - platform: nmap_tracker
+    hosts: 192.168.1.0/24
+    consider_home: 900
+  - platform: bluetooth_tracker
+    consider_home: 900
