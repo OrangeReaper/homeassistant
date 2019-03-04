@@ -69,3 +69,4 @@ binary_sensor:
     pull_mode: DOWN
     ports:
       17: PIR Hall
+      27: RADAR Hall

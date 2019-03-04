@@ -1,8 +1,8 @@
 
-alias: Turn on hall light on pir detect
+alias: Turn on hall light on radar detect
 trigger:
   platform: state
-  entity_id: binary_sensor.pir_hall
+  entity_id: binary_sensor.radar_hall
   to: "on"
 #  for: 3
 condition:
@@ -10,7 +10,7 @@ condition:
     after: sunset
     after_offset: "-01:00:00"
   - condition: state
-    entity_id: binary_sensor.radar_hall
+    entity_id: binary_sensor.pir_hall
     state: "on"
 action:
   - service: switch.turn_on
