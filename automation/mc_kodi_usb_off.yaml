@@ -1,0 +1,11 @@
+alias: Mancave Kodi USB OFF
+initial_state: false
+trigger:
+  platform: state  
+  entity_id: device_tracker.wetek_hub
+  to: "not_home" 
+action:
+  - service: switch.turn_off
+    entity_id: switch.05200304bcddc2e0fa9b_2
+  - service: switch.turn_off
+    entity_id: switch.kodi_usb_2

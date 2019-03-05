@@ -1,4 +1,5 @@
 alias: Welcome Home
+initial_state: false
 trigger:
   platform: state  
   entity_id: group.tracker_andy, group.tracker_paula

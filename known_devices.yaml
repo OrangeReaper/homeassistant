@@ -176,11 +176,11 @@ bluray_mc:
   picture:
   track: true
 
-3c_bd_d8_6f_74_9d:
+unknown:
   hide_if_away: false
   icon:
   mac: 3C:BD:D8:6F:74:9D
-  name: 3c bd d8 6f 74 9d
+  name: UNKNOWN
   picture:
   track: true
 
@@ -258,3 +258,12 @@ p10000_pro_2:
   name: P10000 Pro
   picture:
   track: true
+
+wetek_hub:
+  hide_if_away: false
+  icon:
+  mac: E8:18:63:51:79:4C
+  name: Wetek Hub
+  picture:
+  track: true
+  consider_home: 30

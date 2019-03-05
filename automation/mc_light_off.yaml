@@ -1,0 +1,9 @@
+alias: Mancave Light OFF
+trigger:
+  platform: state  
+  entity_id: device_tracker.tv_mancave
+  to: "not_home" 
+action:
+  - delay: 120
+  - service: switch.turn_off
+    entity_id: switch.05200304bcddc2e0fa9b_1

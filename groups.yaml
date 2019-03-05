@@ -29,3 +29,9 @@
       - switch.seagate_2
       - switch.tv_d_l_disks
 
+  residents:
+    name: Residents
+    view: no
+    entities:
+      - group.tracker_paula
+      - group.tracker_andy
