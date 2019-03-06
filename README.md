@@ -33,10 +33,10 @@ The media system consists of a TV, BluRay Player, Kodi Box, AV Amplifier, PVR an
 
 In my mancave there are two things I control; a *media system* and *lighting*
 
-The media system consists of a TV, BluRay Player, Kodi Box and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Kodi Box has two attached USB Drives one of which is powered via a LightwaveRF switch, the other via a Tuya switch.
+The *media system* consists of a TV, BluRay Player, Kodi Box and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Kodi Box has two attached USB Drives one of which is powered via a LightwaveRF switch, the other via a Tuya switch.
 
 ### Automations
-1. When the TV is switched on, if it is dark, the light is turned on; it is turned off when the TV is turned off.
+1. When the TV is switched on, if it is dark, the light is turned on; it is turned off 2 minutes after the TV is turned off.
 2. The Kodi USB Drives are turned on and off in sympathy with the Kodi Box. 
 
 ## <a name="kitchen">Kitchen</a>
@@ -56,7 +56,7 @@ In the kitchen there are two things I control; a *Radio* and *lighting*
 I run [Hassbian](https://www.home-assistant.io/docs/installation/hassbian/) on a Raspberry Pi 3+; this is located in the hall and connected to my router which is also in the hall near my front door. This is convenient for the presence detection used in [Welcome Home](#welcomehome) (below); I use a *HC-SR501 PIR Motion Detector* and a *RCWL-0516 RADAR Motion Detector* 'in tandem' to detect motion in my hallway. There is also a light in the hallway which is controlled through a LightwaveRF switch.
 
 ### Automations
-1. When movement is detected in the hall, and it is dark, the light is switched on; the light stays switched until movement is no longer detected for a period of 1 minute.
+1. When movement is detected in the hall, and it is dark, the light is switched on; the light stays switched on until movement is no longer detected for a period of 1 minute.
 
 ## <a name="welcomehome">Welcome Home Automation</a>
 
@@ -75,5 +75,5 @@ I have several USB drives attached to my main PC (Andy-Ubuntu), a NAS Drive (Def
 2. When Excelsior is switched off ot is also disconnected from mains power supply.
 3. When my main PC is switched off all attached USB Drives are also switched off
 
-##<a name="startup">Start Automations Automation</a>
+## <a name="startup">Start Automations Automation</a>
 When commissioning my Home Assistant system I experienced problems with automations firing in an unwanted manner during startup. To fix this I used the *initial_state: false* switch in the affected automation. The *Start Automations* Automation turns these automations on 20 seconds after start-up or restart **but not** after a *reload automations* operation (in other words, beware, all such automations are *off* following a *reload automations* operation). 
