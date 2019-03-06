@@ -1,8 +1,8 @@
 
-alias: Radio On
+alias: Radio On2
 initial_state: false
 trigger:
-  entity_id: binary_sensor.pir_hall
+  entity_id: binary_sensor.radar_hall
   platform: state
   to: 'on'
 condition:
@@ -13,7 +13,7 @@ condition:
     entity_id: 'group.residents'
     state: 'home'
   - condition: state
-    entity_id: binary_sensor.radar_hall
+    entity_id: binary_sensor.pir_hall
     state: "on"
 action:
   - data:

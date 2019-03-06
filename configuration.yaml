@@ -35,6 +35,11 @@ history:
       - media_player
       - device_tracker
 
+recorder:
+#  exclude:
+#    entities:
+#      - binary_sensor.radar_hall
+
 # View all events in a logbook
 logbook:
 
