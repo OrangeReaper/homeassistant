@@ -267,3 +267,11 @@ wetek_hub:
   picture:
   track: true
   consider_home: 30
+
+honor_9:
+  hide_if_away: false
+  icon:
+  mac: BT_98:9C:57:87:3C:2E
+  name: Honor 9
+  picture:
+  track: true

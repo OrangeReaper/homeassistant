@@ -20,8 +20,11 @@ default_config:
 introduction:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
+http:
+  base_url: abond.duckdns.org:8123
+  api_password: !secret api_password 
+  ssl_certificate: /home/homeassistant/.homeassistant/ssl/certificate.pem
+  ssl_key: /home/homeassistant/.homeassistant/ssl/privkey.pem
 
 # Discover some devices automatically
 discovery:
@@ -36,9 +39,10 @@ history:
       - device_tracker
 
 recorder:
-#  exclude:
-#    entities:
-#      - binary_sensor.radar_hall
+  exclude:
+    entities:
+      - binary_sensor.radar_hall
+      - binary_sensor.pir_hall
 
 # View all events in a logbook
 logbook:

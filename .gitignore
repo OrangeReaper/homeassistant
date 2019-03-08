@@ -7,3 +7,4 @@ secrets.yaml
 .cloud/
 .HA_VERSION
 *.swp
+ssl/
