@@ -53,7 +53,7 @@ In the kitchen there are two things I control; a *Radio* and *lighting*
 
 [Top](#top)
 
-I run [Hassbian](https://www.home-assistant.io/docs/installation/hassbian/) on a Raspberry Pi 3+; this is located in the hall and connected to my router which is also in the hall near my front door. This is convenient for the presence detection used in [Welcome Home](#welcomehome) (below); I use a Z-Wave *Aeotec Multisensor 6* to realise the motion detection. There is also a light in the hallway which is controlled through a LightwaveRF switch.
+I run [Hassbian](https://www.home-assistant.io/docs/installation/hassbian/) on a Raspberry Pi 3+. This is located in the hall and connected to my router which is also in the hall near my front door. This is convenient for the presence detection used in [Welcome Home](#welcomehome) (below); I use a Z-Wave *Aeotec Multisensor 6* to realise the motion detection. There is also a light in the hallway which is controlled through a LightwaveRF switch.
 
 ### Automations
 1. When movement is detected in the hall, and it is dark, the light is switched on; the light stays switched on until movement is no longer detected for a period of 1 minute.
