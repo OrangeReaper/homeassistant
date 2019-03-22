@@ -2,19 +2,11 @@
 alias: Turn on hall light on pir detect
 trigger:
   platform: state
-  entity_id: binary_sensor.pir_hall
+  entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor
   to: "on"
-#  for: 3
 condition:
-  - condition: sun
-    after: sunset
-    after_offset: "-01:00:00"
-  - condition: state
-    entity_id: binary_sensor.radar_hall
-    state: "on"
-  - condition: state
-    entity_id: switch.hall_light
-    state: "off"
+  - condition: template
+    value_template: "{{ states.sun.sun.attributes.elevation  | int < 5 }}"
 action:
   - service: switch.turn_on
     entity_id: switch.hall_light

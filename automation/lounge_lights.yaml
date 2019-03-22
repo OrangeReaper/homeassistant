@@ -1,8 +1,9 @@
 alias: Lounge Lights
 trigger:
-  platform: sun
-  event: sunset
-  offset: "-00:40:00"
+  platform: numeric_state
+  entity_id: sun.sun
+  value_template: '{{ state.attributes.elevation }}'
+  below: 5
 condition:
   condition: or
   conditions:

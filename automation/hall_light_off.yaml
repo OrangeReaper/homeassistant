@@ -1,18 +1,18 @@
 
-alias: Turn off hall light
+alias: Turn off hall light (pir)
 trigger:
   platform: state
-  entity_id: binary_sensor.pir_hall
+  entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor
   to: "off"
   for:
     minutes: 1
-condition:
-  - condition: state
-    entity_id: switch.hall_light
-    state: "on"
+#condition:
+#  - condition: state
+#    entity_id: switch.hall_light
+#    state: "on"
 action:
   - service: switch.turn_off
     entity_id: switch.hall_light
-#  - service: switch.turn_off
-#    entity_id: switch.pc_light
+  - service: switch.turn_off
+    entity_id: switch.pc_light
 

@@ -2,9 +2,9 @@
 alias: Radio On
 initial_state: false
 trigger:
-  entity_id: binary_sensor.pir_hall
   platform: state
-  to: 'on'
+  entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor
+  to: "on"
 condition:
   - condition: time
     after: 07:00:00
@@ -12,9 +12,6 @@ condition:
   - condition: state
     entity_id: 'group.residents'
     state: 'home'
-  - condition: state
-    entity_id: binary_sensor.radar_hall
-    state: "on"
 action:
   - data:
       entity_id: media_player.roberts_stream_93i_002261c731a0

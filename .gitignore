@@ -8,3 +8,7 @@ secrets.yaml
 .HA_VERSION
 *.swp
 ssl/
+zwcfg_0xc616710d.xml
+pyozw.sqlite
+OZW_Log.txt
+zwscene.xml

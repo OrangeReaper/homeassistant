@@ -110,6 +110,7 @@ andy_phone_wifi:
   name: Andy's Phone WIFI
   picture:
   track: true
+  consider_home: 900
 
 paula_ipad:
   hide_if_away: false
@@ -117,7 +118,7 @@ paula_ipad:
   mac: CC:44:63:EC:47:AE
   name: Paula's iPad
   picture:
-  track: true
+  track: false
 
 samsung_tablet_sm_t520:
   hide_if_away: false
@@ -125,7 +126,7 @@ samsung_tablet_sm_t520:
   mac: 7C:F9:0E:7C:74:37
   name: Samsung Tablet (SMT520)
   picture:
-  track: true
+  track: false
 
 galaxy_tab_a:
   hide_if_away: false
@@ -133,7 +134,7 @@ galaxy_tab_a:
   mac: D8:5B:2A:A8:6E:53
   name: Galaxy Tab A
   picture:
-  track: true
+  track: false
 
 paula_phone_wifi:
   hide_if_away: false
@@ -142,6 +143,7 @@ paula_phone_wifi:
   name: Paula's Phone WIFI
   picture:
   track: true
+  consider_home: 900
 
 tv_mancave:
   hide_if_away: false
@@ -150,6 +152,7 @@ tv_mancave:
   name: Panasonic TV
   picture:
   track: true
+  consider_home: 30
 
 tv_lounge:
   hide_if_away: false
@@ -273,5 +276,29 @@ honor_9:
   icon:
   mac: BT_98:9C:57:87:3C:2E
   name: Honor 9
+  picture:
+  track: false
+
+abservices:
+  hide_if_away: false
+  icon:
+  mac: B4:D5:BD:C7:FF:38
+  name: abservices
+  picture:
+  track: true
+
+oneplus_5:
+  hide_if_away: false
+  icon:
+  mac: BT_94:65:2D:72:7C:03
+  name: OnePlus 5
+  picture:
+  track: true
+
+b8_27_eb_74_62_5c:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:74:62:5C
+  name: b8 27 eb 74 62 5c
   picture:
   track: true

@@ -1,40 +1,122 @@
 switch.bass_amp:
   assumed_state: true
+  icon: mdi:amplifier
 switch.defiant:
   assumed_state: true
+  icon: mdi:nas
 switch.dual_usbs:
   assumed_state: true
+  icon: mdi:harddisk
 switch.excelsior:
   assumed_state: true
+  icon: mdi:nas
 switch.fridge:
   assumed_state: true
+  icon: mdi:fridge
 switch.hall_light:
   assumed_state: true
+  icon: mdi:lightbulb
 switch.kodi_usb_2:
   assumed_state: true
+  icon: mdi:harddisk
 switch.led_lights:
   assumed_state: true
+  icon: mdi:lightbulb
 switch.landing_light:
   assumed_state: true
+  icon: mdi:lightbulb
 switch.lounge_kodi_usb:
   assumed_state: true
+  icon: mdi:harddisk
 switch.pc_light:
   assumed_state: true
+  icon: mdi:lightbulb
 switch.picture_light:
   assumed_state: true
+  icon: mdi:lightbulb
 switch.porch_light:
   assumed_state: true
+  icon: mdi:lightbulb
 switch.seagate_1:
   assumed_state: true
+  icon: mdi:harddisk
 switch.seagate_2:
   assumed_state: true
+  icon: mdi:harddisk
 switch.standing_light:
   assumed_state: true
+  icon: mdi:lightbulb
 switch.tv_d_l_disks:
   assumed_state: true
+  icon: mdi:harddisk
 switch.unit_lights:
   assumed_state: true
+  icon: mdi:lightbulb
 group.tracker_andy: {}
 binary_sensor.andy_s_phone:
   device_class: presence
 person.andy: {}
+switch.05200304bcddc2e0fa9b_1:
+  icon: mdi:lightbulb
+automation.lounge_kodi_usb_off:
+  icon: mdi:kodi
+automation.lounge_lights:
+  icon: mdi:lightbulb
+device_tracker.andy_ubuntu:
+  icon: mdi:desktop-tower
+device_tracker.bluray_mc:
+  icon: mdi:disc-player
+device_tracker.lounge_radio:
+  icon: mdi:radio
+device_tracker.mywiki:
+  icon: mdi:raspberrypi
+device_tracker.tv_mancave:
+  icon: mdi:television
+device_tracker.paula_phone_bt:
+  icon: mdi:bluetooth
+device_tracker.paula_phone_wifi:
+  icon: mdi:wifi
+device_tracker.roberts_radio:
+  icon: mdi:radio
+media_player.roberts_stream_93i_002261c731a0:
+  icon: mdi:radio
+device_tracker.router_r860:
+  icon: mdi:router-wireless
+device_tracker.smart_socket:
+  icon: mdi:power-socket-uk
+device_tracker.tv_lounge:
+  icon: mdi:television
+device_tracker.tt_router:
+  icon: mdi:router-wireless
+switch.05200304bcddc2e0fa9b_4:
+  icon: mdi:usb
+device_tracker.voyager:
+  icon: mdi:router-wireless
+device_tracker.wetek_core:
+  icon: mdi:kodi
+device_tracker.wetek_hub:
+  icon: mdi:kodi
+device_tracker.youview:
+  icon: mdi:play-network
+device_tracker.abservices:
+  icon: mdi:laptop
+switch.05200304bcddc2e0fa9b_3:
+  icon: mdi:amazon
+switch.05200304bcddc2e0fa9b_2:
+  icon: mdi:harddisk
+device_tracker.andy_phone_bt:
+  icon: mdi:bluetooth
+device_tracker.andy_phone_wifi:
+  icon: mdi:wifi
+device_tracker.lounge_amp:
+  icon: mdi:amplifier
+device_tracker.enterprise:
+  icon: mdi:router-wireless
+device_tracker.defiant:
+  icon: mdi:nas
+device_tracker.discovery:
+  icon: mdi:server
+device_tracker.excelsior:
+  icon: mdi:nas
+device_tracker.andymote_mc:
+  icon: mdi:server

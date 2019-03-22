@@ -1,0 +1,9 @@
+alias: Enable Landing Lights
+trigger:
+  platform: numeric_state
+  entity_id: sun.sun
+  value_template: '{{ state.attributes.elevation }}'
+  below: 5
+action:
+  service: shell_command.unlock_landing
+
