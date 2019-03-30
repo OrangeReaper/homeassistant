@@ -62,7 +62,7 @@ I run [Hassbian](https://www.home-assistant.io/docs/installation/hassbian/) on a
 
 [Top](#top)
 
-*Welcome Home* switches a porch light on when either my wife or myself arrives home. This is done by detection of our mobile phone Bluetooth or WiFi connection (NMap)
+*Welcome Home* switches the porch light and the hall light on for 2 minutes when movement is detected in the porch (and the sun is down)
 
 ## <a name="pc">PC</a>
 
