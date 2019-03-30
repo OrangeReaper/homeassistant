@@ -1,0 +1,44 @@
+title: Overview
+id: overview
+path: overview
+icon: mdi:home
+cards:
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: "## Who's Home"
+      - type: horizontal-stack
+        cards:
+          - type: picture-entity
+            state_image: 
+              "home": /local/andy.jpg
+              "not_home": /local/andy_bw.jpg
+            entity: group.tracker_andy
+          - type: picture-entity
+            state_image:
+              "home": /local/paula.jpg
+              "not_home": /local/paula_bw.jpg
+            entity: group.tracker_paula
+      - type: weather-forecast
+        entity: weather.dark_sky
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            icon: mdi:thermometer
+            entity: sensor.neo_coolcam_battery_powered_pir_sensor_v2_temperature
+            graph: none
+            name: Porch Temp
+          - type: sensor
+            icon: mdi:thermometer
+            entity: sensor.aeotec_zw100_multisensor_6_temperature
+            graph: none
+            name: Hall Temp
+      - type: gauge
+        name: Porch PIR Batt
+        unit: '%'
+        entity: sensor.porch_pir_battery
+        severity:
+          red: 0
+          yellow: 45
+          green: 85
+

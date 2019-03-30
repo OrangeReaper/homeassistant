@@ -1,4 +1,11 @@
   - platform: nmap_tracker
     hosts: 192.168.1.0/24
-  - platform: bluetooth_tracker
-    consider_home: 900
+#  - platform: bluetooth_tracker
+#    consider_home: 900
+
+# Check BLE Devices every 60 second
+# Consider them at home for 30 minutes
+  - platform: bluetooth_le_tracker
+    track_new_devices: False
+    interval_seconds: 60
+    consider_home: 1800

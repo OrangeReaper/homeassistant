@@ -2,15 +2,18 @@
     name: Andy
     view: no
     entities:
-      - device_tracker.andy_phone_bt
+#      - device_tracker.andy_phone_bt
       - device_tracker.andy_phone_wifi
+      - device_tracker.andy_charge2
+      - device_tracker.andy_itag
 
   tracker_paula:
     name: Paula
     view: no
     entities:
       - device_tracker.paula_phone_wifi
-      - device_tracker.paula_phone_bt
+#      - device_tracker.paula_phone_bt
+      - device_tracker.paula_itag
 
   lounge_lights:
     name: Lounge Lights

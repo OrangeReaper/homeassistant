@@ -1,0 +1,30 @@
+title: Ground
+id: ground
+path: ground
+icon: mdi:alpha-g-box
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entity-filter
+        entities:
+          - entity: binary_sensor.aeotec_zw100_multisensor_6_sensor 
+            name: "Hall"
+          - entity: binary_sensor.neo_coolcam_battery_powered_pir_sensor_v2_sensor
+            name: "Porch"
+        state_filter:
+          - "on"
+          - "off"
+        card:
+          type: glance
+          title: Movement
+          show_state: true
+      - type: entities
+        title: Controls
+        show_header_toggle: false
+        entities:
+          - switch.fridge
+          - switch.hall_light
+          - switch.led_lights
+          - switch.porch_light
+      - type: media-control
+        entity: media_player.roberts_stream_93i_002261c731a0

@@ -1,0 +1,31 @@
+title: Lounge
+id: lounge
+path: lounge
+icon: mdi:seat
+cards:
+  - type: entity-filter
+    entities:
+      - device_tracker.lounge_amp
+      - device_tracker.lounge_radio
+      - device_tracker.tv_lounge
+      - device_tracker.wetek_core
+      - device_tracker.youview
+      - switch.bass_amp
+    state_filter:
+      - home
+      - "on"
+    card:
+      type: glance
+      title: What's On
+      show_state: false
+
+  - type: entities
+    title: Controls
+    show_header_toggle: false
+    entities:
+      - switch.unit_lights
+      - switch.standing_light
+      - switch.picture_light
+      - switch.bass_amp
+      - switch.lounge_kodi_usb
+      - switch.landing_light

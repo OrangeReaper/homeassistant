@@ -110,7 +110,7 @@ andy_phone_wifi:
   name: Andy's Phone WIFI
   picture:
   track: true
-  consider_home: 900
+  consider_home: 1800
 
 paula_ipad:
   hide_if_away: false
@@ -143,7 +143,7 @@ paula_phone_wifi:
   name: Paula's Phone WIFI
   picture:
   track: true
-  consider_home: 900
+  consider_home: 1800
 
 tv_mancave:
   hide_if_away: false
@@ -213,14 +213,6 @@ lounge_amp:
   track: true
   consider_home: 30
 
-sandralaptop:
-  hide_if_away: false
-  icon:
-  mac: BT_00:1E:64:F9:C0:7B
-  name: SANDRALAPTOP
-  picture:
-  track: false
-
 printer:
   hide_if_away: false
   icon:
@@ -238,30 +230,6 @@ excelsior:
   track: true
   consider_home: 30
 
-iphone:
-  hide_if_away: false
-  icon:
-  mac: BT_AC:29:3A:AD:61:8D
-  name: iPhone
-  picture:
-  track: false
-
-p10000_pro:
-  hide_if_away: false
-  icon:
-  mac: BT_8A:96:46:00:00:C3
-  name: P10000 Pro
-  picture:
-  track: false
-
-p10000_pro_2:
-  hide_if_away: false
-  icon:
-  mac: BT_6E:12:46:00:00:9B
-  name: P10000 Pro
-  picture:
-  track: true
-
 wetek_hub:
   hide_if_away: false
   icon:
@@ -271,27 +239,11 @@ wetek_hub:
   track: true
   consider_home: 30
 
-honor_9:
-  hide_if_away: false
-  icon:
-  mac: BT_98:9C:57:87:3C:2E
-  name: Honor 9
-  picture:
-  track: false
-
 abservices:
   hide_if_away: false
   icon:
   mac: B4:D5:BD:C7:FF:38
   name: abservices
-  picture:
-  track: true
-
-oneplus_5:
-  hide_if_away: false
-  icon:
-  mac: BT_94:65:2D:72:7C:03
-  name: OnePlus 5
   picture:
   track: true
 
@@ -302,3 +254,28 @@ b8_27_eb_74_62_5c:
   name: b8 27 eb 74 62 5c
   picture:
   track: true
+
+andy_charge2:
+  hide_if_away: false
+  icon:
+  mac: BLE_C4:A7:71:94:70:28
+  name: Andy's Charge 2
+  picture:
+  track: true
+
+paula_itag:
+  hide_if_away: false
+  icon:
+  mac: BLE_FF:FF:3D:11:3A:56
+  name: Paula iTag
+  picture:
+  track: true
+
+andy_itag:
+  hide_if_away: false
+  icon:
+  mac: BLE_FF:FF:C2:0E:A0:F9
+  name: Andy iTag
+  picture:
+  track: true
+

@@ -1,0 +1,32 @@
+title: Pc
+id: pc
+path: pc
+icon: mdi:desktop-classic
+cards:
+  - type: entity-filter
+    entities:
+      - device_tracker.abservices
+      - device_tracker.andy_ubuntu
+      - device_tracker.defiant
+      - device_tracker.discovery
+      - device_tracker.excelsior
+      - device_tracker.printer
+      - device_tracker.mywiki
+    state_filter:
+      - home
+    card:
+      type: glance
+      title: What's On
+      show_state: false
+
+  - type: entities
+    title: Controls
+    show_header_toggle: false
+    entities:
+      - switch.defiant
+      - switch.excelsior
+      - switch.seagate_1
+      - switch.seagate_2
+      - switch.tv_d_l_disks
+      - switch.dual_usbs
+      - switch.pc_light

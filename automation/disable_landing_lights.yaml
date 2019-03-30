@@ -1,9 +1,7 @@
 alias: Disable Landing Lights
 trigger:
-  platform: numeric_state
-  entity_id: sun.sun
-  value_template: '{{ state.attributes.elevation }}'
-  above: 5
+  platform: sun
+  event: sunrise
 action:
   service: shell_command.lock_landing
 

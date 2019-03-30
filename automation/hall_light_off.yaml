@@ -13,6 +13,6 @@ trigger:
 action:
   - service: switch.turn_off
     entity_id: switch.hall_light
-  - service: switch.turn_off
-    entity_id: switch.pc_light
+#  - service: switch.turn_off
+#    entity_id: switch.pc_light
 

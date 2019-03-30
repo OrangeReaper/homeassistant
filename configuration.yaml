@@ -16,8 +16,8 @@ homeassistant:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# Show the introduction message on startup.
-introduction:
+lovelace:
+  mode: yaml
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
@@ -52,6 +52,11 @@ recorder:
       - device_tracker.galaxy_tab_a
       - device_tracker.paula_ipad
      
+# Add support for weather
+weather:
+  - platform: darksky
+    api_key: !secret darksky_apikey
+
 # View all events in a logbook
 logbook:
 
@@ -64,11 +69,18 @@ sun:
 # Allow diagnosing system problems
 system_health:
 
-
 # Sensors
 sensor:
   # Weather prediction
   - platform: yr
+  - platform: template
+    sensors:
+      porch_pir_battery:
+        friendly_name: "Porch PIR Battery"
+        entity_id: zwave.neo_coolcam_battery_powered_pir_sensor_v2
+        value_template: "{{ state_attr('zwave.neo_coolcam_battery_powered_pir_sensor_v2', 'battery_level')|int|default(75) }}"
+        device_class: battery
+        unit_of_measurement: '%'
 
 # Text to speech
 tts:

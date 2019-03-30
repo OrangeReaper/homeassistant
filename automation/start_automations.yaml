@@ -19,4 +19,4 @@ action:
       - automation.mancave_light_on
       - automation.mancave_light_off
       - automation.radio_on
-      - automation.welcome_home
+      - automation.welcome_home_2

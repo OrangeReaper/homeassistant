@@ -1,0 +1,41 @@
+alias: Welcome Home 2
+initial_state: false
+trigger:
+  platform: state
+  entity_id: binary_sensor.neo_coolcam_battery_powered_pir_sensor_v2_sensor
+  to: "on"
+condition:
+  condition: state
+  entity_id: sun.sun
+  state: "below_horizon"
+action:
+  - service: switch.turn_on
+    entity_id: switch.porch_light
+  - delay: '00:00:05'
+  - service: switch.turn_on
+    entity_id: switch.hall_light
+  - delay: '00:02:00'
+  - service: switch.turn_off
+    entity_id: switch.porch_light
+  - service: switch.turn_off
+    entity_id: switch.hall_light
+#  - service: switch.turn_on
+#    entity_id: switch.pc_light
+
+
+
+
+#alias: Turn on hall light on pir detect
+#trigger:
+#  platform: state
+#  entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor
+#  to: "on"
+#condition:
+#  - condition: template
+#    value_template: "{{ states.sun.sun.attributes.elevation  | int < 0 }}"
+#action:
+#  - service: switch.turn_on
+#    entity_id: switch.hall_light
+#  - service: switch.turn_on
+#    entity_id: switch.pc_light
+

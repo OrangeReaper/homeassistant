@@ -120,3 +120,9 @@ device_tracker.excelsior:
   icon: mdi:nas
 device_tracker.andymote_mc:
   icon: mdi:server
+sensor.neo_coolcam_battery_powered_pir_sensor_v2_temperature:
+  unit_of_measurement: °C
+sensor.aeotec_zw100_multisensor_6_temperature:
+  unit_of_measurement: °C
+zwave.aeotec_zw100_multisensor_6:
+  friendly_name: Hall MultiSensor 6
