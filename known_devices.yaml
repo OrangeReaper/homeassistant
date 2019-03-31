@@ -279,3 +279,19 @@ andy_itag:
   picture:
   track: true
 
+
+google_maps_102123694785823884289:
+  hide_if_away: false
+  icon:
+  mac:
+  name: google maps 102123694785823884289
+  picture: https://lh5.googleusercontent.com/-AGhK_CSaKxA/AAAAAAAAAAI/AAAAAAAAAD0/GEFzj5r4wTI/photo.jpg
+  track: true
+
+google_maps_107789275476680935354:
+  hide_if_away: false
+  icon:
+  mac:
+  name: google maps 107789275476680935354
+  picture: https://lh3.googleusercontent.com/-kDR7sGk5hWQ/AAAAAAAAAAI/AAAAAAAACTQ/aMWzrc0biF0/photo.jpg
+  track: true

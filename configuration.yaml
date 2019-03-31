@@ -12,6 +12,11 @@ homeassistant:
   time_zone: Europe/London
   # Customization file
   customize: !include customize.yaml
+  auth_providers:
+   - type: homeassistant
+
+#enable the auth component
+auth:
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -22,7 +27,7 @@ lovelace:
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
   base_url: abond.duckdns.org:8123
-  api_password: !secret api_password 
+#  api_password: !secret api_password 
   ssl_certificate: /home/homeassistant/.homeassistant/ssl/certificate.pem
   ssl_key: /home/homeassistant/.homeassistant/ssl/privkey.pem
 
@@ -47,10 +52,22 @@ history:
 recorder:
   exclude:
     entities:
-#      - binary_sensor.radar_hall
-#      - binary_sensor.pir_hall
       - device_tracker.galaxy_tab_a
       - device_tracker.paula_ipad
+      - sensor.aeotec_zw100_multisensor_6_alarm_level
+      - sensor.aeotec_zw100_multisensor_6_alarm_type
+      - sensor.aeotec_zw100_multisensor_6_burglar
+      - sensor.aeotec_zw100_multisensor_6_luminance
+      - sensor.aeotec_zw100_multisensor_6_relative_humidity
+      - sensor.aeotec_zw100_multisensor_6_sourcenodeid
+      - sensor.aeotec_zw100_multisensor_6_temperature
+      - sensor.aeotec_zw100_multisensor_6_ultraviolet
+      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_alarm_level
+      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_alarm_type
+      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_burglar
+      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_luminance
+      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_sourcenodeid
+      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_temperature
      
 # Add support for weather
 weather:

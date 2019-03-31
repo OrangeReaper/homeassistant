@@ -12,3 +12,4 @@ ssl/
 *.sqlite
 *.txt
 www/
+.google*

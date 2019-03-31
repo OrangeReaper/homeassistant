@@ -55,7 +55,8 @@ switch.unit_lights:
 group.tracker_andy: {}
 binary_sensor.andy_s_phone:
   device_class: presence
-person.andy: {}
+person.andy:
+  entity_picture: http://graph.facebook.com/100000489325277/picture
 switch.05200304bcddc2e0fa9b_1:
   icon: mdi:lightbulb
 automation.lounge_kodi_usb_off:
@@ -126,3 +127,5 @@ sensor.aeotec_zw100_multisensor_6_temperature:
   unit_of_measurement: °C
 zwave.aeotec_zw100_multisensor_6:
   friendly_name: Hall MultiSensor 6
+zwave.neo_coolcam_battery_powered_pir_sensor_v2:
+  friendly_name: Porch Motion Sensor
