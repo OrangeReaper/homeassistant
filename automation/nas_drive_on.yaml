@@ -1,0 +1,15 @@
+alias: NAS Drive ON
+initial_state: false
+trigger:
+  platform: state  
+  entity_id: device_tracker.andy_ubuntu
+  from: "not_home"
+  to: "home"
+action:
+  - service: homeassistant.turn_on
+    entity_id: switch.defiant
+  - delay: 30
+  - service: homeassistant.turn_on
+    entity_id: switch.defiant_wol
+
+

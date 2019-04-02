@@ -21,6 +21,7 @@ cards:
             entity: group.tracker_paula
       - type: weather-forecast
         entity: weather.dark_sky
+        name: Lee-on-the-Solent
       - type: horizontal-stack
         cards:
           - type: sensor

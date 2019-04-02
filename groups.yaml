@@ -2,9 +2,9 @@
     name: Andy
     view: no
     entities:
-#      - device_tracker.andy_phone_bt
+      - device_tracker.andy_phone_bt
       - device_tracker.andy_phone_wifi
-      - device_tracker.andy_charge2
+#      - device_tracker.andy_charge2
 #      - device_tracker.andy_itag
       - device_tracker.google_maps_107789275476680935354
 
@@ -13,7 +13,7 @@
     view: no
     entities:
       - device_tracker.paula_phone_wifi
-#      - device_tracker.paula_phone_bt
+      - device_tracker.paula_phone_bt
 #      - device_tracker.paula_itag
       - device_tracker.google_maps_102123694785823884289
 

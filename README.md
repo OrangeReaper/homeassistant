@@ -1,7 +1,7 @@
 # Overview
 Welcome to my personal [Home Assistant](https://home-assistant.io) configurations. 
 
-All the automations included in this repository are working with Home Assistant Version 0.88.1 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
+All the automations included in this repository are working with Home Assistant Version 0.90.2 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
 Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system.
 
@@ -38,6 +38,7 @@ The *media system* consists of a TV, BluRay Player, Kodi Box and AV Amplifier. A
 ### Automations
 1. When the TV is switched on, if it is dark, the light is turned on; it is turned off 2 minutes after the TV is turned off.
 2. The Kodi USB Drives are turned on and off in sympathy with the Kodi Box. 
+3. When the sun goes down, if the TV is switched on, the light is turned on.
 
 ## <a name="kitchen">Kitchen</a>
 
@@ -72,8 +73,9 @@ I have several USB drives attached to my main PC (Andy-Ubuntu), a NAS Drive (Def
 
 ### Automations
 1. When Defiant NAS is switched off it is also disconnected from mains supply.
-2. When Excelsior is switched off ot is also disconnected from mains power supply.
-3. When my main PC is switched off all attached USB Drives are also switched off
+2. When Excelsior is switched off it is also disconnected from mains power supply.
+3. When my main PC is switched off all attached USB Drives are also switched off.
+4. When my main PC is switched on my NAS drive is switched on using Wake-on-LAN
 
 ## <a name="startup">Start Automations Automation</a>
 When commissioning my Home Assistant system I experienced problems with automations firing in an unwanted manner during startup. To fix this I used the *initial_state: false* switch in the affected automation. The *Start Automations* Automation turns these automations on 20 seconds after start-up or restart **but not** after a *reload automations* operation (in other words, beware, all such automations are *off* following a *reload automations* operation). 

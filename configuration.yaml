@@ -21,6 +21,9 @@ auth:
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+# Enable wake-on-lan
+wake_on_lan:
+
 lovelace:
   mode: yaml
 
@@ -109,6 +112,7 @@ automation: !include_dir_list automation/
 script: !include scripts.yaml
 device_tracker: !include device_tracker.yaml
 tuya: !include tuya.yaml
+switch: !include switches.yaml
 
 #binary_sensor:
 #  - platform: rpi_gpio
