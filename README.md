@@ -77,5 +77,36 @@ I have several USB drives attached to my main PC (Andy-Ubuntu), a NAS Drive (Def
 3. When my main PC is switched off all attached USB Drives are also switched off.
 4. When my main PC is switched on my NAS drive is switched on using Wake-on-LAN
 
+### Excelsior
+Excelsior is a home built PC, it has several Linux OS systems but if left to it's own devices will boot into a filesever configuration.
+
+My Excelsior PC has a wake_on_lan component associated with it [See Here](https://www.home-assistant.io/components/wake_on_lan/). This component is used to switch the PC off via a lovelace Entity Button.
+
+### Defiant
+Defiant is an (ancient but still going strong) Netgear ReadyNAS Duo v2.
+
+My Defiant NAS is setup to automatically switch itself off when both Excelsior and my Main PC are missing (using ping). I use the following scripts:
+
+```
+#!/bin/bash
+/root/doping.sh 192.168.1.111 > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  exit 0
+else
+  /root/doping.sh 192.168.1.113 > /dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    exit 0  
+  else    
+    sudo shutdown -Ph now
+  fi 
+fi
+```
+
+and 
+
+```
+ping -w 10 -c 1 $1
+```
+
 ## <a name="startup">Start Automations Automation</a>
 When commissioning my Home Assistant system I experienced problems with automations firing in an unwanted manner during startup. To fix this I used the *initial_state: false* switch in the affected automation. The *Start Automations* Automation turns these automations on 20 seconds after start-up or restart **but not** after a *reload automations* operation (in other words, beware, all such automations are *off* following a *reload automations* operation). 

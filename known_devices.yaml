@@ -110,7 +110,7 @@ andy_phone_wifi:
   name: Andy's Phone WIFI
   picture:
   track: true
-  consider_home: 1800
+  consider_home: 300
 
 paula_ipad:
   hide_if_away: false
@@ -143,7 +143,7 @@ paula_phone_wifi:
   name: Paula's Phone WIFI
   picture:
   track: true
-  consider_home: 1800
+  consider_home: 300
 
 tv_mancave:
   hide_if_away: false

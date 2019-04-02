@@ -20,4 +20,5 @@ action:
       - automation.mancave_light_on_2
       - automation.mancave_light_off
       - automation.radio_on
+      - automation.nas_drive_on
       - automation.welcome_home_2

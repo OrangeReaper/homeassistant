@@ -19,12 +19,39 @@ cards:
       title: What's On
       show_state: false
 
+  - type: conditional
+    conditions:
+      - entity: switch.excelsior_wol
+        state: "off"
+    card:
+      type: entity-button
+      name: Switch ON Excelsior
+      tap_action:
+        action: call-service
+        service: switch.turn_on
+        service_data:
+          entity_id: switch.excelsior
+      entity: switch.excelsior
+
+  - type: conditional
+    conditions:
+      - entity: switch.excelsior_wol
+        state: "on"
+    card:
+      type: entity-button
+      name: Switch OFF Excelsior
+      tap_action: 
+        action: call-service
+        service: switch.turn_off
+        service_data:
+          entity_id: switch.excelsior_wol
+      entity: switch.excelsior_wol
+
   - type: entities
     title: Controls
     show_header_toggle: false
     entities:
       - switch.defiant
-      - switch.excelsior
       - switch.seagate_1
       - switch.seagate_2
       - switch.tv_d_l_disks

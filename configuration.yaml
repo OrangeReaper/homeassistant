@@ -44,6 +44,7 @@ zwave:
 shell_command:
   unlock_landing: /home/homeassistant/.homeassistant/shell/unlock_landing.sh
   lock_landing: /home/homeassistant/.homeassistant/shell/lock_landing.sh
+  turn_off_excelsior: 'ssh homeassistant@excelsior.local sudo shutdown -Ph now'
 
 # Enables support for tracking state changes over time
 history:
