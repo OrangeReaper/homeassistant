@@ -3,7 +3,13 @@ Welcome to my personal [Home Assistant](https://home-assistant.io) configuration
 
 All the automations included in this repository are working with Home Assistant Version 0.90.2 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
-Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system.
+Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system. 
+
+Home assistant runs on a Raspberry Pi 3+ with a Z-Wave USB Adapter (Aeon Labs Z‐Stick Gen5) to allow the Pi to act as a Z-Wave Hub.
+
+I use Z-Wave <i>sensors</i> and either Lightwave or Tuya <i>switches</i>. 
+
+<b>Presence Detection</b>After various experiments with BLE fob devices, WiFi detection and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted); I opted for Google location sharing to determine if individuals are <i>at home</i> or <i>away</i>; this is not fast enough to use for automations but is OK for use in automation <i>conditions</i> (eg only trigger if someone is home).  
 
 # <a name="top">Contents</a>
 [Lounge](#lounge)
@@ -63,7 +69,7 @@ I run [Hassbian](https://www.home-assistant.io/docs/installation/hassbian/) on a
 
 [Top](#top)
 
-*Welcome Home* switches the porch light and the hall light on for 2 minutes when movement is detected in the porch (and the sun is down)
+*Welcome Home* switches the porch light and the hall light on for 2 minutes when movement is detected in the porch (and the sun is down); I use a <i>Neo Coolcam Motion Sensor 2 with temperature sensor</i> for the motion detection.
 
 ## <a name="pc">PC</a>
 
