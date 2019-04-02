@@ -5,3 +5,4 @@ views:
   - !include lovelace/view_mancave.yaml
   - !include lovelace/view_pc.yaml
   - !include lovelace/view_ground_floor.yaml
+#  - !include lovelace/view_automations.yaml

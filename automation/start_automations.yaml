@@ -17,6 +17,7 @@ action:
       - automation.mancave_kodi_usb_on
       - automation.mancave_kodi_usb_off
       - automation.mancave_light_on
+      - automation.mancave_light_on_2
       - automation.mancave_light_off
       - automation.radio_on
       - automation.welcome_home_2

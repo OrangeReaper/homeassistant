@@ -1,0 +1,13 @@
+alias: Mancave Light On 2
+initial_state: false
+trigger:
+  platform: sun
+  event: sunset 
+condition:
+  - condition: state
+    entity_id: device_tracker.tv_mancave
+    state: "home"
+action:
+  service: homeassistant.turn_on
+  entity_id: switch.05200304bcddc2e0fa9b_1
+
