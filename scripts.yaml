@@ -1,0 +1,9 @@
+  turn_on_defiant:
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.defiant
+      - delay: 30
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.defiant_wol

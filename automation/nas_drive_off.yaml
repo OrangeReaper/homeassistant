@@ -1,0 +1,12 @@
+alias: NAS Drive OFF
+initial_state: false
+trigger:
+  platform: state  
+  entity_id: group.computers
+  from: "home"
+  to: "not_home"
+action:
+  - service: switch.turn_off
+    entity_id: switch.defiant_wol
+
+

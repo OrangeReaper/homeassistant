@@ -1,5 +1,8 @@
   - platform: nmap_tracker
     hosts: 192.168.1.0/24
+    exclude:
+      - 192.168.1.112
+# consider_home defaults to 180 seconds (3 minutes)
 
 # Check BT Devices every 60 second
 # Consider them at home for 30 minutes

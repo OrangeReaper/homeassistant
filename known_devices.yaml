@@ -86,6 +86,7 @@ andy_ubuntu:
   name: Main PC
   picture:
   track: true
+  consider_home: 60
 
 andy_phone_bt:
   hide_if_away: false
@@ -228,7 +229,7 @@ excelsior:
   name: Excelsior
   picture:
   track: true
-  consider_home: 30
+  consider_home: 60
 
 wetek_hub:
   hide_if_away: false
@@ -294,4 +295,28 @@ google_maps_107789275476680935354:
   mac:
   name: google maps 107789275476680935354
   picture: https://lh3.googleusercontent.com/-kDR7sGk5hWQ/AAAAAAAAAAI/AAAAAAAACTQ/aMWzrc0biF0/photo.jpg
+  track: true
+
+7c_91_22_41_26_bc:
+  hide_if_away: false
+  icon:
+  mac: 7C:91:22:41:26:BC
+  name: 7c 91 22 41 26 bc
+  picture:
+  track: true
+
+00_00_aa_bb_cc_dd:
+  hide_if_away: false
+  icon:
+  mac: 00:00:AA:BB:CC:DD
+  name: 00 00 aa bb cc dd
+  picture:
+  track: true
+
+e4_95_6e_47_cd_4b:
+  hide_if_away: false
+  icon:
+  mac: E4:95:6E:47:CD:4B
+  name: e4 95 6e 47 cd 4b
+  picture:
   track: true

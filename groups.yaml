@@ -40,3 +40,10 @@
     entities:
       - group.tracker_paula
       - group.tracker_andy
+
+  computers:
+    name: Computers
+    view: no
+    entities:
+      - device_tracker.andy_ubuntu
+      - device_tracker.excelsior

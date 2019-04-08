@@ -2,6 +2,8 @@
     name: defiant_wol
     mac_address: "2C:B0:5D:BE:C6:BA"
     host: "192.168.1.185"
+    turn_off:
+      service: shell_command.turn_off_defiant
 
   - platform: wake_on_lan
     name: excelsior_wol

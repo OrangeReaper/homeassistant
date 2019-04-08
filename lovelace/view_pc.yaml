@@ -19,33 +19,58 @@ cards:
       title: What's On
       show_state: false
 
-  - type: conditional
-    conditions:
-      - entity: switch.excelsior_wol
-        state: "off"
-    card:
-      type: entity-button
-      name: Switch ON Excelsior
-      tap_action:
-        action: call-service
-        service: switch.turn_on
-        service_data:
-          entity_id: switch.excelsior
-      entity: switch.excelsior
-
-  - type: conditional
-    conditions:
-      - entity: switch.excelsior_wol
-        state: "on"
-    card:
-      type: entity-button
-      name: Switch OFF Excelsior
-      tap_action: 
-        action: call-service
-        service: switch.turn_off
-        service_data:
-          entity_id: switch.excelsior_wol
-      entity: switch.excelsior_wol
+  - type: horizontal-stack
+    cards:
+      - type: conditional
+        conditions:
+          - entity: switch.excelsior_wol
+            state: "off"
+        card:
+          type: entity-button
+          name: Switch ON Excelsior
+          tap_action:
+            action: call-service
+            service: switch.turn_on
+            service_data:
+              entity_id: switch.excelsior
+          entity: switch.excelsior
+      - type: conditional
+        conditions:
+          - entity: switch.excelsior_wol
+            state: "on"
+        card:
+          type: entity-button
+          name: Switch OFF Excelsior
+          tap_action: 
+            action: call-service
+            service: switch.turn_off
+            service_data:
+              entity_id: switch.excelsior_wol
+          entity: switch.excelsior_wol
+      - type: conditional
+        conditions:
+          - entity: device_tracker.defiant
+            state: "not_home"
+        card:
+          type: entity-button
+          name: Switch ON Defiant
+          tap_action:
+            action: call-service
+            service: script.turn_on_defiant
+          entity: switch.defiant_wol
+      - type: conditional
+        conditions:
+          - entity: device_tracker.defiant
+            state: "home"
+        card:
+          type: entity-button
+          name: Switch OFF Defiant
+          tap_action: 
+            action: call-service
+            service: switch.turn_off
+            service_data:
+              entity_id: switch.defiant_wol
+          entity: switch.defiant_wol
 
   - type: entities
     title: Controls

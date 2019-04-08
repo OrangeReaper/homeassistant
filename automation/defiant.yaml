@@ -5,6 +5,7 @@ trigger:
   entity_id: device_tracker.defiant
   from: "home"
   to: "not_home" 
+  for: '00:05:00'
 action:
   - service: switch.turn_off
     entity_id: switch.defiant

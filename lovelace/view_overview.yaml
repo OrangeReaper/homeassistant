@@ -19,6 +19,16 @@ cards:
               "home": /local/paula.jpg
               "not_home": /local/paula_bw.jpg
             entity: group.tracker_paula
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.nextsunrise
+            graph: none
+            name: Next Sunrise
+          - type: sensor
+            entity: sensor.nextsunset
+            graph: none
+            name: Next Sunset
       - type: weather-forecast
         entity: weather.dark_sky
         name: Lee-on-the-Solent
