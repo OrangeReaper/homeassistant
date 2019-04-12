@@ -53,21 +53,6 @@ history:
       - media_player
       - device_tracker
 
-recorder:
-  exclude:
-    entities:
-      - device_tracker.galaxy_tab_a
-      - device_tracker.paula_ipad
-      - sensor.aeotec_zw100_multisensor_6_alarm_level
-      - sensor.aeotec_zw100_multisensor_6_alarm_type
-      - sensor.aeotec_zw100_multisensor_6_burglar
-      - sensor.aeotec_zw100_multisensor_6_relative_humidity
-      - sensor.aeotec_zw100_multisensor_6_sourcenodeid
-      - sensor.aeotec_zw100_multisensor_6_ultraviolet
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_alarm_level
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_alarm_type
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_burglar
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_sourcenodeid
      
 # Add support for weather
 weather:
@@ -86,9 +71,6 @@ sun:
 # Allow diagnosing system problems
 system_health:
 
-# Sensors
-sensor: !include sensors.yaml
-
 # Text to speech
 tts:
   - platform: google
@@ -100,10 +82,5 @@ script: !include scripts.yaml
 device_tracker: !include device_tracker.yaml
 tuya: !include tuya.yaml
 switch: !include switches.yaml
-
-#binary_sensor:
-#  - platform: rpi_gpio
-#    pull_mode: DOWN
-#    ports:
-#      17: PIR Hall
-#      27: RADAR Hall
+sensor: !include sensors.yaml
+recorder: !include recorder.yaml
