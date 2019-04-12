@@ -1,14 +1,12 @@
 alias: Lounge Lights
 trigger:
-  platform: sun
-  event: sunset 
+  platform: state
+  entity_id: sensor.dark
+  to: "yes"
 condition:
-  - condition: state
-    entity_id: group.residents
-    state: home
-  - condition: state
-    entity_id: device_tracker.tv_lounge
-    state: home
+  condition: state
+  entity_id: device_tracker.tv_lounge
+  state: home
 action:
   - service: homeassistant.turn_on
     entity_id: switch.picture_light

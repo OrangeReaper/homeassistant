@@ -218,8 +218,8 @@ printer:
   hide_if_away: false
   icon:
   mac: 10:62:E5:AC:BE:84
-  name: NPIACBE84
-  picture:
+  name: Printer
+  picture: 
   track: true
 
 excelsior:

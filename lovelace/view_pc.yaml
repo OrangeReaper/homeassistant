@@ -76,7 +76,6 @@ cards:
     title: Controls
     show_header_toggle: false
     entities:
-      - switch.defiant
       - switch.seagate_1
       - switch.seagate_2
       - switch.tv_d_l_disks

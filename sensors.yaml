@@ -1,0 +1,33 @@
+  # Weather prediction
+  - platform: yr
+  - platform: template
+    sensors:
+      dark:
+        friendly_name: "It's Dark"
+        value_template: >-
+         {% if states('sensor.neo_coolcam_battery_powered_pir_sensor_v2_luminance') | int < 100 %}
+           yes
+         {% else %}
+           no
+         {% endif %}
+  - platform: template
+    sensors:
+      porch_pir_battery:
+        friendly_name: "Porch PIR Battery"
+        entity_id: zwave.neo_coolcam_battery_powered_pir_sensor_v2
+        value_template: "{{ state_attr('zwave.neo_coolcam_battery_powered_pir_sensor_v2', 'battery_level')|int|default(75) }}"
+        device_class: battery
+        unit_of_measurement: '%'
+  - platform: template
+    sensors:
+      nextsunrise:
+        friendly_name: 'Next Sunrise'
+        value_template: >
+          {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %I:%M%p') | replace(" 0", "") }}
+        icon_template: mdi:weather-sunset-up
+      nextsunset:
+        friendly_name: 'Next Sunset'
+        value_template: >
+          {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %I:%M%p') | replace(" 0", "") }}
+        icon_template: mdi:weather-sunset-down
+

@@ -1,8 +1,9 @@
 alias: Mancave Light On 2
 initial_state: false
 trigger:
-  platform: sun
-  event: sunset 
+  platform: state
+  entity_id: sensor.dark
+  to: "yes"
 condition:
   - condition: state
     entity_id: device_tracker.tv_mancave

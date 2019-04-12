@@ -30,9 +30,8 @@ lovelace:
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
   base_url: abond.duckdns.org:8123
-#  api_password: !secret api_password 
-  ssl_certificate: /home/homeassistant/.homeassistant/ssl/certificate.pem
-  ssl_key: /home/homeassistant/.homeassistant/ssl/privkey.pem
+  ssl_certificate: /home/homeassistant/.homeassistant/ssl/keys/cert.pem
+  ssl_key: /home/homeassistant/.homeassistant/ssl/keys/privkey.pem
 
 # Discover some devices automatically
 discovery:
@@ -62,14 +61,12 @@ recorder:
       - sensor.aeotec_zw100_multisensor_6_alarm_level
       - sensor.aeotec_zw100_multisensor_6_alarm_type
       - sensor.aeotec_zw100_multisensor_6_burglar
-      - sensor.aeotec_zw100_multisensor_6_luminance
       - sensor.aeotec_zw100_multisensor_6_relative_humidity
       - sensor.aeotec_zw100_multisensor_6_sourcenodeid
       - sensor.aeotec_zw100_multisensor_6_ultraviolet
       - sensor.neo_coolcam_battery_powered_pir_sensor_v2_alarm_level
       - sensor.neo_coolcam_battery_powered_pir_sensor_v2_alarm_type
       - sensor.neo_coolcam_battery_powered_pir_sensor_v2_burglar
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_luminance
       - sensor.neo_coolcam_battery_powered_pir_sensor_v2_sourcenodeid
      
 # Add support for weather
@@ -90,29 +87,7 @@ sun:
 system_health:
 
 # Sensors
-sensor:
-  # Weather prediction
-  - platform: yr
-  - platform: template
-    sensors:
-      porch_pir_battery:
-        friendly_name: "Porch PIR Battery"
-        entity_id: zwave.neo_coolcam_battery_powered_pir_sensor_v2
-        value_template: "{{ state_attr('zwave.neo_coolcam_battery_powered_pir_sensor_v2', 'battery_level')|int|default(75) }}"
-        device_class: battery
-        unit_of_measurement: '%'
-  - platform: template
-    sensors:
-      nextsunrise:
-        friendly_name: 'Next Sunrise'
-        value_template: >
-          {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %I:%M%p') | replace(" 0", "") }}
-        icon_template: mdi:weather-sunset-up
-      nextsunset:
-        friendly_name: 'Next Sunset'
-        value_template: >
-          {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %I:%M%p') | replace(" 0", "") }}
-        icon_template: mdi:weather-sunset-down
+sensor: !include sensors.yaml
 
 # Text to speech
 tts:
