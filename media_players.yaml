@@ -1,0 +1,10 @@
+  - platform: kodi
+    name: "Lounge Kodi"
+    host: 192.168.1.115
+    username: !secret kodi_username
+    password: !secret kodi_password
+  - platform: kodi
+    name: "ManCave Kodi"
+    host: 192.168.1.114
+    username: !secret kodi_username
+    password: !secret kodi_password

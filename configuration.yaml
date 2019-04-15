@@ -24,6 +24,11 @@ default_config:
 # Enable wake-on-lan
 wake_on_lan:
 
+# Enable Hive Component
+hive:
+  username: !secret hive_username
+  password: !secret hive_password
+
 lovelace:
   mode: yaml
 
@@ -84,3 +89,4 @@ tuya: !include tuya.yaml
 switch: !include switches.yaml
 sensor: !include sensors.yaml
 recorder: !include recorder.yaml
+media_player: !include media_players.yaml

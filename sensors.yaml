@@ -20,6 +20,11 @@
         unit_of_measurement: '%'
   - platform: template
     sensors:
+      hive_battery:
+        friendly_name: "Hive Battery"
+        value_template: '{{ states.climate.heating.attributes.battery_level | replace("%","") | int }}'
+  - platform: template
+    sensors:
       nextsunrise:
         friendly_name: 'Next Sunrise'
         value_template: >

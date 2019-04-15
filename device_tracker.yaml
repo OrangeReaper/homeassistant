@@ -7,6 +7,7 @@
 # Check BT Devices every 60 second
 # Consider them at home for 30 minutes
   - platform: bluetooth_tracker
+    track_new_devices: False
     interval_seconds: 60
     consider_home: 1800
 

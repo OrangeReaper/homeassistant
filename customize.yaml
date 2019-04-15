@@ -55,8 +55,6 @@ switch.unit_lights:
 group.tracker_andy: {}
 binary_sensor.andy_s_phone:
   device_class: presence
-person.andy:
-  entity_picture: http://graph.facebook.com/100000489325277/picture
 switch.05200304bcddc2e0fa9b_1:
   icon: mdi:lightbulb
 automation.lounge_kodi_usb_off:
