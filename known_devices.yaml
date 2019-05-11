@@ -313,3 +313,11 @@ c0_bd_d1_ff_b3_c9:
   name: c0 bd d1 ff b3 c9
   picture:
   track: true
+
+e4_95_6e_47_cd_4b:
+  hide_if_away: false
+  icon:
+  mac: E4:95:6E:47:CD:4B
+  name: e4 95 6e 47 cd 4b
+  picture:
+  track: true

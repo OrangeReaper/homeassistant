@@ -1,0 +1,11 @@
+alias: Lounge Lights 2
+trigger:
+  platform: state  
+  entity_id: device_tracker.tv_lounge
+  to: "home" 
+condition:
+  condition: state
+  entity_id: sensor.dark
+  state: "yes"
+action:
+  - service: script.turn_on_lounge_lights
