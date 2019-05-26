@@ -3,7 +3,9 @@ initial_state: false
 trigger:
   platform: state  
   entity_id: device_tracker.wetek_core
+  from: "home"
   to: "not_home" 
+  for: '00:02:00'
 action:
   - service: switch.turn_off
     entity_id: switch.lounge_kodi_usb
