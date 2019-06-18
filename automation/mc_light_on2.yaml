@@ -3,7 +3,8 @@ initial_state: false
 trigger:
   platform: state
   entity_id: sensor.dark
-  to: "yes"
+  to: 'yes'
+  for: '00:02:00'
 condition:
   - condition: state
     entity_id: device_tracker.tv_mancave

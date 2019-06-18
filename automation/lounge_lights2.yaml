@@ -6,6 +6,7 @@ trigger:
 condition:
   condition: state
   entity_id: sensor.dark
-  state: "yes"
+  state: 'yes'
+  for: '00:02:00'
 action:
   - service: script.turn_on_lounge_lights

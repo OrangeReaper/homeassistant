@@ -7,7 +7,8 @@ trigger:
 condition:
   condition: state
   entity_id: sensor.dark
-  state: "yes"
+  state: 'yes'
+  for: '00:02:00'
 action:
   - service: switch.turn_on
     entity_id: switch.05200304bcddc2e0fa9b_1
