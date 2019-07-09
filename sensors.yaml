@@ -5,7 +5,7 @@
       dark:
         friendly_name: "It's Dark"
         value_template: >-
-         {% if states('sensor.neo_coolcam_battery_powered_pir_sensor_v2_luminance') | int < 70 %}
+         {% if states('sensor.neo_coolcam_battery_powered_pir_sensor_v2_luminance') | int < 50 %}
            yes
          {% else %}
            no
