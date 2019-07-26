@@ -47,3 +47,10 @@
     entities:
       - device_tracker.andy_ubuntu
       - device_tracker.excelsior
+
+  mc_mediaplayers:
+    name: ManCave Media Players
+    view: no
+    entities:
+      - device_tracker.bluray_mc
+      - device_tracker.wetek_hub

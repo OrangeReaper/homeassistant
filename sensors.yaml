@@ -12,6 +12,20 @@
          {% endif %}
   - platform: template
     sensors:
+      mancave_occupied:
+        friendly_name: "ManCave Occupied"
+        value_template: >-
+          {% if is_state('device_tracker.tv_mancave', 'home')  %}
+            {% if is_state('group.mc_mediaplayers', 'home')  %}
+              yes
+            {% else %}
+              no
+            {% endif %}
+          {% else %}
+            no
+          {% endif %}
+  - platform: template
+    sensors:
       porch_pir_battery:
         friendly_name: "Porch PIR Battery"
         entity_id: zwave.neo_coolcam_battery_powered_pir_sensor_v2

@@ -7,8 +7,10 @@ trigger:
   for: '00:02:00'
 condition:
   - condition: state
-    entity_id: device_tracker.tv_mancave
-    state: "home"
+#    entity_id: device_tracker.tv_mancave
+#    state: "home"
+    entity_id: sensor.mancave_occupied
+    state: "yes"
 action:
   service: homeassistant.turn_on
   entity_id: switch.05200304bcddc2e0fa9b_1

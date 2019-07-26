@@ -321,3 +321,35 @@ e4_95_6e_47_cd_4b:
   name: e4 95 6e 47 cd 4b
   picture:
   track: true
+
+54_99_63_28_c7_db:
+  hide_if_away: false
+  icon:
+  mac: 54:99:63:28:C7:DB
+  name: 54 99 63 28 c7 db
+  picture:
+  track: true
+
+c0_9a_d0_2e_fb_98:
+  hide_if_away: false
+  icon:
+  mac: C0:9A:D0:2E:FB:98
+  name: c0 9a d0 2e fb 98
+  picture:
+  track: true
+
+sarahsaplewatch:
+  hide_if_away: false
+  icon:
+  mac: 44:E6:6E:56:B8:4A
+  name: SarahsApleWatch
+  picture:
+  track: true
+
+1c_91_48_3c_b2_ad:
+  hide_if_away: false
+  icon:
+  mac: 1C:91:48:3C:B2:AD
+  name: 1c 91 48 3c b2 ad
+  picture:
+  track: true
