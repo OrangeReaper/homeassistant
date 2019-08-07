@@ -1,0 +1,8 @@
+alias: Excelsior Auto Switch On
+trigger:
+  platform: time
+  # Military time format. This trigger will fire at 4:00 AM
+  at: '04:00:00'
+action:
+  - service: switch.turn_on
+    entity_id: switch.excelsior

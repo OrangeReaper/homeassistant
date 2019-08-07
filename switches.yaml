@@ -11,3 +11,11 @@
     host: "192.168.1.111"
     turn_off:
       service: shell_command.turn_off_excelsior
+
+  - platform: wake_on_lan
+    name: excelsior_force
+    mac_address: "1C:1B:0D:9C:D1:CC"
+    host: "192.168.1.111"
+    turn_off:
+      service: shell_command.excelsior_force_shutdown
+

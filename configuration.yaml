@@ -29,6 +29,9 @@ hive:
   username: !secret hive_username
   password: !secret hive_password
 
+
+frontend: !include frontend.yaml
+
 lovelace:
   mode: yaml
 
@@ -48,9 +51,10 @@ zwave:
 shell_command:
   unlock_landing: /home/homeassistant/.homeassistant/shell/unlock_landing.sh
   lock_landing: /home/homeassistant/.homeassistant/shell/lock_landing.sh
-  turn_off_excelsior: 'ssh homeassistant@excelsior.local sudo shutdown -Ph now'
+  excelsior_force_shutdown: 'ssh homeassistant@192.168.1.111 sudo shutdown -Ph now'
+  turn_off_excelsior: 'ssh homeassistant@192.168.1.111 touch ~/all/shutdown'
   turn_off_defiant: 'ssh homeassistant@defiant.local sudo shutdown -Ph now'
-
+ 
 # Enables support for tracking state changes over time
 history:
   include:
@@ -66,6 +70,10 @@ weather:
 
 # View all events in a logbook
 logbook:
+  exclude:
+    entities:
+      - device_tracker.andy_phone_bt
+      - device_tracker.paula_phone_bt
 
 # Enables a map showing the location of tracked devices
 map:

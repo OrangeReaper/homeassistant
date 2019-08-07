@@ -30,9 +30,9 @@
     view: no
     entities:
       - switch.dual_usbs
-      - switch.seagate_1
-      - switch.seagate_2
-      - switch.tv_d_l_disks
+#      - switch.seagate_1
+#      - switch.seagate_2
+#      - switch.tv_d_l_disks
 
   residents:
     name: Residents
@@ -54,3 +54,12 @@
     entities:
       - device_tracker.bluray_mc
       - device_tracker.wetek_hub
+
+  excelsior_usb_drives:
+    name: MainPC USB Drives
+    view: no
+    entities:
+#      - switch.dual_usbs
+      - switch.seagate_1
+      - switch.seagate_2
+      - switch.tv_d_l_disks
