@@ -37,6 +37,7 @@ cards:
               service_data:
                 entity_id: switch.excelsior
             entity: switch.excelsior
+            theme: green_slate
         - type: conditional
           conditions:
             - entity: switch.excelsior_wol
@@ -64,6 +65,7 @@ cards:
               action: call-service
               service: script.turn_on_defiant
             entity: switch.defiant_wol
+            theme: green_slate
         - type: conditional
           conditions:
             - entity: device_tracker.defiant
@@ -102,7 +104,7 @@ cards:
         - switch.seagate_1
         - switch.seagate_2
         - switch.tv_d_l_disks
-        - switch.excelsior_usbs
+        - switch.05200142b4e62d16937d
 
     - type: entities
       title: Main PC

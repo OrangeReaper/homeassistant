@@ -31,8 +31,7 @@ switch.lounge_kodi_usb:
 switch.pc_light:
   assumed_state: true
   icon: mdi:lightbulb
-switch.excelsior_usbs:
-  assumed_state: true
+switch.05200142b4e62d16937d:
   icon: mdi:harddisk
 switch.picture_light:
   assumed_state: true

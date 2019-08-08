@@ -59,7 +59,7 @@
     name: MainPC USB Drives
     view: no
     entities:
-#      - switch.dual_usbs
+      - switch.05200142b4e62d16937d
       - switch.seagate_1
       - switch.seagate_2
       - switch.tv_d_l_disks

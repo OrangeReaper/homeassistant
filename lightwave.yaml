@@ -32,8 +32,8 @@
       name: Landing Light
     R4D1:
       name: Lounge Kodi USB
-    R4D2:
-      name: Excelsior USBs
+#    R4D2:    ##### REMOVED FAULTY ######
+#      name: Excelsior USBs
     R5D1:
       name: Kodi USB 2
     R6D1:
