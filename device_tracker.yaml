@@ -18,7 +18,3 @@
 #    interval_seconds: 60
 #    consider_home: 1800
 
-# Google Maps. Tracker.
-  - platform: google_maps
-    username: !secret google_username
-    password: !secret google_password

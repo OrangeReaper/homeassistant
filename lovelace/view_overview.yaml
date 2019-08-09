@@ -41,24 +41,24 @@ cards:
         cards:
           - type: sensor
             icon: mdi:thermometer
-            entity: sensor.neo_coolcam_battery_powered_pir_sensor_v2_temperature
+            entity: sensor.porch_temperature
             graph: none
             name: Porch Temp
           - type: sensor
             icon: mdi:thermometer
-            entity: sensor.aeotec_zw100_multisensor_6_temperature
+            entity: sensor.hall_temperature
             graph: none
             name: Hall Temp
       - type: horizontal-stack
         cards:
           - type: sensor
             icon: mdi:brightness-5
-            entity: sensor.neo_coolcam_battery_powered_pir_sensor_v2_luminance
+            entity: sensor.porch_luminance
             graph: none
             name: Porch Lum
           - type: sensor
             icon: mdi:brightness-5
-            entity: sensor.aeotec_zw100_multisensor_6_luminance
+            entity: sensor.hall_luminance
             graph: none
             name: Hall Lum
       - type: horizontal-stack

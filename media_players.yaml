@@ -8,3 +8,5 @@
     host: 192.168.1.114
     username: !secret kodi_username
     password: !secret kodi_password
+#  - platform: frontier_silicon
+#    host: 192.168.1.118

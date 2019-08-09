@@ -2,13 +2,14 @@
     entities:
       - device_tracker.galaxy_tab_a
       - device_tracker.paula_ipad
-      - sensor.aeotec_zw100_multisensor_6_alarm_level
-      - sensor.aeotec_zw100_multisensor_6_alarm_type
-      - sensor.aeotec_zw100_multisensor_6_burglar
-      - sensor.aeotec_zw100_multisensor_6_relative_humidity
-      - sensor.aeotec_zw100_multisensor_6_sourcenodeid
-      - sensor.aeotec_zw100_multisensor_6_ultraviolet
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_alarm_level
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_alarm_type
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_burglar
-      - sensor.neo_coolcam_battery_powered_pir_sensor_v2_sourcenodeid
+      - sensor.hall_alarm_level
+      - sensor.hall_alarm_type
+      - sensor.hall_burglar
+      - sensor.hall_relative_humidity
+      - sensor.hall_sourcenodeid
+      - sensor.hall_ultraviolet
+      - sensor.hall_sensor_node_id
+      - sensor.porch_alarm_level
+      - sensor.porch_alarm_type
+      - sensor.porch_burglar
+      - sensor.porch_sensor_node_id

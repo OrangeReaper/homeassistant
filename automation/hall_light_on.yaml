@@ -2,7 +2,7 @@
 alias: Turn on hall light on pir detect
 trigger:
   platform: state
-  entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor
+  entity_id: binary_sensor.aeon_labs_zw100_multisensor_6_sensor
   to: "on"
 condition:
   - condition: template

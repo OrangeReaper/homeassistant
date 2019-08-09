@@ -2,7 +2,7 @@ alias: Welcome Home 2
 initial_state: false
 trigger:
   platform: state
-  entity_id: binary_sensor.neo_coolcam_battery_powered_pir_sensor_v2_sensor
+  entity_id: binary_sensor.porch_sensor
   to: "on"
 condition:
   condition: state

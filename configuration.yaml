@@ -46,7 +46,10 @@ discovery:
   ignore:
     - igd
 
+# Make sure Z-Wave hub is detected
 zwave:
+  usb_path: /dev/serial/by-id/usb-0658_0200-if00
+  autoheal: "False"
 
 shell_command:
   unlock_landing: /home/homeassistant/.homeassistant/shell/unlock_landing.sh
@@ -99,3 +102,19 @@ switch: !include switches.yaml
 sensor: !include sensors.yaml
 recorder: !include recorder.yaml
 media_player: !include media_players.yaml
+
+# Custom Panel ... Z-Wave Graph
+panel_custom:
+  - name: zwavegraph2
+    sidebar_title: Z-Wave Graph
+    sidebar_icon: mdi:access-point-network
+    url_path: zwave
+
+life360:
+  accounts:
+    - username: !secret LIFE360_USERNAME
+      password: !secret LIFE360_PASSWORD
+  # Only track Members that are in these Circles.
+  circles:
+    include: [Family]
+

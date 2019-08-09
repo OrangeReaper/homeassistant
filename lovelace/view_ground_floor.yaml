@@ -7,9 +7,9 @@ cards:
     cards:
       - type: entity-filter
         entities:
-          - entity: binary_sensor.aeotec_zw100_multisensor_6_sensor 
+          - entity: binary_sensor.hall_sensor 
             name: "Hall"
-          - entity: binary_sensor.neo_coolcam_battery_powered_pir_sensor_v2_sensor
+          - entity: binary_sensor.porch_sensor
             name: "Porch"
         state_filter:
           - "on"
@@ -27,4 +27,4 @@ cards:
           - switch.led_lights
           - switch.porch_light
       - type: media-control
-        entity: media_player.roberts_stream_93i_002261c731a0
+        entity: media_player.roberts_radio

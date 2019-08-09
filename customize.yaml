@@ -79,7 +79,7 @@ device_tracker.paula_phone_wifi:
   icon: mdi:wifi
 device_tracker.roberts_radio:
   icon: mdi:radio
-media_player.roberts_stream_93i_002261c731a0:
+media_player.roberts_radio:
   icon: mdi:radio
 device_tracker.router_r860:
   icon: mdi:router-wireless
@@ -123,11 +123,7 @@ device_tracker.excelsior:
   icon: mdi:nas
 device_tracker.andymote_mc:
   icon: mdi:server
-sensor.neo_coolcam_battery_powered_pir_sensor_v2_temperature:
+sensor.porch_temperature:
   unit_of_measurement: °C
-sensor.aeotec_zw100_multisensor_6_temperature:
+sensor.hall_temperature:
   unit_of_measurement: °C
-zwave.aeotec_zw100_multisensor_6:
-  friendly_name: Hall MultiSensor 6
-zwave.neo_coolcam_battery_powered_pir_sensor_v2:
-  friendly_name: Porch Motion Sensor
