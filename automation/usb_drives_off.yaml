@@ -9,4 +9,7 @@ action:
   - delay: 30
   - service: homeassistant.turn_off
     entity_id: group.main_pc_usb_drives
+  - delay: 30
+  - service: homeassistant.turn_off
+    entity_id: group.main_pc_usb_drives
 

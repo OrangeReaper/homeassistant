@@ -12,3 +12,6 @@ action:
   - delay: '00:00:05'
   - service: homeassistant.turn_off
     entity_id: group.excelsior_usb_drives
+  - delay: '00:00:30'
+  - service: homeassistant.turn_off
+    entity_id: group.excelsior_usb_drives

@@ -29,7 +29,6 @@ hive:
   username: !secret hive_username
   password: !secret hive_password
 
-
 frontend: !include frontend.yaml
 
 lovelace:

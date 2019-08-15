@@ -6,3 +6,6 @@ trigger:
 action:
   - service: switch.turn_on
     entity_id: switch.excelsior
+  - delay: '00:00:30'
+  - service: switch.turn_on
+    entity_id: switch.excelsior

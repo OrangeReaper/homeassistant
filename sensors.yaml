@@ -5,11 +5,15 @@
       dark:
         friendly_name: "It's Dark"
         value_template: >-
-         {% if states('sensor.porch_luminance') | int < 50 %}
-           yes
-         {% else %}
-           no
-         {% endif %}
+          {% if states('sensor.porch_luminance') | int > 100 %}
+            no
+          {% else %}
+            {% if state_attr('sun.sun', 'elevation') < 3  %}
+              yes
+            {% else %}
+              no
+            {% endif %}
+          {% endif %}
   - platform: template
     sensors:
       mancave_occupied:
@@ -49,4 +53,15 @@
         value_template: >
           {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %I:%M%p') | replace(" 0", "") }}
         icon_template: mdi:weather-sunset-down
-
+      night_length_today:
+        friendly_name: 'Night Length Today'
+        value_template: >
+          {{ (as_timestamp(state_attr('sun.sun','next_rising')) - as_timestamp(state_attr('sun.sun','next_setting')))| int  }}
+      dark_offset:
+        friendly_name: 'Dark Offset'
+        value_template: >
+          {{ ((states('sensor.night_length_today') | int - 26933 | int) * 0.058269399) | int  }}
+      time_to_next_sunset:
+        friendly_name: 'Time To Next Sunset'
+        value_template: >
+          {{ as_timestamp(state_attr('sun.sun','next_setting')) | int - as_timestamp(now()) | int  }}
