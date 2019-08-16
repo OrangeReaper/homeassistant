@@ -352,3 +352,19 @@ life360_paula:
   name: life360 paula
   picture: https://www.life360.com/img/user_images/4c7486ac-ad9f-489d-a58a-3fa8233a2525/dfea749a-37c1-44bc-ae6b-1debce75a283.png?fd=2
   track: true
+
+google_maps_102123694785823884289:
+  hide_if_away: false
+  icon:
+  mac:
+  name: google maps 102123694785823884289
+  picture: https://lh5.googleusercontent.com/-AGhK_CSaKxA/AAAAAAAAAAI/AAAAAAAAAD0/GEFzj5r4wTI/photo.jpg
+  track: true
+
+google_maps_107789275476680935354:
+  hide_if_away: false
+  icon:
+  mac:
+  name: google maps 107789275476680935354
+  picture: https://lh3.googleusercontent.com/-kDR7sGk5hWQ/AAAAAAAAAAI/AAAAAAAACTQ/aMWzrc0biF0/photo.jpg
+  track: true

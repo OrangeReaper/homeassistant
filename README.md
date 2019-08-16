@@ -9,7 +9,8 @@ Home assistant runs on a Raspberry Pi 3+ with a Z-Wave USB Adapter (Aeon Labs Zâ
 
 I use Z-Wave <i>sensors</i> and either Lightwave or Tuya <i>switches</i>. 
 
-<b>Presence Detection</b>After various experiments with BLE fob devices, WiFi detection, Google and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted); I opted for [Life360](https://www.home-assistant.io/components/life360/) introduced in Home Assistant release 0.95 location sharing to determine if individuals are <i>at home</i> or <i>away</i>; this is not fast enough to use for automations but is OK for use in automation <i>conditions</i> (eg only trigger if someone is home).  
+<b>Presence Detection</b> After various experiments with BLE fob devices, WiFi detection and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted). I decided that these methods are too slow to use to trigger events that need to happen quickly (eg turn on lights when arrive home)... so use a dedicated sensor for this; I opted to use a combination of Bluetooth, Wifi and [Google Maps](https://www.home-assistant.io/components/google_maps/) location sharing to determine (coarsely) if individuals are <i>at home</i> or <i>away</i>; this is not fast enough to use for automations but is OK for use in automation <i>conditions</i> (eg only trigger something if someone is home).
+([Life360](https://www.home-assistant.io/components/life360/) (introduced in Home Assistant release 0.95) did not track my wife's phone very well)
 
 # <a name="top">Contents</a>
 [Lounge](#lounge)

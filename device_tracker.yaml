@@ -11,6 +11,9 @@
     interval_seconds: 60
     consider_home: 1800
 
+  - platform: google_maps
+    username: !secret google_maps_username
+
 # Check BLE Devices every 60 second
 # Consider them at home for 30 minutes
 #  - platform: bluetooth_le_tracker
