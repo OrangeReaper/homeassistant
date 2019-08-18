@@ -14,6 +14,7 @@ I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>swi
 
 # <a name="top">Contents</a>
 [Lounge](#lounge) | [Mancave](#mancave) | [Kitchen](#kitchen) | [Hallway](#hallway)
+----------------- | ------------------- | ------------------- | -------------------
 [Welcome Home Automation](#welcomehome) | [PC](#pc) | [Start Automations](#startup) | [Lightwave RF](#lightwave)
 
 ## <a name="lounge">Lounge</a>
