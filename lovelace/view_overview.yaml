@@ -29,6 +29,10 @@ cards:
             entity: sensor.nextsunset
             graph: none
             name: Next Sunset
+          - type: sensor
+            entity: sensor.elevation
+            graph: none
+            name: Curr Elev
       - type: weather-forecast
         entity: weather.dark_sky
         name: Lee-on-the-Solent

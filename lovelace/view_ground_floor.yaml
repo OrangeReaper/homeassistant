@@ -24,7 +24,15 @@ cards:
         entities:
           - switch.fridge
           - switch.hall_light
-          - switch.led_lights
           - switch.porch_light
+      - type: entities
+        title: Kitchen Lights
+        show_header_toggle: true
+        entities:
+          - switch.led_lights
+          - switch.kitchen_light_one
+          - switch.kitchen_light_two
+          - switch.kitchen_light_three
+          - switch.kitchen_light_four
       - type: media-control
         entity: media_player.roberts_radio

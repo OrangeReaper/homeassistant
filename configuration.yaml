@@ -109,11 +109,11 @@ panel_custom:
     sidebar_icon: mdi:access-point-network
     url_path: zwave
 
-life360:
-  accounts:
-    - username: !secret LIFE360_USERNAME
-      password: !secret LIFE360_PASSWORD
+#life360:
+#  accounts:
+#    - username: !secret LIFE360_USERNAME
+#      password: !secret LIFE360_PASSWORD
   # Only track Members that are in these Circles.
-  circles:
-    include: [Family]
+#  circles:
+#    include: [Family]
 

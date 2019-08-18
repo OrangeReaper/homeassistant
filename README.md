@@ -7,7 +7,7 @@ Prior to introducing [Home Assistant](https://home-assistant.io) into my home I 
 
 Home assistant runs on a Raspberry Pi 3+ with a Z-Wave USB Adapter (Aeon Labs Z‐Stick Gen5) to allow the Pi to act as a Z-Wave Hub.
 
-I use Z-Wave <i>sensors</i> and either Lightwave or Tuya <i>switches</i>. 
+I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>switches</i>. 
 
 <b>Presence Detection</b> After various experiments with BLE fob devices, WiFi detection and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted). I decided that these methods are too slow to use to trigger events that need to happen quickly (eg turn on lights when arrive home)... so use a dedicated sensor for this; I opted to use a combination of Bluetooth, Wifi and [Google Maps](https://www.home-assistant.io/components/google_maps/) location sharing to determine (coarsely) if individuals are <i>at home</i> or <i>away</i>; this is not fast enough to use for automations but is OK for use in automation <i>conditions</i> (eg only trigger something if someone is home).
 ([Life360](https://www.home-assistant.io/components/life360/) (introduced in Home Assistant release 0.95) did not track my wife's phone very well)
@@ -20,6 +20,7 @@ I use Z-Wave <i>sensors</i> and either Lightwave or Tuya <i>switches</i>.
 [Welcome Home Automation](#welcomehome)
 [PC](#pc)
 [Start Automations](#startup)
+[Lightwave RF](#lightwave)
 
 ## <a name="lounge">Lounge</a>
 
@@ -57,7 +58,6 @@ In the kitchen there are two things I control; a *Radio* and *lighting*
 
 ### Automations
 1. In the morning, when movement is detected in the hall, the Radio is switched on and tuned to our local station
-2. *TODO* in the evening, when movement is detected in the hall, the lighting is switched on.
 
 ## <a name="Hallway">Hallway</a>
 
@@ -109,3 +109,11 @@ Defiant can be manually and unconditionally switched off from the lovelace inter
 
 ## <a name="startup">Start Automations Automation</a>
 When commissioning my Home Assistant system I experienced problems with automations firing in an unwanted manner during startup. To fix this I used the *initial_state: false* switch in the affected automation. The *Start Automations* Automation turns these automations on 20 seconds after start-up or restart **but not** after a *reload automations* operation (in other words, beware, all such automations are *off* following a *reload automations* operation). 
+
+## <a name="lightwave">Lightwave RF</a>
+
+[Top](#top)
+
+A quick note on my experience with Lightwave RF (Gen 1).
+
+My Lightwave RF switches work as expected most of the time, but, occasionally fail to fire (switch on or off when commanded); this can be an issue when using Alexa or the Lightwave RF app and means that the command has to be re-issued sometimes. In order to get round this in Home Automation I usually invoke an on/off command more than once to make sure things get through.

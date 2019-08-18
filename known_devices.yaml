@@ -368,3 +368,35 @@ google_maps_107789275476680935354:
   name: google maps 107789275476680935354
   picture: https://lh3.googleusercontent.com/-kDR7sGk5hWQ/AAAAAAAAAAI/AAAAAAAACTQ/aMWzrc0biF0/photo.jpg
   track: true
+
+esp_97dbe8:
+  hide_if_away: false
+  icon:
+  mac: 84:0D:8E:97:DB:E8
+  name: ESP 97DBE8
+  picture:
+  track: true
+
+esp_9bd9a1:
+  hide_if_away: false
+  icon:
+  mac: 84:0D:8E:9B:D9:A1
+  name: ESP 9BD9A1
+  picture:
+  track: true
+
+esp_97c99d:
+  hide_if_away: false
+  icon:
+  mac: 84:0D:8E:97:C9:9D
+  name: ESP 97C99D
+  picture:
+  track: true
+
+esp_97d095:
+  hide_if_away: false
+  icon:
+  mac: 84:0D:8E:97:D0:95
+  name: ESP 97D095
+  picture:
+  track: true

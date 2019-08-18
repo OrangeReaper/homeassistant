@@ -5,8 +5,8 @@
       dark:
         friendly_name: "It's Dark"
         value_template: >-
-          {% if states('sensor.porch_luminance') | int > 100 %}
-            no
+          {% if states('sensor.porch_luminance') | int < 60 %}
+            yes
           {% else %}
             {% if state_attr('sun.sun', 'elevation') < 3  %}
               yes
@@ -65,3 +65,7 @@
         friendly_name: 'Time To Next Sunset'
         value_template: >
           {{ as_timestamp(state_attr('sun.sun','next_setting')) | int - as_timestamp(now()) | int  }}
+      elevation:
+        friendly_name: 'Sun Elevation'
+        value_template: >
+          {{ state_attr('sun.sun','elevation') }}
