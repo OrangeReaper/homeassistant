@@ -36,9 +36,11 @@ lovelace:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-  base_url: abond.duckdns.org:8123
-  ssl_certificate: /home/homeassistant/.homeassistant/ssl/keys/cert.pem
-  ssl_key: /home/homeassistant/.homeassistant/ssl/keys/privkey.pem
+  base_url: habond.duckdns.org:8123
+  ssl_certificate: /home/homeassistant/.homeassistant/dehydrated/certs/habond.duckdns.org/cert.pem
+  ssl_key: /home/homeassistant/.homeassistant/dehydrated/certs/habond.duckdns.org/privkey.pem
+#  ssl_certificate: /home/homeassistant/.homeassistant/ssl/keys/cert.pem
+#  ssl_key: /home/homeassistant/.homeassistant/ssl/keys/privkey.pem
 
 # Discover some devices automatically
 discovery:
@@ -109,11 +111,6 @@ panel_custom:
     sidebar_icon: mdi:access-point-network
     url_path: zwave
 
-#life360:
-#  accounts:
-#    - username: !secret LIFE360_USERNAME
-#      password: !secret LIFE360_PASSWORD
-  # Only track Members that are in these Circles.
-#  circles:
-#    include: [Family]
-
+timer:
+  all_home:
+    duration: '00:10:00'

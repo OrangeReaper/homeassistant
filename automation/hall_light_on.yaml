@@ -1,12 +1,14 @@
-
 alias: Turn on hall light on pir detect
 trigger:
   platform: state
   entity_id: binary_sensor.hall_sensor
   to: "on"
-condition:
-  - condition: template
-    value_template: "{{ states.sun.sun.attributes.elevation  | int <= 0 }}"
+condition: 
+  condition: state 
+  entity_id: sensor.dark
+  state: 'yes'
+#  - condition: template
+#    value_template: "{{ states.sun.sun.attributes.elevation  | int <= 0 }}"
 action:
   - service: switch.turn_on
     entity_id: switch.hall_light

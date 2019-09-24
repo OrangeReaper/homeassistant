@@ -1,0 +1,9 @@
+
+alias: Start Timer when all home
+trigger:
+  platform: state
+  entity_id: sensor.all_home
+  to: "yes"
+action:
+  - service: timer.start
+    entity_id: timer.all_home

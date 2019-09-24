@@ -1,7 +1,12 @@
 alias: Enable Landing Lights
 trigger:
-  platform: sun
-  event: sunset 
+  platform: state
+  entity_id: sensor.dark
+  to: 'yes'
+#  platform: sun
+#  event: sunset 
 action:
-  service: shell_command.unlock_landing
+  - service: shell_command.unlock_landing
+  - delay: '00:00:15'
+  - service: shell_command.unlock_landing
 

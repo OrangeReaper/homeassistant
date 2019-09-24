@@ -1,7 +1,10 @@
 alias: Disable Landing Lights
 trigger:
-  platform: sun
-  event: sunrise
+  platform: state
+  entity_id: sensor.dark
+  to: 'no'
 action:
-  service: shell_command.lock_landing
+  - service: shell_command.lock_landing
+  - delay: '00:00:15'
+  - service: shell_command.lock_landing
 

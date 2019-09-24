@@ -7,13 +7,13 @@ trigger:
   to: "on"
 condition:
   - condition: time
-    after: 07:00:00
+    after: 07:15:00
     before: 08:59:59
   - condition: state
     entity_id: 'group.residents'
     state: 'home'
   - condition: template
-    value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.radio_on.attributes.last_triggered) | int > 7260 }}'
+    value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.radio_on.attributes.last_triggered) | int > 6360 }}'
 action:
   - data:
       entity_id: media_player.roberts_radio
@@ -21,5 +21,6 @@ action:
     service: media_player.turn_on
   - data:
       entity_id: media_player.roberts_radio
-      source: DAB
+#      source: DAB
+      source: 'Internet radio'
     service: media_player.select_source

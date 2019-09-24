@@ -337,22 +337,6 @@ sarahsaplewatch:
   picture:
   track: true
 
-life360_andy:
-  hide_if_away: false
-  icon:
-  mac:
-  name: life360 andy
-  picture: https://www.life360.com/img/user_images/0b07efe7-7ac0-42bd-8770-f2dcad379747/20179023-86cd-48bb-8c97-6cf029fcaf1e.png?fd=2
-  track: true
-
-life360_paula:
-  hide_if_away: false
-  icon:
-  mac:
-  name: life360 paula
-  picture: https://www.life360.com/img/user_images/4c7486ac-ad9f-489d-a58a-3fa8233a2525/dfea749a-37c1-44bc-ae6b-1debce75a283.png?fd=2
-  track: true
-
 google_maps_102123694785823884289:
   hide_if_away: false
   icon:
@@ -375,7 +359,7 @@ esp_97dbe8:
   mac: 84:0D:8E:97:DB:E8
   name: ESP 97DBE8
   picture:
-  track: true
+  track: false
 
 esp_9bd9a1:
   hide_if_away: false
@@ -383,7 +367,7 @@ esp_9bd9a1:
   mac: 84:0D:8E:9B:D9:A1
   name: ESP 9BD9A1
   picture:
-  track: true
+  track: false
 
 esp_97c99d:
   hide_if_away: false
@@ -391,12 +375,44 @@ esp_97c99d:
   mac: 84:0D:8E:97:C9:9D
   name: ESP 97C99D
   picture:
-  track: true
+  track: false
 
 esp_97d095:
   hide_if_away: false
   icon:
   mac: 84:0D:8E:97:D0:95
   name: ESP 97D095
+  picture:
+  track: false
+
+esp_9bd9a1_2:
+  hide_if_away: false
+  icon:
+  mac: 00:00:00:00:00:00
+  name: ESP 9BD9A1
+  picture:
+  track: false
+
+dnpxxbm9kxk2:
+  hide_if_away: false
+  icon:
+  mac: C0:E8:62:86:66:0A
+  name: DNPXXBM9KXK2
+  picture:
+  track: true
+
+b0_fc_0d_2c_24_0d:
+  hide_if_away: false
+  icon:
+  mac: B0:FC:0D:2C:24:0D
+  name: b0 fc 0d 2c 24 0d
+  picture:
+  track: true
+
+esp_16937d:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:16:93:7D
+  name: ESP 16937D
   picture:
   track: true

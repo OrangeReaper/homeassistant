@@ -8,12 +8,27 @@
           {% if states('sensor.porch_luminance') | int < 60 %}
             yes
           {% else %}
-            {% if state_attr('sun.sun', 'elevation') < 3  %}
+            {% if state_attr('sun.sun', 'elevation') < 0  %}
               yes
             {% else %}
               no
             {% endif %}
           {% endif %}
+  - platform: template
+    sensors:
+      all_home:
+        friendly_name: "All Home"
+        value_template: >-
+          {% if is_state('group.tracker_paula', 'home')  %}
+            {% if is_state('group.tracker_andy', 'home')  %}
+              yes
+            {% else %}
+              no
+            {% endif %}
+          {% else %}
+            no
+          {% endif %}
+
   - platform: template
     sensors:
       mancave_occupied:

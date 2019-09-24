@@ -5,9 +5,19 @@ trigger:
   entity_id: binary_sensor.porch_sensor
   to: "on"
 condition:
-  condition: state
-  entity_id: sun.sun
-  state: "below_horizon"
+  condition: and
+  conditions: 
+    - condition: state 
+      entity_id: sensor.dark
+      state: 'yes'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.all_home
+          state: 'no'
+        - condition: state
+          entity_id: timer.all_home
+          state: 'active'
 action:
   - service: switch.turn_on
     entity_id: switch.porch_light

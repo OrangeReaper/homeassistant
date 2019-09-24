@@ -22,3 +22,4 @@
       - sensor.time_to_next_sunset
       - sensor.dark_offset
       - sensor.night_length_today
+      - sensor.elevation

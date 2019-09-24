@@ -30,5 +30,3 @@ cards:
           - switch.bass_amp
           - switch.lounge_kodi_usb
           - switch.landing_light
-      - type: media-control
-        entity: media_player.lounge_kodi

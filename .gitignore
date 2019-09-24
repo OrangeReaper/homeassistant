@@ -8,6 +8,8 @@ secrets.yaml
 .HA_VERSION
 *.swp
 ssl/
+dehydrated/
+duckdns/
 *.xml
 *.sqlite
 *.txt
