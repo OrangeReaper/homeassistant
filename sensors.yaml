@@ -1,17 +1,31 @@
   # Weather prediction
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+
   - platform: yr
   - platform: template
     sensors:
       dark:
         friendly_name: "It's Dark"
         value_template: >-
-          {% if states('sensor.porch_luminance') | int < 60 %}
-            yes
+          {% if (states.sensor.time.state > "09:00") and (states.sensor.time.state < "15:00") %}
+            no
           {% else %}
-            {% if state_attr('sun.sun', 'elevation') < 0  %}
+            {% if states('sensor.porch_luminance') | int < 80 %}
               yes
             {% else %}
-              no
+              {% if state_attr('sun.sun', 'elevation') < 0  %}
+                yes
+              {% else %}
+                no
+              {% endif %}
             {% endif %}
           {% endif %}
   - platform: template

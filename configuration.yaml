@@ -114,3 +114,8 @@ panel_custom:
 timer:
   all_home:
     duration: '00:10:00'
+
+person:
+  - name: Andy
+    id: andy_de68
+    user_id: de68a9dee3524f4e852e1bed11169410

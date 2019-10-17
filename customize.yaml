@@ -127,3 +127,5 @@ sensor.porch_temperature:
   unit_of_measurement: °C
 sensor.hall_temperature:
   unit_of_measurement: °C
+person.andy_de68:
+  entity_picture: "/local/andy.jpg"

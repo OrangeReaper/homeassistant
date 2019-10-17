@@ -416,3 +416,19 @@ esp_16937d:
   name: ESP 16937D
   picture:
   track: true
+
+andymote_local:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:81:60:8D
+  name: andymote.local
+  picture:
+  track: true
+
+andymote_local_2:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:0A:5A:FF
+  name: andymote.local
+  picture:
+  track: true
