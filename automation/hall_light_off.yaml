@@ -2,7 +2,7 @@
 alias: Turn off hall light (pir)
 trigger:
   platform: state
-  entity_id: binary_sensor.hall_sensor
+  entity_id: binary_sensor.aeon_labs_zw100_multisensor_6_sensor
   to: "off"
   for:
     minutes: 1

@@ -7,9 +7,9 @@ cards:
     cards:
       - type: entity-filter
         entities:
-          - entity: binary_sensor.hall_sensor 
+          - entity: binary_sensor.aeon_labs_zw100_multisensor_6_sensor 
             name: "Hall"
-          - entity: binary_sensor.porch_sensor
+          - entity: binary_sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_sensor
             name: "Porch"
         state_filter:
           - "on"
@@ -30,9 +30,9 @@ cards:
         show_header_toggle: true
         entities:
           - switch.led_lights
-          - switch.kitchen_light_one
-          - switch.kitchen_light_two
-          - switch.kitchen_light_three
-          - switch.kitchen_light_four
+          - switch.41444442840d8e97dbe8
+          - switch.41444442840d8e9bd9a1
+          - switch.41444442840d8e97c99d
+          - switch.53516620ecfabc2eaafe
       - type: media-control
         entity: media_player.roberts_radio

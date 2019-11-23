@@ -35,12 +35,19 @@ lovelace:
   mode: yaml
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-http:
-  base_url: habond.duckdns.org:8123
-  ssl_certificate: /home/homeassistant/.homeassistant/dehydrated/certs/habond.duckdns.org/cert.pem
-  ssl_key: /home/homeassistant/.homeassistant/dehydrated/certs/habond.duckdns.org/privkey.pem
+#http:
+#  base_url: habond.duckdns.org:8123
+#  ssl_certificate: /home/homeassistant/.homeassistant/dehydrated/certs/habond.duckdns.org/cert.pem
+#  ssl_key: /home/homeassistant/.homeassistant/dehydrated/certs/habond.duckdns.org/privkey.pem
 #  ssl_certificate: /home/homeassistant/.homeassistant/ssl/keys/cert.pem
 #  ssl_key: /home/homeassistant/.homeassistant/ssl/keys/privkey.pem
+
+
+http:
+  base_url: habond.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
 
 # Discover some devices automatically
 discovery:
@@ -119,3 +126,5 @@ person:
   - name: Andy
     id: andy_de68
     user_id: de68a9dee3524f4e852e1bed11169410
+
+

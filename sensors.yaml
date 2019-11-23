@@ -18,7 +18,7 @@
           {% if (states.sensor.time.state > "09:00") and (states.sensor.time.state < "15:00") %}
             no
           {% else %}
-            {% if states('sensor.porch_luminance') | int < 80 %}
+            {% if states('sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_luminance') | int < 80 %}
               yes
             {% else %}
               {% if state_attr('sun.sun', 'elevation') < 0  %}
@@ -48,12 +48,8 @@
       mancave_occupied:
         friendly_name: "ManCave Occupied"
         value_template: >-
-          {% if is_state('device_tracker.tv_mancave', 'home')  %}
-            {% if is_state('group.mc_mediaplayers', 'home')  %}
-              yes
-            {% else %}
-              no
-            {% endif %}
+          {% if is_state('group.mc_mediaplayers', 'home')  %}
+            yes
           {% else %}
             no
           {% endif %}

@@ -3,7 +3,7 @@ alias: Radio On
 initial_state: false
 trigger:
   platform: state
-  entity_id: binary_sensor.hall_sensor
+  entity_id: binary_sensor.aeon_labs_zw100_multisensor_6_sensor
   to: "on"
 condition:
   - condition: time

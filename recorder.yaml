@@ -2,6 +2,12 @@
     entities:
       - device_tracker.galaxy_tab_a
       - device_tracker.paula_ipad
+      - sensor.date_time
+      - sensor.time_date
+      - sensor.date_time_iso
+      - sensor.internet_time
+      - sensor.time
+      - sensor.time_utc
       - sensor.hall_alarm_level
       - sensor.hall_alarm_type
       - sensor.hall_burglar
