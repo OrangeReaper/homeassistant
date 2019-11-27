@@ -54,9 +54,6 @@ switch.tv_d_l_disks:
 switch.unit_lights:
   assumed_state: true
   icon: mdi:lightbulb
-group.tracker_andy: {}
-binary_sensor.andy_s_phone:
-  device_class: presence
 switch.05200304bcddc2e0fa9b_1:
   icon: mdi:lightbulb
 automation.lounge_kodi_usb_off:
@@ -113,5 +110,4 @@ sensor.porch_temperature:
   unit_of_measurement: °C
 sensor.hall_temperature:
   unit_of_measurement: °C
-person.andy_de68:
-  entity_picture: "/local/andy.jpg"
+
