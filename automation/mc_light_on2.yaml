@@ -7,8 +7,6 @@ trigger:
   for: '00:01:00'
 condition:
   - condition: state
-#    entity_id: device_tracker.tv_mancave
-#    state: "home"
     entity_id: sensor.mancave_occupied
     state: "yes"
 action:

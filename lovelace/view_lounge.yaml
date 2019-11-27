@@ -7,14 +7,14 @@ cards:
     cards:
       - type: entity-filter
         entities:
-          - device_tracker.lounge_amp
-          - device_tracker.lounge_radio
-          - device_tracker.tv_lounge
-          - device_tracker.wetek_core
-          - device_tracker.youview
+          - binary_sensor.lounge_amp
+          - binary_sensor.lounge_radio
+          - binary_sensor.lounge_tv
+          - binary_sensor.lounge_kodi
+          - binary_sensor.youview
           - switch.bass_amp
         state_filter:
-          - home
+          - "home"
           - "on"
         card:
           type: glance

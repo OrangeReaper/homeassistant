@@ -60,11 +60,11 @@ zwave:
   autoheal: "False"
 
 shell_command:
-  unlock_landing: /home/homeassistant/.homeassistant/shell/unlock_landing.sh
-  lock_landing: /home/homeassistant/.homeassistant/shell/lock_landing.sh
-  excelsior_force_shutdown: 'ssh homeassistant@192.168.1.111 sudo shutdown -Ph now'
-  turn_off_excelsior: 'ssh homeassistant@192.168.1.111 touch ~/all/shutdown'
-  turn_off_defiant: 'ssh homeassistant@defiant.local sudo shutdown -Ph now'
+  unlock_landing: /config/shell/unlock_landing.sh
+  lock_landing: /config/shell/lock_landing.sh
+  excelsior_force_shutdown: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.111 sudo shutdown -Ph now'
+  turn_off_excelsior: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.111 touch ~/all/shutdown'
+  turn_off_defiant: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.185 sudo shutdown -Ph now'
  
 # Enables support for tracking state changes over time
 history:
@@ -110,6 +110,7 @@ switch: !include switches.yaml
 sensor: !include sensors.yaml
 recorder: !include recorder.yaml
 media_player: !include media_players.yaml
+binary_sensor: !include binary_sensors.yaml
 
 # Custom Panel ... Z-Wave Graph
 panel_custom:
@@ -122,9 +123,9 @@ timer:
   all_home:
     duration: '00:10:00'
 
-person:
-  - name: Andy
-    id: andy_de68
-    user_id: de68a9dee3524f4e852e1bed11169410
+#person:
+#  - name: Andy
+#    id: andy_de68
+#    user_id: de68a9dee3524f4e852e1bed11169410
 
 

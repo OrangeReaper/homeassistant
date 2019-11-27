@@ -7,12 +7,13 @@ cards:
     cards:
       - type: entity-filter
         entities:
-          - device_tracker.andymote_mc
-          - device_tracker.bluray_mc 
-          - device_tracker.tv_mancave
-          - device_tracker.wetek_hub
+          - binary_sensor.andymote
+          - binary_sensor.mc_bluray
+          - binary_sensor.mc_tv
+          - binary_sensor.mc_kodi
         state_filter:
-          - home
+          - "home"
+          - "on"
         card:
           type: glance
           title: What's On

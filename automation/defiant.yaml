@@ -2,9 +2,9 @@ alias: Defiant Switched Off
 initial_state: false
 trigger:
   platform: state  
-  entity_id: device_tracker.defiant
-  from: "home"
-  to: "not_home" 
+  entity_id: binary_sensor.defiant
+  from: "on"
+  to: "off" 
   for: '00:05:00'
 action:
   - service: switch.turn_off

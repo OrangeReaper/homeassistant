@@ -2,8 +2,6 @@ alias: Mancave light ON
 initial_state: false
 trigger:
   platform: state  
-#  entity_id: device_tracker.tv_mancave
-#  to: "home" 
   entity_id: sensor.mancave_occupied
   to: "yes"
 condition:

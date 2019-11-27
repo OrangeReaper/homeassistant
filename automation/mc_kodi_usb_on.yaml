@@ -2,8 +2,8 @@ alias: Mancave Kodi USB ON
 initial_state: false
 trigger:
   platform: state  
-  entity_id: device_tracker.wetek_hub
-  to: "home" 
+  entity_id: binary_sensor.mc_kodi
+  to: "on" 
 action:
   - service: switch.turn_on
     entity_id: switch.05200304bcddc2e0fa9b_2

@@ -1,8 +1,8 @@
 alias: Lounge Lights 2
 trigger:
   platform: state  
-  entity_id: device_tracker.tv_lounge
-  to: "home" 
+  entity_id: binary_sensor.lounge_tv
+  to: "on" 
 condition:
   condition: state
   entity_id: sensor.dark

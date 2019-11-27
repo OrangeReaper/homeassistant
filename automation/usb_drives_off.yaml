@@ -2,9 +2,9 @@ alias: USB Drives OFF
 initial_state: false
 trigger:
   platform: state  
-  entity_id: device_tracker.andy_ubuntu
-  from: "home"
-  to: "not_home"
+  entity_id: binary_sensor.enterprise
+  from: "on"
+  to: "off"
 action:
   - delay: 30
   - service: homeassistant.turn_off

@@ -3,7 +3,7 @@
     view: no
     entities:
       - device_tracker.andy_phone_bt
-      - device_tracker.andy_phone_wifi
+      - binary_sensor.andy_phone_wifi
 #      - device_tracker.andy_charge2
 #      - device_tracker.andy_itag
       - device_tracker.google_maps_107789275476680935354
@@ -12,7 +12,7 @@
     name: Paula
     view: no
     entities:
-      - device_tracker.paula_phone_wifi
+      - binary_sensor.paula_phone_wifi
       - device_tracker.paula_phone_bt
 #      - device_tracker.paula_itag
       - device_tracker.google_maps_102123694785823884289
@@ -44,18 +44,18 @@
     name: Computers
     view: no
     entities:
-      - device_tracker.andy_ubuntu
-      - device_tracker.excelsior
+      - binary_sensor.enterprise
+      - binary_sensor.excelsior
 
-  mc_mediaplayers:
-    name: ManCave Media Players
-    view: no
-    entities:
-      - device_tracker.bluray_mc
-      - device_tracker.wetek_hub
+#  mc_mediaplayers:
+#    name: ManCave Media Players
+#    view: no
+#    entities:
+#      - device_tracker.bluray_mc
+#      - device_tracker.mc_kodi
 
   excelsior_usb_drives:
-    name: MainPC USB Drives
+    name: Excelsior USB Drives
     view: no
     entities:
       - switch.05200142b4e62d16937d

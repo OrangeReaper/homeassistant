@@ -2,9 +2,9 @@ alias: Lounge Kodi USB OFF
 initial_state: false
 trigger:
   platform: state  
-  entity_id: device_tracker.wetek_core
-  from: "home"
-  to: "not_home" 
+  entity_id: binary_sensor.lounge_kodi
+  from: "on"
+  to: "off" 
   for: '00:02:00'
 action:
   - service: switch.turn_off

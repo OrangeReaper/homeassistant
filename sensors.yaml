@@ -48,10 +48,14 @@
       mancave_occupied:
         friendly_name: "ManCave Occupied"
         value_template: >-
-          {% if is_state('group.mc_mediaplayers', 'home')  %}
-            yes
+          {% if is_state('binary_sensor.mc_kodi', 'on')  %}
+              yes
           {% else %}
-            no
+            {% if is_state('binary_sensor.mc_bluray', 'on')  %}
+              yes
+            {% else %}
+              no
+            {% endif %}
           {% endif %}
   - platform: template
     sensors:

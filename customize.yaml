@@ -63,65 +63,51 @@ automation.lounge_kodi_usb_off:
   icon: mdi:kodi
 automation.lounge_lights:
   icon: mdi:lightbulb
-device_tracker.andy_ubuntu:
+binary_sensor.enterprise:
   icon: mdi:desktop-tower
-device_tracker.bluray_mc:
+binary_sensor.mc_bluray:
   icon: mdi:disc-player
-device_tracker.lounge_radio:
+binary_sensor.lounge_radio:
   icon: mdi:radio
-device_tracker.mywiki:
-  icon: mdi:raspberrypi
-device_tracker.tv_mancave:
+binary_sensor.mywiki:
+  icon: mdi:server
+binary_sensor.mc_tv:
   icon: mdi:television
 device_tracker.paula_phone_bt:
   icon: mdi:bluetooth
-device_tracker.paula_phone_wifi:
+binary_sensor.paula_phone_wifi:
   icon: mdi:wifi
-device_tracker.roberts_radio:
-  icon: mdi:radio
 media_player.roberts_radio:
   icon: mdi:radio
-device_tracker.router_r860:
-  icon: mdi:router-wireless
-device_tracker.printer:
+binary_sensor.printer:
   icon: mdi:printer
-device_tracker.smart_socket:
-  icon: mdi:power-socket-uk
-device_tracker.tv_lounge:
+binary_sensor.lounge_tv:
   icon: mdi:television
-device_tracker.tt_router:
-  icon: mdi:router-wireless
 switch.05200304bcddc2e0fa9b_4:
   icon: mdi:usb
-device_tracker.voyager:
-  icon: mdi:router-wireless
-device_tracker.wetek_core:
+binary_sensor.lounge_kodi:
   icon: mdi:kodi
-device_tracker.wetek_hub:
+binary_sensor.mc_kodi:
   icon: mdi:kodi
-device_tracker.youview:
+binary_sensor.youview:
   icon: mdi:play-network
-device_tracker.abservices:
-  icon: mdi:laptop
 switch.05200304bcddc2e0fa9b_3:
   icon: mdi:amazon
 switch.05200304bcddc2e0fa9b_2:
   icon: mdi:harddisk
 device_tracker.andy_phone_bt:
   icon: mdi:bluetooth
-device_tracker.andy_phone_wifi:
+binary_sensor.andy_phone_wifi:
   icon: mdi:wifi
-device_tracker.lounge_amp:
+binary_sensor.lounge_amp:
   icon: mdi:amplifier
-device_tracker.enterprise:
-  icon: mdi:router-wireless
-device_tracker.defiant:
+binary_sensor.defiant:
   icon: mdi:nas
-device_tracker.discovery:
+binary_sensor.discovery:
   icon: mdi:server
-device_tracker.excelsior:
+binary_sensor.excelsior:
   icon: mdi:nas
-device_tracker.andymote_mc:
+binary_sensor.andymote:
   icon: mdi:server
 sensor.porch_temperature:
   unit_of_measurement: °C

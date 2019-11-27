@@ -7,15 +7,15 @@ cards:
     cards:
     - type: entity-filter
       entities:
-        - device_tracker.abservices
-        - device_tracker.andy_ubuntu
-        - device_tracker.defiant
-        - device_tracker.discovery
-        - device_tracker.excelsior
-        - device_tracker.printer
-        - device_tracker.mywiki
+        - binary_sensor.enterprise
+        - binary_sensor.defiant
+        - binary_sensor.discovery
+        - binary_sensor.excelsior
+        - binary_sensor.printer
+        - binary_sensor.mywiki
       state_filter:
-        - home
+        - "home"
+        - "on"
       card:
         type: glance
         title: What's On
@@ -55,8 +55,8 @@ cards:
             theme: darkred
         - type: conditional
           conditions:
-            - entity: device_tracker.defiant
-              state: "not_home"
+            - entity: binary_sensor.defiant
+              state: "off"
           card:
             type: entity-button
             name: Switch ON Defiant
@@ -68,8 +68,8 @@ cards:
             theme: green_slate
         - type: conditional
           conditions:
-            - entity: device_tracker.defiant
-              state: "home"
+            - entity: binary_sensor.defiant
+              state: "on"
           card:
             type: entity-button
             name: Switch OFF Defiant

@@ -6,7 +6,7 @@ trigger:
   for: '00:02:00'
 condition:
   condition: state
-  entity_id: device_tracker.tv_lounge
-  state: home
+  entity_id: binary_sensor.lounge_tv
+  state: "on"
 action:
   - service: script.turn_on_lounge_lights

@@ -1,0 +1,522 @@
+
+router_r860:
+  hide_if_away: false
+  icon:
+  mac: C0:4A:00:BC:16:46
+  name: Router R860
+  picture:
+  track: true
+
+voyager:
+  hide_if_away: false
+  icon:
+  mac: AC:84:C6:6B:2F:74
+  name: Voyager AP
+  picture:
+  track: true
+
+youview:
+  hide_if_away: false
+  icon:
+  mac: 34:6B:D3:9F:62:30
+  name: You View
+  picture:
+  track: true
+
+smart_socket:
+  hide_if_away: false
+  icon:
+  mac: BC:DD:C2:E0:FA:9B
+  name: Smart Socket
+  picture:
+  track: true
+
+mywiki:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:31:07:64
+  name: My Wiki
+  picture:
+  track: true
+
+tt_router:
+  hide_if_away: false
+  icon:
+  mac: D8:A7:56:0F:D8:F9
+  name: TalkTalk Router
+  picture:
+  track: true
+
+discovery:
+  hide_if_away: false
+  icon:
+  mac: 84:39:BE:69:92:09
+  name: Discovery
+  picture:
+  track: true
+
+andymote_mc:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:08:B3:0C
+  name: AndyMOTE MC
+  picture:
+  track: true
+
+roberts_radio:
+  hide_if_away: false
+  icon:
+  mac: 00:22:61:C7:31:A1
+  name: Robert's Radio
+  picture:
+  track: true
+
+enterprise:
+  hide_if_away: false
+  icon:
+  mac: E8:94:F6:EC:32:15
+  name: Enterprise AP
+  picture:
+  track: true
+
+andy_ubuntu:
+  hide_if_away: false
+  icon:
+  mac: 40:16:7E:7B:D3:CC
+  name: Main PC
+  picture:
+  track: true
+  consider_home: 60
+
+andy_phone_bt:
+  hide_if_away: false
+  icon:
+  mac: BT_A4:50:46:10:13:00
+  name: Andy's Phone BT
+  picture:
+  track: true
+
+lounge_radio:
+  hide_if_away: false
+  icon:
+  mac: E0:B9:4D:A4:1E:96
+  name: Lounge Radio
+  picture:
+  track: true
+
+andy_phone_wifi:
+  hide_if_away: false
+  icon:
+  mac: A4:50:46:10:13:01
+  name: Andy's Phone WIFI
+  picture:
+  track: true
+  consider_home: 300
+
+paula_ipad:
+  hide_if_away: false
+  icon:
+  mac: CC:44:63:EC:47:AE
+  name: Paula's iPad
+  picture:
+  track: false
+
+samsung_tablet_sm_t520:
+  hide_if_away: false
+  icon:
+  mac: 7C:F9:0E:7C:74:37
+  name: Samsung Tablet (SMT520)
+  picture:
+  track: false
+
+galaxy_tab_a:
+  hide_if_away: false
+  icon:
+  mac: D8:5B:2A:A8:6E:53
+  name: Galaxy Tab A
+  picture:
+  track: false
+
+paula_phone_wifi:
+  hide_if_away: false
+  icon:
+  mac: 34:29:12:49:C8:A8
+  name: Paula's Phone WIFI
+  picture:
+  track: true
+  consider_home: 300
+
+tv_mancave:
+  hide_if_away: false
+  icon:
+  mac: 70:58:12:99:C7:C8
+  name: Panasonic TV
+  picture:
+  track: true
+  consider_home: 30
+
+tv_lounge:
+  hide_if_away: false
+  icon:
+  mac: CC:2D:8C:A0:F3:37
+  name: TV Lounge
+  picture:
+  track: true
+
+defiant:
+  hide_if_away: false
+  icon:
+  mac: 2C:B0:5D:BE:C6:BA
+  name: Defiant
+  picture:
+  track: true
+  consider_home: 30
+
+bluray_mc:
+  hide_if_away: false
+  icon:
+  mac: 3C:BD:D8:44:5C:E8
+  name: ManCave Bluray
+  picture:
+  track: true
+
+unknown:
+  hide_if_away: false
+  icon:
+  mac: 3C:BD:D8:6F:74:9D
+  name: UNKNOWN
+  picture:
+  track: true
+
+paula_phone_bt:
+  hide_if_away: false
+  icon:
+  mac: BT_34:29:12:49:D0:79
+  name: Paula's Phone BT
+  picture:
+  track: true
+
+wetek_core:
+  hide_if_away: false
+  icon:
+  mac: E8:18:63:50:9F:CA
+  name: Wetek Core
+  picture:
+  track: true
+  consider_home: 30
+
+lounge_amp:
+  hide_if_away: false
+  icon:
+  mac: 74:5E:1C:11:65:FC
+  name: Lounge Amp
+  picture:
+  track: true
+  consider_home: 30
+
+printer:
+  hide_if_away: false
+  icon:
+  mac: 10:62:E5:AC:BE:84
+  name: Printer
+  picture: 
+  track: true
+
+excelsior:
+  hide_if_away: false
+  icon:
+  mac: 1C:1B:0D:9C:D1:CC
+  name: Excelsior
+  picture:
+  track: true
+  consider_home: 60
+
+wetek_hub:
+  hide_if_away: false
+  icon:
+  mac: E8:18:63:51:79:4C
+  name: Wetek Hub
+  picture:
+  track: true
+  consider_home: 30
+
+abservices:
+  hide_if_away: false
+  icon:
+  mac: B4:D5:BD:C7:FF:38
+  name: abservices
+  picture:
+  track: true
+
+b8_27_eb_74_62_5c:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:74:62:5C
+  name: b8 27 eb 74 62 5c
+  picture:
+  track: true
+
+andy_charge2:
+  hide_if_away: false
+  icon:
+  mac: BLE_C4:A7:71:94:70:28
+  name: Andy's Charge 2
+  picture:
+  track: true
+
+paula_itag:
+  hide_if_away: false
+  icon:
+  mac: BLE_FF:FF:3D:11:3A:56
+  name: Paula iTag
+  picture:
+  track: true
+
+andy_itag:
+  hide_if_away: false
+  icon:
+  mac: BLE_FF:FF:C2:0E:A0:F9
+  name: Andy iTag
+  picture:
+  track: true
+
+hive_hub:
+  hide_if_away: false
+  icon:
+  mac: 00:1C:2B:18:9C:F6
+  name: Hive Hub
+  picture:
+  track: true
+
+
+c0_bd_d1_ff_b3_c9:
+  hide_if_away: false
+  icon:
+  mac: C0:BD:D1:FF:B3:C9
+  name: c0 bd d1 ff b3 c9
+  picture:
+  track: true
+
+e4_95_6e_47_cd_4b:
+  hide_if_away: false
+  icon:
+  mac: E4:95:6E:47:CD:4B
+  name: e4 95 6e 47 cd 4b
+  picture:
+  track: true
+
+54_99_63_28_c7_db:
+  hide_if_away: false
+  icon:
+  mac: 54:99:63:28:C7:DB
+  name: 54 99 63 28 c7 db
+  picture:
+  track: true
+
+c0_9a_d0_2e_fb_98:
+  hide_if_away: false
+  icon:
+  mac: C0:9A:D0:2E:FB:98
+  name: c0 9a d0 2e fb 98
+  picture:
+  track: true
+
+sarahsaplewatch:
+  hide_if_away: false
+  icon:
+  mac: 44:E6:6E:56:B8:4A
+  name: SarahsApleWatch
+  picture:
+  track: true
+
+1c_91_48_3c_b2_ad:
+  hide_if_away: false
+  icon:
+  mac: 1C:91:48:3C:B2:AD
+  name: 1c 91 48 3c b2 ad
+  picture:
+  track: true
+
+google_maps_102123694785823884289:
+  hide_if_away: false
+  icon:
+  mac:
+  name: google maps 102123694785823884289
+  picture: https://lh5.googleusercontent.com/-AGhK_CSaKxA/AAAAAAAAAAI/AAAAAAAAAD0/GEFzj5r4wTI/photo.jpg
+  track: true
+
+google_maps_107789275476680935354:
+  hide_if_away: false
+  icon:
+  mac:
+  name: google maps 107789275476680935354
+  picture: https://lh3.googleusercontent.com/-kDR7sGk5hWQ/AAAAAAAAAAI/AAAAAAAACTQ/aMWzrc0biF0/photo.jpg
+  track: true
+
+esp_97dbe8:
+  hide_if_away: false
+  icon:
+  mac: 84:0D:8E:97:DB:E8
+  name: ESP 97DBE8
+  picture:
+  track: false
+
+esp_9bd9a1:
+  hide_if_away: false
+  icon:
+  mac: 84:0D:8E:9B:D9:A1
+  name: ESP 9BD9A1
+  picture:
+  track: false
+
+esp_97c99d:
+  hide_if_away: false
+  icon:
+  mac: 84:0D:8E:97:C9:9D
+  name: ESP 97C99D
+  picture:
+  track: false
+
+esp_97d095:
+  hide_if_away: false
+  icon:
+  mac: 84:0D:8E:97:D0:95
+  name: ESP 97D095
+  picture:
+  track: false
+
+esp_9bd9a1_2:
+  hide_if_away: false
+  icon:
+  mac: 00:00:00:00:00:00
+  name: ESP 9BD9A1
+  picture:
+  track: false
+
+dnpxxbm9kxk2:
+  hide_if_away: false
+  icon:
+  mac: C0:E8:62:86:66:0A
+  name: DNPXXBM9KXK2
+  picture:
+  track: true
+
+b0_fc_0d_2c_24_0d:
+  hide_if_away: false
+  icon:
+  mac: B0:FC:0D:2C:24:0D
+  name: b0 fc 0d 2c 24 0d
+  picture:
+  track: true
+
+esp_16937d:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:16:93:7D
+  name: ESP 16937D
+  picture:
+  track: true
+
+andymote_local:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:81:60:8D
+  name: andymote.local
+  picture:
+  track: true
+
+andymote_local_2:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:0A:5A:FF
+  name: andymote.local
+  picture:
+  track: true
+
+ec_fa_bc_2e_aa_fe:
+  hide_if_away: false
+  icon:
+  mac: EC:FA:BC:2E:AA:FE
+  name: ec fa bc 2e aa fe
+  picture:
+  track: true
+
+andymote:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:5F:0F:AA
+  name: andymote
+  picture:
+  track: true
+
+94_83_c4_00_50_82:
+  hide_if_away: false
+  icon:
+  mac: 94:83:C4:00:50:82
+  name: 94 83 c4 00 50 82
+  picture:
+  track: true
+
+4c_ef_c0_4d_33_1c:
+  hide_if_away: false
+  icon:
+  mac: 4C:EF:C0:4D:33:1C
+  name: 4c ef c0 4d 33 1c
+  picture:
+  track: true
+
+3c_5c_c4_e7_4d_2a:
+  hide_if_away: false
+  icon:
+  mac: 3C:5C:C4:E7:4D:2A
+  name: 3c 5c c4 e7 4d 2a
+  picture:
+  track: true
+
+74_0a_bc_03_1f_a6:
+  hide_if_away: false
+  icon:
+  mac: 74:0A:BC:03:1F:A6
+  name: 74 0a bc 03 1f a6
+  picture:
+  track: true
+
+28_c6_8e_fc_e9_65:
+  hide_if_away: false
+  icon:
+  mac: 28:C6:8E:FC:E9:65
+  name: 28 c6 8e fc e9 65
+  picture:
+  track: true
+
+14_91_38_22_47_d1:
+  hide_if_away: false
+  icon:
+  mac: 14:91:38:22:47:D1
+  name: 14 91 38 22 47 d1
+  picture:
+  track: true
+
+c8_db_26_0d_0e_2a:
+  hide_if_away: false
+  icon:
+  mac: C8:DB:26:0D:0E:2A
+  name: c8 db 26 0d 0e 2a
+  picture:
+  track: true
+
+mc_kodi:
+  hide_if_away: false
+  icon:
+  mac: DC:A6:32:4B:99:9D
+  name: MC Kodi
+  picture:
+  track: true
+
+14_ab_c5_bd_56_d2:
+  hide_if_away: false
+  icon:
+  mac: 14:AB:C5:BD:56:D2
+  name: 14 ab c5 bd 56 d2
+  picture:
+  track: true

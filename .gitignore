@@ -7,7 +7,7 @@ secrets.yaml
 .cloud/
 .HA_VERSION
 *.swp
-ssl/
+.ssh/
 dehydrated/
 duckdns/
 *.xml
