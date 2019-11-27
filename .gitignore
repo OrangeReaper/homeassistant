@@ -3,6 +3,7 @@ tts/
 *.log
 *.db*
 secrets.yaml
+.git-credentials
 .storage/
 .cloud/
 .HA_VERSION

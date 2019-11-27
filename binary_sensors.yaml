@@ -31,7 +31,7 @@
     name: andy_phone_wifi
     scan_interval: 15
   - platform: ping
-    host: 192.168.1.122
+    host: 192.168.1.75
     name: paula_phone_wifi
     scan_interval: 15
   - platform: ping
