@@ -7,3 +7,6 @@ trigger:
 action:
   - service: switch.turn_on
     entity_id: switch.lounge_kodi_usb
+  - delay: '00:00:12'
+  - service: switch.turn_on
+    entity_id: switch.lounge_kodi_usb

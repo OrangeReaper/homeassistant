@@ -24,6 +24,10 @@
       - delay: 2
       - service: homeassistant.turn_on
         data:
+          entity_id: switch.christmas_tree
+      - delay: 2
+      - service: homeassistant.turn_on
+        data:
           entity_id: switch.picture_light
       - delay: 2
       - service: homeassistant.turn_on
@@ -33,3 +37,7 @@
       - service: homeassistant.turn_on
         data:
           entity_id: switch.unit_lights
+      - delay: 2
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.christmas_tree

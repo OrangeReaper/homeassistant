@@ -12,17 +12,16 @@
       - sensor.aeon_labs_zw100_multisensor_6_alarm_type
       - sensor.aeon_labs_zw100_multisensor_6_battery_level
       - sensor.aeon_labs_zw100_multisensor_6_burglar
-      - sensor.aeon_labs_zw100_multisensor_6_luminance
       - sensor.aeon_labs_zw100_multisensor_6_relative_humidity
       - sensor.aeon_labs_zw100_multisensor_6_sourcenodeid
       - sensor.aeon_labs_zw100_multisensor_6_ultraviolet
       - sensor.aeon_labs_zw100_multisensor_6_sensor_node_id
-      - sensor.porch_alarm_level
-      - sensor.porch_alarm_type
-      - sensor.porch_burglar
-      - sensor.porch_sensor_node_id
+      - sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_alarm_level
+      - sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_alarm_type
+      - sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_burglar
+      - sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_node_id
       - sensor.yr_symbol
-      - sensor.porch_pir_battery
+      - sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_pir_battery
       - sun.sun
       - weather.dark_sky
       - weather.home

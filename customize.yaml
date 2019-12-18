@@ -110,4 +110,12 @@ sensor.porch_temperature:
   unit_of_measurement: °C
 sensor.hall_temperature:
   unit_of_measurement: °C
+device_tracker.andy_andyphone:
+  entity_picture: local/andy.jpg
+device_tracker.paula_paulaphone:
+  entity_picture: local/paula.jpg
+person.andy_bond:
+  entity_picture: local/andy.jpg
+person.paula_bond:
+  entity_picture: local/paula.jpg
 

@@ -9,9 +9,14 @@ condition:
   - condition: time
     after: 07:00:00
     before: 08:59:59
-  - condition: state
-    entity_id: 'group.residents'
-    state: 'home'
+  - condition: or
+    conditions:
+      - condition: state
+        entity_id: 'group.residents'
+        state: 'home'
+      - condition: state
+        entity_id: 'group.residents'
+        state: 'on'
   - condition: template
     value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.radio_on.attributes.last_triggered) | int > 7260 }}'
 action:

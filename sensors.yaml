@@ -33,8 +33,8 @@
       all_home:
         friendly_name: "All Home"
         value_template: >-
-          {% if is_state('group.tracker_paula', 'home')  %}
-            {% if is_state('group.tracker_andy', 'home')  %}
+          {% if is_state('group.tracker_paula', 'home') or is_state('group.tracker_paula', 'on')  %}
+            {% if is_state('group.tracker_andy', 'home') or is_state('group.tracker_andy', 'on') %}
               yes
             {% else %}
               no

@@ -4,7 +4,6 @@
     entities:
       - binary_sensor.andy_phone_wifi
       - device_tracker.andy_phone_bt
-      - device_tracker.google_maps_107789275476680935354
 
   tracker_paula:
     name: Paula
@@ -12,8 +11,7 @@
     entities:
       - binary_sensor.paula_phone_wifi
       - device_tracker.paula_phone_bt
-      - device_tracker.google_maps_102123694785823884289
-      
+
   lounge_lights:
     name: Lounge Lights
     view: no
@@ -21,15 +19,13 @@
       - switch.picture_light
       - switch.standing_light
       - switch.unit_lights
+      - switch.christmas_tree
 
   main_pc_usb_drives:
     name: MainPC USB Drives
     view: no
     entities:
       - switch.dual_usbs
-#      - switch.seagate_1
-#      - switch.seagate_2
-#      - switch.tv_d_l_disks
 
   residents:
     name: Residents
@@ -44,13 +40,6 @@
     entities:
       - binary_sensor.enterprise
       - binary_sensor.excelsior
-
-#  mc_mediaplayers:
-#    name: ManCave Media Players
-#    view: no
-#    entities:
-#      - device_tracker.bluray_mc
-#      - device_tracker.mc_kodi
 
   excelsior_usb_drives:
     name: Excelsior USB Drives
