@@ -1,7 +1,7 @@
 # Overview
 Welcome to my personal [Home Assistant](https://home-assistant.io) configurations. 
  
-All the automations included in this repository are working with Hass.io (Home Assistant 0.102.2 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
+All the automations included in this repository are working with Hass.io (Home Assistant 0.103.4 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
 Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system. 
 
