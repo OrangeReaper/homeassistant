@@ -1,17 +1,3 @@
-  tracker_andy:
-    name: Andy
-    view: no
-    entities:
-      - binary_sensor.andy_phone_wifi
-      - device_tracker.andy_phone_bt
-
-  tracker_paula:
-    name: Paula
-    view: no
-    entities:
-      - binary_sensor.paula_phone_wifi
-      - device_tracker.paula_phone_bt
-
   lounge_lights:
     name: Lounge Lights
     view: no
@@ -31,8 +17,8 @@
     name: Residents
     view: no
     entities:
-      - group.tracker_paula
-      - group.tracker_andy
+      - sensor.paula
+      - sensor.andy
 
   computers:
     name: Computers

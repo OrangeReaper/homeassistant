@@ -12,17 +12,13 @@ cards:
           - type: picture-entity
             state_image: 
               "home": /local/andy.jpg
-              "not_home": /local/andy_bw.jpg
-              "on": /local/andy.jpg
-              "off": /local/andy_bw.jpg
-            entity: group.tracker_andy
+              "away": /local/andy_bw.jpg
+            entity: sensor.andy
           - type: picture-entity
             state_image:
               "home": /local/paula.jpg
-              "not_home": /local/paula_bw.jpg
-              "on": /local/paula.jpg
-              "off": /local/paula_bw.jpg
-            entity: group.tracker_paula
+              "away": /local/paula_bw.jpg
+            entity: sensor.paula
       - type: horizontal-stack
         cards:
           - type: sensor

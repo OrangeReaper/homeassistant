@@ -33,8 +33,8 @@
       all_home:
         friendly_name: "All Home"
         value_template: >-
-          {% if is_state('group.tracker_paula', 'home') or is_state('group.tracker_paula', 'on')  %}
-            {% if is_state('group.tracker_andy', 'home') or is_state('group.tracker_andy', 'on') %}
+          {% if is_state('sensor.paula', 'home')  %}
+            {% if is_state('sensor.andy', 'home') %}
               yes
             {% else %}
               no
@@ -42,7 +42,34 @@
           {% else %}
             no
           {% endif %}
-
+  - platform: template
+    sensors:
+      paula:
+        friendly_name: "Paula"
+        value_template: >-
+          {% if is_state('device_tracker.paula_phone_bt', 'home')  %}
+              home
+          {% else %}
+            {% if is_state('binary_sensor.paula_phone_wifi', 'on')  %}
+              home
+            {% else %}
+              away
+            {% endif %}
+          {% endif %}
+  - platform: template
+    sensors:
+      andy:
+        friendly_name: "Andy"
+        value_template: >-
+          {% if is_state('device_tracker.andy_phone_bt', 'home')  %}
+              home
+          {% else %}
+            {% if is_state('binary_sensor.andy_phone_wifi', 'on')  %}
+              home
+            {% else %}
+              away
+            {% endif %}
+          {% endif %}
   - platform: template
     sensors:
       mancave_occupied:
