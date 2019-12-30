@@ -141,5 +141,9 @@ alexa:
         name: Kitchen Radio
         description: Radio in the kitchen
   
-
+#Harmony Remote
+remote:
+  - platform: harmony
+    name: Lounge
+    host: 192.168.1.49
 
