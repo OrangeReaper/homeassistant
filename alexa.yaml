@@ -1,0 +1,13 @@
+  smart_home:
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_client_id
+    client_secret: !secret alexa_client_secret
+    filter:
+      include_entities:
+        - media_player.roberts_radio
+      include_domains:
+        - switch
+    entity_config:
+      media_player.roberts_radio:
+        name: Kitchen Radio
+        description: Radio in the kitchen
