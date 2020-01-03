@@ -13,6 +13,17 @@
     name: "andymote"
     state_topic: "andymote"
     
+  - platform: template
+    sensors:
+      harmony_activity:
+        value_template: >
+          {% if is_state("remote.lounge", 'on') %}
+            {{ states.remote.lounge.attributes.current_activity }}
+          {% else %}
+            PowerOff
+          {% endif %}
+
+    
   - platform: yr
   - platform: template
     sensors:

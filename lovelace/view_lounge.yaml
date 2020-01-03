@@ -5,21 +5,25 @@ icon: mdi:seat
 cards:
   - type: vertical-stack
     cards:
-      - type: entity-filter
+      - type: markdown
+        content: "## Currently Watching"
+      - type: picture-entity
+        name: Currently Watching
         entities:
-          - binary_sensor.lounge_amp
           - binary_sensor.lounge_radio
           - binary_sensor.lounge_tv
           - binary_sensor.lounge_kodi
           - binary_sensor.youview
-          - switch.bass_amp
-        state_filter:
-          - "home"
-          - "on"
-        card:
-          type: glance
-          title: What's On
-          show_state: false
+        state_image:
+          "PowerOff": /local/poweroff.png
+          "Kodi": /local/kodi.png
+          "Radio": /local/radio.png
+          "BluRay": /local/bluray.png
+          "Watch TV": /local/tv.png
+        entity: sensor.harmony_activity
+        show_state: false
+        show_name: false
+        
       - type: entities
         title: Controls
         show_header_toggle: false
@@ -32,3 +36,5 @@ cards:
           - switch.landing_light
       - type: media-control
         entity:  media_player.lounge_kodi
+
+
