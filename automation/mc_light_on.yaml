@@ -1,3 +1,4 @@
+
 alias: Mancave light ON
 initial_state: false
 trigger:
