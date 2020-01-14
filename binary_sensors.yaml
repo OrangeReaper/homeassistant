@@ -1,85 +1,85 @@
   - platform: ping
     host: 192.168.1.50
     name: mc_kodi
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.105
     name: mc_bluray
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.121
     name: lounge_amp
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.185
     name: defiant
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.111
     name: excelsior
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.113
     name: enterprise
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.115
     name: lounge_kodi
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.112
     name: andy_phone_wifi
-    scan_interval: 15
+    scan_interval: 30
     count: 3
   - platform: ping
     host: 192.168.1.75
     name: paula_phone_wifi
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.189
     name: discovery
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.123
     name: mc_tv
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.99
     name: lounge_tv
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.110
     name: andymote
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.30
     name: youview
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.40
     name: printer
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.239
     name: mywiki
-    scan_interval: 15
+    scan_interval: 30
     count: 1
   - platform: ping
     host: 192.168.1.90
     name: lounge_radio
-    scan_interval: 15
+    scan_interval: 30
     count: 3

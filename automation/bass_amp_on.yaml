@@ -2,8 +2,11 @@ alias: Bass Amp ON
 initial_state: false
 trigger:
   platform: state  
-  entity_id: binary_sensor.lounge_amp
+  entity_id: sensor.bass_amp
   to: "on" 
 action:
+  - service: switch.turn_on
+    entity_id: switch.bass_amp
+  - delay: '00:00:10'
   - service: switch.turn_on
     entity_id: switch.bass_amp

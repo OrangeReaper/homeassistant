@@ -23,6 +23,20 @@
             PowerOff
           {% endif %}
 
+  - platform: template
+    sensors:
+      bass_amp:
+        value_template: >
+          {% if is_state("remote.lounge", 'BluRay') %}
+            on
+          {% else %}
+            {% if is_state("remote.lounge", 'Kodi') %}
+              on
+            {% else %}
+              off
+            {% endif %}
+          {% endif %}
+
     
   - platform: yr
   - platform: template

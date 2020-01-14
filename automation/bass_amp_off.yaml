@@ -2,9 +2,13 @@ alias: Bass Amp OFF
 initial_state: false
 trigger:
   platform: state  
-  entity_id: binary_sensor.lounge_amp
-  to: "off"
-  for: '00:02:00'
+  entity_id: remote.lounge
+condition:
+  condition: template
+  value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
 action:
+  - service: switch.turn_off
+    entity_id: switch.bass_amp
+  - delay: '00:00:10'
   - service: switch.turn_off
     entity_id: switch.bass_amp

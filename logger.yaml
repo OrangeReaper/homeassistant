@@ -1,0 +1,3 @@
+  logs:
+    homeassistant.components.binary_sensor.ping: error
+    homeassistant.components.switch.tuya: error
