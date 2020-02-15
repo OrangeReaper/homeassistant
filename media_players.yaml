@@ -13,7 +13,7 @@
       entity_id: switch.kodi_lounge
   - platform: kodi
     name: "ManCave Kodi"
-    host: 192.168.1.114
+    host: 192.168.1.50
     username: !secret kodi_username
     password: !secret kodi_password
     turn_off_action:

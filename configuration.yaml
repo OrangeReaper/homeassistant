@@ -64,6 +64,7 @@ shell_command:
   lock_landing: /config/shell/lock_landing.sh
   excelsior_force_shutdown: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.111 sudo shutdown -Ph now'
   turn_off_excelsior: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.111 touch /home/homeassistant/all/shutdown'
+  turn_off_enterprise: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.113  sudo shutdown -Ph now'
   turn_off_defiant: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.185 sudo shutdown -Ph now'
  
 # Enables support for tracking state changes over time

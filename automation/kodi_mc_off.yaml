@@ -1,0 +1,10 @@
+alias: Turn Kodi ManCave OFF
+trigger:
+  platform: state
+  entity_id: sensor.mancave_kodi
+  to: "off"
+action:
+  service: kodi.call_method
+  data:
+    entity_id: media_player.mancave_kodi
+    method: System.Shutdown

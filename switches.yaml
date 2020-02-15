@@ -23,4 +23,10 @@
     name: kodi_lounge
     mac: "70:85:C2:D5:62:63"
     host: "192.168.1.115"
-
+    
+  - platform: wake_on_lan
+    name: enterprise_wol
+    mac: "40:16:7E:7B:D3:CC"
+    host: "192.168.1.113"
+    turn_off:
+      service: shell_command.turn_off_enterprise

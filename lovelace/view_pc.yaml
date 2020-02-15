@@ -35,8 +35,8 @@ cards:
               action: call-service
               service: switch.turn_on
               service_data:
-                entity_id: switch.excelsior
-            entity: switch.excelsior
+                entity_id: switch.excelsior_wol
+            entity: switch.excelsior_wol
             theme: green_slate
         - type: conditional
           conditions:
@@ -95,6 +95,39 @@ cards:
               service_data:
                 entity_id: switch.excelsior_force
             entity: switch.excelsior_force
+            theme: darkred
+            
+    - type: horizontal-stack
+      cards:
+        - type: conditional
+          conditions:
+            - entity: switch.enterprise_wol
+              state: "off"
+          card:
+            type: entity-button
+            name: Switch ON Enterprise
+            show_icon: false
+            tap_action:
+              action: call-service
+              service: switch.turn_on
+              service_data:
+                entity_id: switch.enterprise_wol
+            entity: switch.enterprise_wol
+            theme: green_slate
+        - type: conditional
+          conditions:
+            - entity: switch.enterprise_wol
+              state: "on"
+          card:
+            type: entity-button
+            name: Switch OFF Enterprise
+            show_icon: false
+            tap_action: 
+              action: call-service
+              service: switch.turn_off
+              service_data:
+                entity_id: switch.enterprise_wol
+            entity: switch.enterprise_wol
             theme: darkred
 
     - type: entities

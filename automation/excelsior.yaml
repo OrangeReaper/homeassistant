@@ -7,11 +7,11 @@ trigger:
   to: "off" 
   for: '00:05:00'
 action:
-  - service: switch.turn_off
-    entity_id: switch.excelsior
-  - delay: '00:00:15'
-  - service: switch.turn_off
-    entity_id: switch.excelsior
+#  - service: switch.turn_off
+#    entity_id: switch.excelsior
+#  - delay: '00:00:15'
+#  - service: switch.turn_off
+#    entity_id: switch.excelsior
   - service: homeassistant.turn_off
     entity_id: group.excelsior_usb_drives
   - delay: '00:00:30'
