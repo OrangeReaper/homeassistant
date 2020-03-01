@@ -23,7 +23,7 @@ I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>swi
 
 In the lounge there are two things I control; a *media system* and *lighting*
 
-The media system consists of a TV, BluRay Player, HTPC Kodi Box, AV Amplifier, PVR and Bass Amp. All these devices are controlled using a [Logitech Harmony Elite](https://www.logitech.com/en-us/product/harmony-elite?crid=60) remote control. The devices are connected to my network so are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Harmony Remote is [integrated into Home Assistant](https://www.home-assistant.io/integrations/harmony/). The Bass Amp is seperately powered (controlled by a LightwaveRF switch). The Kodi Box has an attached USB Drive which is also powered via a LightwaveRF switch). I use a sensor located outside to measure how dark it is and flag when *its dark*.
+The media system consists of a TV, BluRay Player, HTPC Kodi Box, AV Amplifier, PVR and Bass Amp. All these devices are controlled using a [Logitech Harmony Elite](https://www.logitech.com/en-us/product/harmony-elite?crid=60) remote control. The devices are connected to my network so are 'detectable' using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). The Harmony Remote is [integrated into Home Assistant](https://www.home-assistant.io/integrations/harmony/). The Bass Amp is seperately powered (controlled by a LightwaveRF switch). The Kodi Box has an attached USB Drive which is also powered via a LightwaveRF switch). I use a sensor located outside to measure how dark it is and flag when *its dark*.
 
 ### Automations
 1. When it's dark, and we are at home, the lights switch on if the TV is switched on.
@@ -39,7 +39,9 @@ The media system consists of a TV, BluRay Player, HTPC Kodi Box, AV Amplifier, P
 
 In my mancave there are two things I control; a *media system* and *lighting*
 
-The *media system* consists of a TV, BluRay Player, Kodi Box and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Kodi Box has an attached USB Drive one of which is powered on & off using a Tuya switch.
+The *media system* consists of a TV, BluRay Player, Kodi Box and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). The Kodi Box has an attached USB Drive one of which is powered on & off using a Tuya switch.
+
+I use my own Android App [AndyMOTE](https://andymote.abondservices.com/) to control devices in my *media system* (replacing their IR Remote Controls). [AndyMOTE](https://andymote.abondservices.com/) connects to an MQTT server to publish it's current 'state' to Home Assistant (or other components).
 
 The *Kodi Box* itself is a Raspberry Pi 4; as Raspberry Pis cannot be switched on using Wake on Lan (like in the Lounge) an automated script (Not part of HA) does this using MQTT (See [Application Note Here](https://andymote.abondservices.com/mqtt.html#an).)
 
@@ -77,7 +79,7 @@ I run Hassio on a Raspberry Pi 3+. This is located in the hall and connected to 
 
 [Top](#top)
 
-I have several USB drives attached to my main PC (Andy-Ubuntu), a NAS Drive (Defiant) and a second PC (Excelsior) which has several USB Drives attached. The PCs and NAS are connected to my network  so are detectable using NMap. Everything except my main PC is controllable through LightwaveRF or tuya switches.
+I have several USB drives attached to my main PC (Andy-Ubuntu), a NAS Drive (Defiant) and a second PC (Excelsior) which has several USB Drives attached. The PCs and NAS are connected to my network  so are detectable using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). Everything except my main PC is controllable through LightwaveRF or tuya switches.
 
 I have a group: 'computers' which consists of my Main PC and Second PC (excelsior). 
 
