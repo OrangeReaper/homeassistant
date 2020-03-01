@@ -1,0 +1,8 @@
+alias: Turn Kodi ManCave ON
+trigger:
+  platform: state
+  entity_id: sensor.mancave_kodi
+  to: "on"
+action:
+  - service: switch.turn_on
+    entity_id: switch.sonoff_1000b2d66f

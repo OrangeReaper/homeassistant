@@ -23,13 +23,13 @@ I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>swi
 
 In the lounge there are two things I control; a *media system* and *lighting*
 
-The media system consists of a TV, BluRay Player, Kodi Box, AV Amplifier, PVR and Bass Amp. All these devices are controlled using a [Logitech Harmony Elite](https://www.logitech.com/en-us/product/harmony-elite?crid=60) remote control. The devices are connected to my network so are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Harmony Remote is [integrated into Home Assistant](https://www.home-assistant.io/integrations/harmony/). The Bass Amp is seperately powered (controlled by a LightwaveRF switch). The Kodi Box has an attached USB Drive which is also powered via a LightwaveRF switch). I use a sensor located outside to measure how dark it is and flag when *its dark*.
+The media system consists of a TV, BluRay Player, HTPC Kodi Box, AV Amplifier, PVR and Bass Amp. All these devices are controlled using a [Logitech Harmony Elite](https://www.logitech.com/en-us/product/harmony-elite?crid=60) remote control. The devices are connected to my network so are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Harmony Remote is [integrated into Home Assistant](https://www.home-assistant.io/integrations/harmony/). The Bass Amp is seperately powered (controlled by a LightwaveRF switch). The Kodi Box has an attached USB Drive which is also powered via a LightwaveRF switch). I use a sensor located outside to measure how dark it is and flag when *its dark*.
 
 ### Automations
 1. When it's dark, and we are at home, the lights switch on if the TV is switched on.
 2. When we are at home, if the TV is switched on, if the outside sensor then detects that it is dark then the lights are switched on.
 3. The Bass Amp is turned on and off in sympathy with the AV Amplifier.
-4. The Kodi Box is switched on when the Harmony Remote changes it's current activity to "Kodi"
+4. The Kodi Box is switched on (using Wake on Lan) when the Harmony Remote changes it's current activity to "Kodi"
 5. The Kodi Box is switched off when the Harmony Remote changes it's current activity to something other than "Kodi"
 6. The Kodi USB Drive is turned on and off in sympathy with the Kodi Box. 
 
@@ -39,7 +39,9 @@ The media system consists of a TV, BluRay Player, Kodi Box, AV Amplifier, PVR an
 
 In my mancave there are two things I control; a *media system* and *lighting*
 
-The *media system* consists of a TV, BluRay Player, Kodi Box and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Kodi Box has two attached USB Drives one of which is powered via a LightwaveRF switch, the other via a Tuya switch.
+The *media system* consists of a TV, BluRay Player, Kodi Box and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Kodi Box has an attached USB Drive one of which is powered on & off using a Tuya switch.
+
+The *Kodi Box* itself is a Raspberry Pi 4; as Raspberry Pis cannot be switched on using Wake on Lan (like in the Lounge) an automated script (Not part of HA) does this using MQTT (See [Application Note Here](https://andymote.abondservices.com/mqtt.html#an).
 
 ### Automations
 1. When the TV is switched on, if it is dark, the light is turned on; it is turned off 2 minutes after the TV is turned off.

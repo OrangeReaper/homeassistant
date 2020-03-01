@@ -1,0 +1,21 @@
+alias: Auto Kodi ManCave OFF
+trigger:
+  platform: state
+  # If Actual state of kodi device changes to on
+  entity_id: binary_sensor.mc_kodi
+  from: "off"
+  to: "on"
+  for: 120
+condition: 
+  condition: state
+  # When andymote has the device turned of
+  entity_id: sensor.mancave_kodi
+  state: "off"
+action:
+  #Then turn it off (force off)
+  service: kodi.call_method
+  data:
+    entity_id: media_player.mancave_kodi
+    method: System.Shutdown
+
+

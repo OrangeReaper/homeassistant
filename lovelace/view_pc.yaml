@@ -138,7 +138,6 @@ cards:
         - switch.seagate_2
         - switch.tv_d_l_disks
         - switch.05200142b4e62d16937d
-        - switch.excelsior
 
     - type: entities
       title: Main PC
@@ -151,4 +150,5 @@ cards:
       show_header_toggle: false
       entities:
         - switch.pc_light
+        - switch.pi3_dev
 

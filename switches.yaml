@@ -7,14 +7,14 @@
 
   - platform: wake_on_lan
     name: excelsior_wol
-    mac: "1C:1B:0D:9C:D1:CC"
+    mac: "40:16:7E:7B:D3:CC"
     host: "192.168.1.111"
     turn_off:
       service: shell_command.turn_off_excelsior
 
   - platform: wake_on_lan
     name: excelsior_force
-    mac: "1C:1B:0D:9C:D1:CC"
+    mac: "40:16:7E:7B:D3:CC"
     host: "192.168.1.111"
     turn_off:
       service: shell_command.excelsior_force_shutdown
@@ -26,7 +26,7 @@
     
   - platform: wake_on_lan
     name: enterprise_wol
-    mac: "40:16:7E:7B:D3:CC"
+    mac: "04:D9:F5:F8:E5:10"
     host: "192.168.1.113"
     turn_off:
       service: shell_command.turn_off_enterprise

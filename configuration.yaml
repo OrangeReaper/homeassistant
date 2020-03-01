@@ -67,12 +67,7 @@ shell_command:
   turn_off_enterprise: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.113  sudo shutdown -Ph now'
   turn_off_defiant: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.185 sudo shutdown -Ph now'
  
-# Enables support for tracking state changes over time
-history:
-  include:
-    domains:
-      - media_player
-      - device_tracker
+
 
      
 # Add support for weather
@@ -86,6 +81,16 @@ logbook:
     entities:
       - device_tracker.andy_phone_bt
       - device_tracker.paula_phone_bt
+
+# Enable recorder integration
+recorder: !include recorder.yaml
+
+# Enables support for tracking state changes over time
+history:
+  include:
+    domains:
+      - media_player
+      - device_tracker
 
 # Enables a map showing the location of tracked devices
 map:
@@ -109,7 +114,7 @@ device_tracker: !include device_tracker.yaml
 tuya: !include tuya.yaml
 switch: !include switches.yaml
 sensor: !include sensors.yaml
-recorder: !include recorder.yaml
+
 media_player: !include media_players.yaml
 binary_sensor: !include binary_sensors.yaml
 logger: !include logger.yaml
@@ -136,5 +141,10 @@ remote:
     name: Lounge
     host: 192.168.1.49
 
-mqtt:
-  broker: 192.168.1.110
+#mqtt:
+#  broker: 192.168.1.110
+
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+

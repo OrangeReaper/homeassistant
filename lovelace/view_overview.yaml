@@ -84,6 +84,3 @@ cards:
               yellow: 45
               green: 85
 
-      - type: entities 
-        entities:
-          - group.all_automations
