@@ -1,4 +1,4 @@
-# Overview
+1# Overview
 Welcome to my personal [Home Assistant](https://home-assistant.io) configurations. 
  
 All the automations included in this repository are working with Hass.io (Home Assistant 0.104.3 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
@@ -46,10 +46,9 @@ I use my own Android App [AndyMOTE](https://andymote.abondservices.com/) to cont
 The *Kodi Box* itself is a Raspberry Pi 4; as Raspberry Pis cannot be switched on using Wake on Lan (like in the Lounge) an automated script (Not part of HA) does this using MQTT (See [Application Note Here](https://andymote.abondservices.com/mqtt.html#an).)
 
 ### Automations
-1. When the TV is switched on, if it is dark, the light is turned on; it is turned off 2 minutes after the TV is turned off.
-2. If the TV is switched on, and the outside sensor then detects that it is dark then the lights are switched on.
+1. When [AndyMOTE](https://andymote.abondservices.com/) indicates (using MQTT) that the media system is being used, if it is dark, the light is turned on; it is turned off 2 minutes after [AndyMOTE](https://andymote.abondservices.com/) indicates that the media system is off.
+2. If the media system is being used (see 1, above) and the outside sensor detects that it is dark then the lights are switched on.
 3. The Kodi USB Drives are turned on and off in sympathy with the Kodi Box. 
-4. When the sun goes down, if the TV is switched on, the light is turned on.
 
 ## <a name="kitchen">Kitchen</a>
 
