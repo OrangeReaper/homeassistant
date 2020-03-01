@@ -1,7 +1,7 @@
 # Overview
 Welcome to my personal [Home Assistant](https://home-assistant.io) configurations. 
  
-All the automations included in this repository are working with Hass.io (Home Assistant 0.103.4 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
+All the automations included in this repository are working with Hass.io (Home Assistant 0.104.3 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
 Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system. 
 
@@ -41,7 +41,7 @@ In my mancave there are two things I control; a *media system* and *lighting*
 
 The *media system* consists of a TV, BluRay Player, Kodi Box and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [NMap](https://www.home-assistant.io/components/device_tracker.nmap_tracker/). The Kodi Box has an attached USB Drive one of which is powered on & off using a Tuya switch.
 
-The *Kodi Box* itself is a Raspberry Pi 4; as Raspberry Pis cannot be switched on using Wake on Lan (like in the Lounge) an automated script (Not part of HA) does this using MQTT (See [Application Note Here](https://andymote.abondservices.com/mqtt.html#an).
+The *Kodi Box* itself is a Raspberry Pi 4; as Raspberry Pis cannot be switched on using Wake on Lan (like in the Lounge) an automated script (Not part of HA) does this using MQTT (See [Application Note Here](https://andymote.abondservices.com/mqtt.html#an).)
 
 ### Automations
 1. When the TV is switched on, if it is dark, the light is turned on; it is turned off 2 minutes after the TV is turned off.
@@ -62,7 +62,7 @@ In the kitchen there are two things I control; a *Radio* and *lighting*
 
 [Top](#top)
 
-I run [Hassbian](https://www.home-assistant.io/docs/installation/hassbian/) on a Raspberry Pi 3+. This is located in the hall and connected to my router which is also in the hall near my front door. This is convenient for the presence detection used in [Welcome Home](#welcomehome) (below); I use a Z-Wave *Aeotec Multisensor 6* to realise the motion detection. There is also a light in the hallway which is controlled through a LightwaveRF switch.
+I run Hassio on a Raspberry Pi 3+. This is located in the hall and connected to my router which is also in the hall near my front door. This is convenient for the presence detection used in [Welcome Home](#welcomehome) (below); I use a Z-Wave *Aeotec Multisensor 6* to realise the motion detection. There is also a light in the hallway which is controlled through a LightwaveRF switch.
 
 ### Automations
 1. When movement is detected in the hall, and the sun is down, the light is switched on; the light stays switched on until movement is no longer detected for a period of 1 minute.
