@@ -4,7 +4,7 @@ trigger:
   entity_id: remote.lounge
 condition:
   condition: template
-  value_template: '{{ trigger.to_state.attributes.current_activity != "Kodi" }}'
+  value_template: '{{ trigger.to_state.attributes.current_activity != "Kodi" and trigger.to_state.state != "unavailable" }}'
 action:
   service: kodi.call_method
   data:

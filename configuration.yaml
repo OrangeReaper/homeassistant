@@ -144,7 +144,7 @@ remote:
 #mqtt:
 #  broker: 192.168.1.110
 
-sonoff:
-  username: !secret sonoff_username
-  password: !secret sonoff_password
+#sonoff:
+#  username: !secret sonoff_username
+#  password: !secret sonoff_password
 
