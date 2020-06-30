@@ -16,3 +16,4 @@ duckdns/
 *.txt
 www/
 .google*
+sync.sh

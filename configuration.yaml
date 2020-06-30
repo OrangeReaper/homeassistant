@@ -52,5 +52,6 @@ recorder: !include recorder.yaml
 timer: !include timers.yaml
 logbook: !include logbook.yaml
 logger: !include logger.yaml
+notify: !include notify.yaml
 # Required for Amazon Echo Integration
 api:
