@@ -1,0 +1,2 @@
+  unlock_landing: /config/shell/unlock_landing.sh
+  lock_landing: /config/shell/lock_landing.sh

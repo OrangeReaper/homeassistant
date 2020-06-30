@@ -1,7 +1,7 @@
 # Overview
 Welcome to my personal [Home Assistant](https://home-assistant.io) configurations. 
  
-All the automations included in this repository are working with Hass.io (Home Assistant 0.104.3 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
+All the automations included in this repository are working with Hass.io (Home Assistant  0.111.4 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
 Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system. 
 
@@ -9,7 +9,7 @@ Home assistant runs on a Raspberry Pi 3+ with a Z-Wave USB Adapter (Aeon Labs Zâ
 
 I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>switches</i>. 
 
-<b>Presence Detection</b> After various experiments with BLE fob devices, WiFi detection, Google, Owntracks and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted). These methods are also too slow to use to trigger events that need to happen quickly (eg turn on lights when arrive home)... so use a dedicated sensor for this; I opted to use Bluetooth only with a a 30 minute period set for ''consider_home'' to determine (coarsely) if individuals are <i>at home</i> or <i>away</i>; this is not fast enough to use for automations but is OK for use in automation <i>conditions</i> (eg only trigger something if someone is home).
+<b>Presence Detection</b> After various experiments with BLE fob devices, WiFi detection, Google, Owntracks and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted). These methods are also too slow to use to trigger events that need to happen quickly (eg turn on lights when arrive home)... so use a dedicated sensor when I need to do this. I opted to use Bluetooth only with a a 30 minute period set for ''consider_home'' to determine (coarsely) if individuals are <i>at home</i> or <i>away</i>; this is not fast enough to use for automations but is OK for use in automation <i>conditions</i> (eg only trigger something if someone is home).
 ([Life360](https://www.home-assistant.io/components/life360/) (introduced in Home Assistant release 0.95) did not track my wife's phone very well) [Owntracks](https://www.home-assistant.io/integrations/owntracks/) didn't work either.
 
 # <a name="top">Contents</a>
@@ -63,7 +63,7 @@ In the kitchen there are two things I control; a *Radio* and *lighting*
 
 [Top](#top)
 
-I run Hassio on a Raspberry Pi 3+. This is located in the hall and connected to my router which is also in the hall near my front door. This is convenient for the presence detection used in [Welcome Home](#welcomehome) (below); I use a Z-Wave *Aeotec Multisensor 6* to realise the motion detection. There is also a light in the hallway which is controlled through a LightwaveRF switch.
+I run Hassio on a Raspberry Pi 3+. This is located in my hallway; it is connected directly to my router which is also in the hall near my front door. I use a Z-Wave *Aeotec Multisensor 6* to realise the motion detection in my hallway. There is also a light in the hallway which is controlled through a LightwaveRF switch.
 
 ### Automations
 1. When movement is detected in the hall, and the sun is down, the light is switched on; the light stays switched on until movement is no longer detected for a period of 1 minute.
@@ -72,39 +72,23 @@ I run Hassio on a Raspberry Pi 3+. This is located in the hall and connected to 
 
 [Top](#top)
 
-*Welcome Home* switches the porch light and the hall light on for 2 minutes when movement is detected in the porch (and the sun is down); I use a <i>Neo Coolcam Motion Sensor 2 with temperature sensor</i> for the motion detection.
+*Welcome Home* switches the porch light and the hall light on for 2 minutes when movement is detected in the porch (and the sun is down); I use a <i>Neo Coolcam Motion Sensor 2 with temperature sensor</i> for the motion detection in my porch.
 
 ## <a name="pc">PC</a>
 
 [Top](#top)
 
-I have several USB drives attached to my main PC (Andy-Ubuntu), a NAS Drive (Defiant) and a second PC (Excelsior) which has several USB Drives attached. The PCs and NAS are connected to my network  so are detectable using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). Everything except my main PC is controllable through LightwaveRF or tuya switches.
+I have several USB drives attached to my main PC (Enterprise) and a second PC (Excelsior) which has several USB Drives attached. The PCs and NAS are connected to my network  so are detectable using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). Everything except my main PC is controllable through LightwaveRF or tuya switches.
 
-I have a group: 'computers' which consists of my Main PC and Second PC (excelsior). 
+I have a group: 'computers' which consists of my Main PC (Enterprise) and Second PC (excelsior). 
 
 I have two other groups representing usb drives connected to computers (main_pc_usb_drives and excelsior_usb_drives).
 
 
 ### Automations
-1. When Defiant NAS is switched off it is also disconnected from mains supply.
-2. When Excelsior is switched off it is also disconnected from mains power supply.
-3. When my main PC is switched off, all attached USB Drives are also switched off.
-3. When Excelsior is switched off, all attached USB Drives and power to Excelsior are also switched off.
-4. When a PC in group 'computers' is switched on my NAS drive is switched on using Wake-on-LAN
-5. When all PCs in group 'computers' are switched off my NAS drive is switched off using script.turn_off_defiant
-6. Excelsior is turned on once a day at 4:00am.
-
-### Excelsior
-My Excelsior PC has a wake_on_lan component associated with it [See Here](https://www.home-assistant.io/components/wake_on_lan/). This component is used to switch the PC off via a lovelace Entity Button.
-
-Excelsior can be switched off from the lovelace interface; this uses a shell command and ssh. This switch off can be unconditional (forced) or by request. In the former case Excelsior will be shutdown immediately, in the latter case a request is sent and Exelsior shutd down when it is ready to do so.
-
-### Defiant
-Defiant is an (ancient but still going strong) Netgear ReadyNAS Duo v2.
-
-My Defiant NAS PC has a wake_on_lan component associated with it [See Here](https://www.home-assistant.io/components/wake_on_lan/). This component is used to switch the NAS off via a lovelace Entity Button.
-
-Defiant can be manually and unconditionally switched off from the lovelace interface; this uses a shell command and ssh.
+1. When Enterprise is switched off, all attached USB Drives are also switched off.
+2. When Excelsior is switched off, all attached USB Drives are also switched off.
+3. Excelsior is turned on once a day at 4:00am using wake on lan.
 
 
 ## <a name="startup">Start Automations Automation</a>

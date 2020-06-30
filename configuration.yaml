@@ -1,150 +1,56 @@
-homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret latitude 
-  longitude: !secret longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: !secret elevation
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/London
-  # Customization file
-  customize: !include customize.yaml
-  auth_providers:
-   - type: homeassistant
 
-#enable the auth component
-auth:
+# Configure a default setup of Home Assistant ie:
+#    Automation
+#    Home Assistant Cloud
+#    Configuration
+#    Frontend
+#    History
+#    Input boolean
+#    Input datetime
+#    Input number
+#    Input select
+#    Input text
+#    Logbook
+#    Map
+#    Mobile App Support
+#    Person
+#    Scene
+#    Scripts
+#    Simple Service Discovery Protocol (SSDP)
+#    Sun
+#    System Health
+#    Updater
+#    Zero-configuration networking (zeroconf)
+#    Zone
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
-# Enable wake-on-lan
-wake_on_lan:
-
-# Enable Hive Component
-hive:
-  username: !secret hive_username
-  password: !secret hive_password
-
-frontend: !include frontend.yaml
-
-lovelace:
-  mode: yaml
-
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-#http:
-#  base_url: habond.duckdns.org:8123
-#  ssl_certificate: /home/homeassistant/.homeassistant/dehydrated/certs/habond.duckdns.org/cert.pem
-#  ssl_key: /home/homeassistant/.homeassistant/dehydrated/certs/habond.duckdns.org/privkey.pem
-#  ssl_certificate: /home/homeassistant/.homeassistant/ssl/keys/cert.pem
-#  ssl_key: /home/homeassistant/.homeassistant/ssl/keys/privkey.pem
-
-
-http:
-  base_url: habond.duckdns.org:8123
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
-
-
-# Discover some devices automatically
-discovery:
-  ignore:
-    - igd
-
-# Make sure Z-Wave hub is detected
-zwave:
-  usb_path: /dev/serial/by-id/usb-0658_0200-if00
-  autoheal: "False"
-
-shell_command:
-  unlock_landing: /config/shell/unlock_landing.sh
-  lock_landing: /config/shell/lock_landing.sh
-  excelsior_force_shutdown: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.111 sudo shutdown -Ph now'
-  turn_off_excelsior: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.111 touch /home/homeassistant/all/shutdown'
-  turn_off_enterprise: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.113  sudo shutdown -Ph now'
-  turn_off_defiant: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.185 sudo shutdown -Ph now'
- 
-
-
-     
-# Add support for weather
-weather:
-  - platform: darksky
-    api_key: !secret darksky_apikey
-
-# View all events in a logbook
-logbook:
-  exclude:
-    entities:
-      - device_tracker.andy_phone_bt
-      - device_tracker.paula_phone_bt
-
-# Enable recorder integration
-recorder: !include recorder.yaml
-
-# Enables support for tracking state changes over time
-history:
-  include:
-    domains:
-      - media_player
-      - device_tracker
-
-# Enables a map showing the location of tracked devices
-map:
-
-# Track the sun
-sun:
-
-# Allow diagnosing system problems
-system_health:
 
 # Text to speech
 tts:
   - platform: google_translate
-    service_name: google_say
 
-lightwave: !include lightwave.yaml
 group: !include groups.yaml
+homeassistant: !include homeassistant.yaml
+http: !include http.yaml
 automation: !include_dir_list automation/
 script: !include scripts.yaml
-device_tracker: !include device_tracker.yaml
-tuya: !include tuya.yaml
-switch: !include switches.yaml
+scene: !include scenes.yaml
+lightwave: !include lightwave.yaml
+zwave: !include zwave.yaml
+frontend: !include frontend.yaml
+lovelace: !include lovelace.yaml
 sensor: !include sensors.yaml
-
 media_player: !include media_players.yaml
 binary_sensor: !include binary_sensors.yaml
-logger: !include logger.yaml
-
-# Custom Panel ... Z-Wave Graph
-panel_custom:
-  - name: zwavegraph2
-    sidebar_title: Z-Wave Graph
-    sidebar_icon: mdi:access-point-network
-    url_path: zwave
-
-timer:
-  all_home:
-    duration: '00:10:00'
-
-# Amazon Echo Integration
-api:
-
+switch: !include switches.yaml
 alexa: !include alexa.yaml
-
-#Harmony Remote
-remote:
-  - platform: harmony
-    name: Lounge
-    host: 192.168.1.49
-
-#mqtt:
-#  broker: 192.168.1.110
-
-#sonoff:
-#  username: !secret sonoff_username
-#  password: !secret sonoff_password
-
+panel_custom: !include custompanels.yaml
+device_tracker: !include device_tracker.yaml
+hive: !include hive.yaml
+shell_command: !include shell_commands.yaml
+recorder: !include recorder.yaml
+timer: !include timers.yaml
+logbook: !include logbook.yaml
+logger: !include logger.yaml
+# Required for Amazon Echo Integration
+api:

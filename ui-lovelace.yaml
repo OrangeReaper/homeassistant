@@ -1,11 +1,7 @@
 title: Our Home
-resources:
-  - url: /local/button-card.js
-    type: module
 views:
   - !include lovelace/view_overview.yaml
   - !include lovelace/view_lounge.yaml
   - !include lovelace/view_mancave.yaml
   - !include lovelace/view_pc.yaml
   - !include lovelace/view_ground_floor.yaml
-#  - !include lovelace/view_automations.yaml

@@ -1,5 +1,4 @@
 alias: start automations on startup
-hide_entity: True
 trigger:
   platform: homeassistant
   event: start

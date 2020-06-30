@@ -1,0 +1,4 @@
+  exclude:
+    entities:
+      - device_tracker.andy_phone_bt
+      - device_tracker.paula_phone_bt

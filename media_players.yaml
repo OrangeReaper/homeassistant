@@ -21,5 +21,6 @@
         data:
           entity_id: media_player.mancave_kodi
           method: System.Shutdown
-#  - platform: frontier_silicon
-#    host: 192.168.1.118
+  - platform: frontier_silicon
+    name: "Roberts Radio"
+    host: 192.168.1.118

@@ -1,6 +1,5 @@
   lounge_lights:
     name: Lounge Lights
-    view: no
     entities:
       - switch.picture_light
       - switch.standing_light
@@ -9,27 +8,23 @@
 
   main_pc_usb_drives:
     name: MainPC USB Drives
-    view: no
     entities:
       - switch.dual_usbs
 
   residents:
     name: Residents
-    view: no
     entities:
       - sensor.paula
       - sensor.andy
 
   computers:
     name: Computers
-    view: no
     entities:
       - binary_sensor.enterprise
       - binary_sensor.excelsior
 
   excelsior_usb_drives:
     name: Excelsior USB Drives
-    view: no
     entities:
       - switch.05200142b4e62d16937d
       - switch.seagate_1

@@ -34,7 +34,7 @@ cards:
             graph: none
             name: Curr Elev
       - type: weather-forecast
-        entity: weather.dark_sky
+        entity: weather.home
         name: Lee-on-the-Solent
       - type: horizontal-stack
         cards:
