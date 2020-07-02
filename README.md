@@ -16,7 +16,6 @@ I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>swi
 [Lounge](#lounge) | [Mancave](#mancave) | [Kitchen](#kitchen) | [Hallway](#hallway)
 ----------------- | ------------------- | ------------------- | -------------------
 <b>[Welcome Home Automation](#welcomehome)</b> | <b>[PC](#pc)</b> | <b>[Start Automations](#startup)</b> | <b>[Lightwave RF](#lightwave)</b>
------------------ | ------------------- | ------------------- | -------------------
 <b>[NAS Drive Integration](#nasdrive)
 
 ## <a name="lounge">Lounge</a>
@@ -113,7 +112,9 @@ I have a NAS Drive (Defiant) on my network which I use to store various files & 
 To achieve this I have three automations:
 
 **defiant** this automation triggers when **sensor.defiant** changes from **on** to **off** and stays **off** for five minutes; the sensor is a simple ping sensor that checks that the NAS is switched on (running). When triggered, the NAS is 'switched off' and the automation disconnects the power from the NAS.
+
 **nas_drive_on** this automation triggers whenever one of my computers is switched on (**group.computers** changes to **on**); it simply applies power to the NAS Drive (which will cause **sensor.defiant** to adopt the **on** state once the NAS has initialised.
+
 **nas_drive_off** this automation triggers when **group.computers** changes to **off** for five minutes. It issues a shutdown command to the NAS using SSH
 
 For more details on using homeassistant as an SSH Client to access and control SSH Servers [read this article](https://github.com/OrangeReaper/homeassistant/wiki/Hassio-Integration-with-other-entities-using-SSH)
