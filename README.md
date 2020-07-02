@@ -1,7 +1,7 @@
 # Overview
 Welcome to my personal [Home Assistant](https://home-assistant.io) configurations. 
  
-All the automations included in this repository are working with Hass.io (Home Assistant  0.111.4 and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
+All the automations included in this repository are working with Hass.io (Home Assistant  0.111.4) and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
 Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system. 
 
@@ -111,9 +111,9 @@ I have a NAS Drive (Defiant) on my network which I use to store various files & 
 
 To achieve this I have three automations:
 
-1. **defiant** this automation triggers when **sensor.defiant** changes from **on** to **off** and stays **off** for five minutes; the sensor is a simple ping sensor that checks that the NAS is switched on (running). When triggered, the NAS is 'switched off' and the automation disconnects the power from the NAS.
-2. **nas_drive_on** this automation triggers whenever one of my computers is switched on (**group.computers** changes to **on**); it simply applies power to the NAS Drive (which will cause **sensor.defiant** to adopt the **on** state once the NAS has initialised.
-3. **nas_drive_off** this automation triggers when **group.computers** changes to **off** for five minutes. It issues a shutdown command to the NAS using SSH
+1. **defiant** this automation triggers when **sensor.defiant** changes from **on** to **off** and stays **off** for five minutes; the sensor is a simple ping sensor that checks that the NAS is switched on (running). When triggered, the NAS is considered to be 'off' and the automation disconnects the power from the NAS.
+2. **nas_drive_on** this automation triggers whenever one of my computers is switched on (**group.computers** changes to **on**); it simply applies power to the NAS Drive (which will cause **sensor.defiant** to adopt the **on** state once the NAS has initialised).
+3. **nas_drive_off** this automation triggers when **group.computers** changes to **off** for five minutes. It issues a shutdown command to the NAS using SSH.
 
 For more details on using homeassistant as an SSH Client to access and control SSH Servers [read this article](https://github.com/OrangeReaper/homeassistant/wiki/Hassio-Integration-with-other-entities-using-SSH)
 
