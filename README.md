@@ -16,6 +16,8 @@ I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>swi
 [Lounge](#lounge) | [Mancave](#mancave) | [Kitchen](#kitchen) | [Hallway](#hallway)
 ----------------- | ------------------- | ------------------- | -------------------
 <b>[Welcome Home Automation](#welcomehome)</b> | <b>[PC](#pc)</b> | <b>[Start Automations](#startup)</b> | <b>[Lightwave RF](#lightwave)</b>
+----------------- | ------------------- | ------------------- | -------------------
+<b>[NAS Drive Integration](#nasdrive)
 
 ## <a name="lounge">Lounge</a>
 
@@ -101,3 +103,18 @@ When commissioning my Home Assistant system I experienced problems with automati
 A quick note on my experience with Lightwave RF (Gen 1).
 
 My Lightwave RF switches work as expected most of the time, but, occasionally fail to fire (switch on or off when commanded); this can be an issue when using Alexa or the Lightwave RF app and means that the command has to be re-issued sometimes. In order to get round this in Home Automation I usually invoke an on/off command more than once to make sure things get through.
+
+## <a name="nasdrive">NAS Drive Integration</a>
+
+[Top](#top)
+
+I have a NAS Drive (Defiant) on my network which I use to store various files & archive data that I have accumilated over the years; it is not a media server. I want this data to be available when my PCs are switched on and I want the drive switched off when the PCs are switched off.
+
+To achieve this I have three automations:
+
+**defiant** this automation triggers when **sensor.defiant** changes from **on** to **off** and stays **off** for five minutes; the sensor is a simple ping sensor that checks that the NAS is switched on (running). When triggered, the NAS is 'switched off' and the automation disconnects the power from the NAS.
+**nas_drive_on** this automation triggers whenever one of my computers is switched on (**group.computers** changes to **on**); it simply applies power to the NAS Drive (which will cause **sensor.defiant** to adopt the **on** state once the NAS has initialised.
+**nas_drive_off** this automation triggers when **group.computers** changes to **off** for five minutes. It issues a shutdown command to the NAS using SSH
+
+For more details on using homeassistant as an SSH Client to access and control SSH Servers [read this article](https://github.com/OrangeReaper/homeassistant/wiki/Hassio-Integration-with-other-entities-using-SSH)
+

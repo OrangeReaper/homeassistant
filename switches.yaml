@@ -23,3 +23,10 @@
     host: "192.168.1.113"
     turn_off:
       service: shell_command.turn_off_enterprise
+      
+  - platform: wake_on_lan
+    name: defiant_wol
+    mac: "00:1E:06:37:74:6C"
+    host: "192.168.1.185"
+    turn_off:
+      service: shell_command.turn_off_defiant
