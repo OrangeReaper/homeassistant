@@ -104,11 +104,15 @@
       mancave_occupied:
         friendly_name: "ManCave Occupied"
         value_template: >-
-          {% if states('sensor.andymote') == "Off"  %}
+          {% if states('binary_sensor.andymote') == "On" %}
+            {% if states('sensor.andymote') == "Off"  %}
               no
-          {% else %}
+            {% else %}
               yes
-          {% endif %}
+            {% endif %}
+          {% else %}
+            no
+          {% endif %} 
   - platform: template
     sensors:
       mancave_kodi:

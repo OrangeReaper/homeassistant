@@ -4,6 +4,7 @@ trigger:
   platform: state
   entity_id: binary_sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_sensor
   to: "on"
+mode: restart
 condition:
   condition: and
   conditions: 
@@ -21,16 +22,14 @@ condition:
 action:
   - service: switch.turn_on
     entity_id: switch.porch_light
-  - delay: '00:00:02'
+  - service: switch.turn_on
+    entity_id: switch.hall_light
+  - delay: '00:00:01'
   - service: switch.turn_on
     entity_id: switch.porch_light
-  - delay: '00:00:02'
   - service: switch.turn_on
     entity_id: switch.hall_light
-  - delay: '00:00:02'
-  - service: switch.turn_on
-    entity_id: switch.hall_light
-  - delay: '00:02:00'
+  - delay: '00:02:30'
   - service: switch.turn_off
     entity_id: switch.porch_light
   - service: switch.turn_off
@@ -45,4 +44,3 @@ action:
     entity_id: switch.porch_light
   - service: switch.turn_off
     entity_id: switch.hall_light
-
