@@ -18,7 +18,7 @@ condition:
           state: 'no'
         - condition: state
           entity_id: timer.all_home
-          state: 'idle'
+          state: 'active'
 action:
   - service: switch.turn_on
     entity_id: switch.porch_light

@@ -34,7 +34,7 @@
     scan_interval: 30
     count: 1
   - platform: ping
-    host: 192.168.1.112
+    host: 192.168.1.90
     name: andy_phone_wifi
     scan_interval: 30
     count: 3
@@ -79,7 +79,7 @@
     scan_interval: 30
     count: 1
   - platform: ping
-    host: 192.168.1.90
+    host: 192.168.1.24
     name: lounge_radio
     scan_interval: 30
     count: 3
