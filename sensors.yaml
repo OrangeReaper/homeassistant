@@ -37,8 +37,6 @@
             {% endif %}
           {% endif %}
 
-    
-  - platform: yr
   - platform: template
     sensors:
       dark:
@@ -104,7 +102,7 @@
       mancave_occupied:
         friendly_name: "ManCave Occupied"
         value_template: >-
-          {% if states('binary_sensor.andymote') == "On" %}
+          {% if states('binary_sensor.andymote') == "on" %}
             {% if states('sensor.andymote') == "Off"  %}
               no
             {% else %}
@@ -127,7 +125,6 @@
     sensors:
       porch_pir_battery:
         friendly_name: "Porch PIR Battery"
-        entity_id: zwave.porch_motion_sensor
         value_template: "{{ state_attr('zwave.porch_motion_sensor', 'battery_level')|int|default(75) }}"
         device_class: battery
         unit_of_measurement: '%'

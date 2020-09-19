@@ -1,7 +1,7 @@
 # Overview
 Welcome to my personal [Home Assistant](https://home-assistant.io) configurations. 
  
-All the automations included in this repository are working with Hass.io (Home Assistant  0.113.1) and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
+All the automations included in this repository are working with Hass.io (Home Assistant  0.115.1) and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
 Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system. 
 
@@ -9,7 +9,7 @@ Home assistant runs on a Raspberry Pi 3+ with a Z-Wave USB Adapter (Aeon Labs Zâ
 
 I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>switches</i>. 
 
-<b>Presence Detection</b> After various experiments with BLE fob devices, WiFi detection, Google, Owntracks and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted). These methods are also too slow to use to trigger events that need to happen quickly (eg turn on lights when arrive home)... so use a dedicated sensor when I need to do this. I opted to use Bluetooth only with a a 30 minute period set for ''consider_home'' to determine (coarsely) if individuals are <i>at home</i> or <i>away</i>; this is not fast enough to use for automations but is OK for use in automation <i>conditions</i> (eg only trigger something if someone is home).
+<b>Presence Detection</b> After various experiments with BLE fob devices, WiFi detection, Google, Owntracks and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted). These methods are also too slow to use to trigger events that need to happen quickly (eg turn on lights when arrive home)... so use a dedicated sensor when I need to do this. I opted to use Bluetooth only as described [Here](#presence).
 ([Life360](https://www.home-assistant.io/components/life360/) (introduced in Home Assistant release 0.95) did not track my wife's phone very well) [Owntracks](https://www.home-assistant.io/integrations/owntracks/) didn't work either.
 
 # <a name="top">Contents</a>
@@ -73,7 +73,9 @@ I run Hassio on a Raspberry Pi 3+. This is located in my hallway; it is connecte
 
 [Top](#top)
 
-*Welcome Home* switches the porch light and the hall light on for 2 minutes when movement is detected in the porch (and the sun is down); I use a <i>Neo Coolcam Motion Sensor 2 with temperature sensor</i> for the motion detection in my porch.
+I use a <i>Neo Coolcam Motion Sensor 2 with temperature sensor</i> for the motion detection in my porch.
+
+The idea of the *Welcome Home* automation is to switch the porch light and the hall light on for 2 minutes when movement is detected in the porch, if the sun is down and one of us is not home. ie this light only comes on when one of us comes home and it's dark; The timer <i>all_home</i> is used in this automation in case sensor.all_home detects someone coming home before this automation triggers. ie the porch light is allowed to be switched on when the timer is <i>active</i> or sensor.all_home says <i>no</i>.
 
 ## <a name="pc">PC</a>
 
@@ -117,3 +119,12 @@ To achieve this I have three automations:
 
 For more details on using homeassistant as an SSH Client to access and control SSH Servers [read this article](https://github.com/OrangeReaper/homeassistant/wiki/Hassio-Integration-with-other-entities-using-SSH)
 
+# <a name="presence">Presence Detection</a>
+
+For presence detection I have a number of things that work together. A timer called <i>all_home</i> and sensors called <i>all_home, paula and andy</i>. 
+
+The timer is set to 10 minutes (but this is easily changed by editing the value in <i>timers.yaml</i>. It starts when <i>sensor.all_home</i> changes to <i>yes</i>.
+
+The sensors <i>paula and andy</i> use bluetooth <i>device_trackers</i> and wifi <i>binary_sensors</i> to determine if mobile phones belonging to my wife or I are present in the house. Here the sensor will be set to <i>home</i> if either the wifi or bluetooth for the 'phone is detected and otherwise the sensor is set to <i>away</i>.
+
+The sensor <i>all_home</i> is set to <i>yes</i> if both <i>sensor.paula</i> and <i>sensor.andy</i> are set to <i>home</i>.

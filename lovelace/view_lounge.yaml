@@ -20,6 +20,7 @@ cards:
           "Radio": /local/radio.png
           "BluRay": /local/bluray.png
           "Watch TV": /local/tv.png
+          "You View": /local/youview.png
         entity: sensor.harmony_activity
         show_state: false
         show_name: false
