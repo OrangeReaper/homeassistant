@@ -30,12 +30,33 @@ cards:
         show_header_toggle: false
         entities:
           - switch.unit_lights
-          - switch.standing_light
           - switch.picture_light
           - switch.bass_amp
           - switch.lounge_kodi_usb
           - switch.landing_light
+          
+      - type: glance
+        entities:
+          - entity: scene.leqmmlgeayesuhko
+            icon: 'mdi:lightbulb-on'
+            show_state: false
+            tap_action:
+              action: call-service
+              
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.leqmmlgeayesuhko
+          - entity: scene.lt8ofk6c3tohj2jw
+            icon: 'mdi:lightbulb-off'
+            show_state: false
+            tap_action:
+              action: call-service
+              
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.lt8ofk6c3tohj2jw
+          
       - type: media-control
-        entity:  media_player.lounge_kodi
+        entity:  media_player.loungekodi
 
 

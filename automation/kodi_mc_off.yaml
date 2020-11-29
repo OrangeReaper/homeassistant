@@ -6,5 +6,5 @@ trigger:
 action:
   service: kodi.call_method
   data:
-    entity_id: media_player.mancave_kodi
+    entity_id: media_player.mancavekodi
     method: System.Shutdown

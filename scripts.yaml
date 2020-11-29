@@ -4,9 +4,9 @@
         data:
           entity_id: switch.picture_light
       - delay: 2
-      - service: homeassistant.turn_on
+      - service: scene.turn_on
         data:
-          entity_id: switch.standing_light
+          entity_id: scene.leqmmlgeayesuhko
       - delay: 2
       - service: homeassistant.turn_on
         data:
@@ -20,9 +20,9 @@
         data:
           entity_id: switch.picture_light
       - delay: 2
-      - service: homeassistant.turn_on
+      - service: scene.turn_on
         data:
-          entity_id: switch.standing_light
+          entity_id: scene.leqmmlgeayesuhko
       - delay: 2
       - service: homeassistant.turn_on
         data:

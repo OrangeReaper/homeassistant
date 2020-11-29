@@ -28,5 +28,5 @@ cards:
           - switch.05200304bcddc2e0fa9b_3
           - switch.05200304bcddc2e0fa9b_4
       - type: media-control
-        entity: media_player.mancave_kodi
+        entity: media_player.mancavekodi
 

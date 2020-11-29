@@ -8,5 +8,5 @@ condition:
 action:
   service: kodi.call_method
   data:
-    entity_id: media_player.lounge_kodi
+    entity_id: media_player.loungekodi
     method: System.Shutdown

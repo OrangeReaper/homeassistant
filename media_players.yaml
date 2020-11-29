@@ -1,26 +1,3 @@
-  - platform: kodi
-    name: "Lounge Kodi"
-    host: 192.168.1.115
-    username: !secret kodi_username
-    password: !secret kodi_password
-    turn_off_action:
-      - service: kodi.call_method
-        data:
-          entity_id: media_player.lounge_kodi
-          method: System.Shutdown
-    turn_on_action:
-      service: switch.turn_on
-      entity_id: switch.kodi_lounge
-  - platform: kodi
-    name: "ManCave Kodi"
-    host: 192.168.1.50
-    username: !secret kodi_username
-    password: !secret kodi_password
-    turn_off_action:
-      - service: kodi.call_method
-        data:
-          entity_id: media_player.mancave_kodi
-          method: System.Shutdown
   - platform: frontier_silicon
     name: "Roberts Radio"
     host: 192.168.1.118
