@@ -16,7 +16,7 @@ I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>swi
 [Lounge](#lounge) | [Mancave](#mancave) | [Kitchen](#kitchen) | [Hallway](#hallway)
 ----------------- | ------------------- | ------------------- | -------------------
 <b>[Welcome Home Automation](#welcomehome)</b> | <b>[PC](#pc)</b> | <b>[Start Automations](#startup)</b> | <b>[Lightwave RF](#lightwave)</b>
-<b>[NAS Drive Integration](#nasdrive) | <b>[Printer Ink Monitor](#printerink)</b>
+<b>[NAS Drive Integration](#nasdrive) | <b>[Printer Toner Level Monitoring](#printerink)</b>
 
 ## <a name="lounge">Lounge</a>
 
