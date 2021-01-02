@@ -7,12 +7,6 @@
       - light.6c3a2d554b0577fa0bca7v
       - switch.unit_lights
       - switch.christmas_tree
-
-  corner_light:
-  entities:
-      - light.6c14720adf35713486j3sv
-      - light.6cc255e4f21bd42749akzh
-      - light.6c3a2d554b0577fa0bca7v
       
   main_pc_usb_drives:
     name: MainPC USB Drives

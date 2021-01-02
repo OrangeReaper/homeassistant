@@ -1,2 +1,12 @@
   all_home:
     duration: '00:10:00'
+  andy_home:
+    duration: '00:10:00'
+  andy_away:
+    duration: '00:10:00'
+  paula_home:
+    duration: '00:10:00'
+  paula_away:
+    duration: '00:10:00'
+  hall_light_off:
+    duration: '00:02:00'

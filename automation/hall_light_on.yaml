@@ -3,25 +3,26 @@ trigger:
   platform: state
   entity_id: binary_sensor.aeon_labs_zw100_multisensor_6_sensor
   to: "on"
-mode: restart
+#mode: restart
 condition: 
   condition: state 
   entity_id: sensor.dark
   state: 'yes'
 action:
-  - service: switch.turn_on
-    entity_id: switch.hall_light
-  - service: switch.turn_on
-    entity_id: switch.hall_light
-  - delay: '00:02:30'
-  - service: switch.turn_off
-    entity_id: switch.hall_light
-  - service: switch.turn_off
-    entity_id: switch.porch_light
-  - delay: '00:00:10'
-  - service: switch.turn_off
-    entity_id: switch.hall_light
-  - service: switch.turn_off
-    entity_id: switch.porch_light
+  - service: script.hall_light_on
+#  - service: switch.turn_on
+#    entity_id: switch.hall_light
+#  - service: switch.turn_on
+#    entity_id: switch.hall_light
+#  - delay: '00:02:30'
+#  - service: switch.turn_off
+#    entity_id: switch.hall_light
+#  - service: switch.turn_off
+#    entity_id: switch.porch_light
+#  - delay: '00:00:10'
+#  - service: switch.turn_off
+#    entity_id: switch.hall_light
+#  - service: switch.turn_off
+#    entity_id: switch.porch_light
 
 

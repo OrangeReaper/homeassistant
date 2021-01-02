@@ -43,3 +43,38 @@ cards:
         - switch.pc_light
         - switch.pi3_dev
 
+    - type: horizontal-stack
+      cards:
+        - type: gauge
+          name: black
+          theme: card_black_border
+          unit: '%'
+          entity: sensor.black
+          severity:
+            red: 0
+            yellow: 10
+            green: 40
+        - type: gauge
+          name: cyan
+          unit: '%'
+          entity: sensor.cyan
+          severity:
+            red: 0
+            yellow: 10
+            green: 40
+        - type: gauge
+          name: magenta
+          unit: '%'
+          entity: sensor.magenta
+          severity:
+            red: 0
+            yellow: 10
+            green: 40
+        - type: gauge
+          name: yellow
+          unit: '%'
+          entity: sensor.yellow
+          severity:
+            red: 0
+            yellow: 10
+            green: 40

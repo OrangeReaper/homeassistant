@@ -1,0 +1,15 @@
+alias: printer black
+trigger:
+  platform: event
+  event_type: state_changed
+  event_data:
+    entity_id: sensor.hp_color_laser_150nw_black_toner_s_n_crum_190702a13cf
+condition:
+  - condition: template
+    value_template: "{{ not is_state('sensor.hp_color_laser_150nw_black_toner_s_n_crum_190702a13cf', 'unavailable') }}"
+action:
+  service: mqtt.publish
+  data:
+    topic: "printer/black"
+    payload_template: "{{ states('sensor.hp_color_laser_150nw_black_toner_s_n_crum_190702a13cf') }}"
+    retain: true

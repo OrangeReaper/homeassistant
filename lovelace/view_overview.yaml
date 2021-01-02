@@ -39,7 +39,7 @@ cards:
       - type: horizontal-stack
         cards:
           - type: thermostat
-            entity: climate.heating
+            entity: climate.hive_temperature
             name: Hive Temp
       - type: horizontal-stack
         cards:

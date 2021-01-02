@@ -1,0 +1,8 @@
+alias: Start Timer when andy phone wifi not detected
+trigger:
+  platform: state
+  entity_id: binary_sensor.andy_phone_wifi
+  to: "off"
+action:
+  - service: timer.start
+    entity_id: timer.andy_away

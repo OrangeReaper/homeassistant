@@ -12,7 +12,23 @@
   - platform: mqtt
     name: "andymote"
     state_topic: "andymote"
-    
+
+  - platform: mqtt
+    name: "magenta"
+    state_topic: "printer/magenta"
+    force_update: true
+  - platform: mqtt
+    name: "black"
+    state_topic: "printer/black"
+    force_update: true
+  - platform: mqtt
+    name: "cyan"
+    state_topic: "printer/cyan"
+    force_update: true
+  - platform: mqtt
+    name: "yellow"
+    state_topic: "printer/yellow"
+    force_update: true
   - platform: template
     sensors:
       harmony_activity:
@@ -74,27 +90,43 @@
       paula:
         friendly_name: "Paula"
         value_template: >-
-          {% if is_state('device_tracker.paula_phone_bt', 'home')  %}
-              home
+          {% if is_state('timer.paula_away', 'active')  %}
+                home
           {% else %}
-            {% if is_state('binary_sensor.paula_phone_wifi', 'on')  %}
-              home
+            {% if is_state('timer.paula_home', 'active')  %}
+                home
             {% else %}
-              away
+              {% if is_state('device_tracker.paula_phone_bt', 'home')  %}
+                  home
+              {% else %}
+                {% if is_state('binary_sensor.paula_phone_wifi', 'on')  %}
+                  home
+                {% else %}
+                  away
+                {% endif %}
+              {% endif %}
             {% endif %}
-          {% endif %}
+          {% endif %}              
   - platform: template
     sensors:
       andy:
         friendly_name: "Andy"
         value_template: >-
-          {% if is_state('device_tracker.andy_phone_bt', 'home')  %}
-              home
+          {% if is_state('timer.andy_away', 'active')  %}
+                home
           {% else %}
-            {% if is_state('binary_sensor.andy_phone_wifi', 'on')  %}
-              home
+            {% if is_state('timer.andy_home', 'active')  %}
+                home
             {% else %}
-              away
+              {% if is_state('device_tracker.andy_phone_bt', 'home')  %}
+                  home
+              {% else %}
+                {% if is_state('binary_sensor.andy_phone_wifi', 'on')  %}
+                  home
+                {% else %}
+                  away
+                {% endif %}
+              {% endif %}
             {% endif %}
           {% endif %}
   - platform: template
@@ -132,7 +164,7 @@
     sensors:
       hive_battery:
         friendly_name: "Hive Battery"
-        value_template: '{{ states.climate.heating.attributes.battery_level | replace("%","") | int }}'
+        value_template: '{{ states.climate.hive_temperature.attributes.battery | replace("%","") | int }}'
   - platform: template
     sensors:
       nextsunrise:

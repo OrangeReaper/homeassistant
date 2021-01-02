@@ -4,9 +4,10 @@
         data:
           entity_id: switch.picture_light
       - delay: 2
-      - service: scene.turn_on
+      - service: light.turn_on
         data:
-          entity_id: scene.leqmmlgeayesuhko
+          entity_id: light.corner_light
+          brightness: 51
       - delay: 2
       - service: homeassistant.turn_on
         data:
@@ -20,9 +21,10 @@
         data:
           entity_id: switch.picture_light
       - delay: 2
-      - service: scene.turn_on
+      - service: light.turn_on
         data:
-          entity_id: scene.leqmmlgeayesuhko
+          entity_id: light.corner_light
+          brightness: 51
       - delay: 2
       - service: homeassistant.turn_on
         data:
@@ -40,3 +42,14 @@
       - service: homeassistant.turn_on
         data:
           entity_id: switch.defiant_wol
+  hall_light_on:
+    sequence:
+      - service: timer.cancel
+        data:
+          entity_id: timer.hall_light_off
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.hall_light
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.hall_light

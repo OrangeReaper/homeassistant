@@ -2,11 +2,14 @@
 alias: Turn off hall light (pir)
 #BELT AND BRACES SWITCH OFF
 trigger:
-  platform: state
-  entity_id: binary_sensor.aeon_labs_zw100_multisensor_6_sensor
-  to: "off"
-  for:
-    minutes: 3
+  platform: event
+  event_type: timer.finished
+  event_data:
+    entity_id: timer.hall_light_off
+#  entity_id: binary_sensor.aeon_labs_zw100_multisensor_6_sensor
+#  to: "off"
+#  for:
+#    minutes: 3
 #condition:
 #  - condition: state
 #    entity_id: switch.hall_light

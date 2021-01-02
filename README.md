@@ -1,7 +1,7 @@
 # Overview
 Welcome to my personal [Home Assistant](https://home-assistant.io) configurations. 
  
-All the automations included in this repository are working with Hass.io (Home Assistant  0.115.1) and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
+All the automations included in this repository are working with Hass.io (Home Assistant 2020.12.1) and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
 Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system. 
 
@@ -9,7 +9,7 @@ Home assistant runs on a Raspberry Pi 3+ with a Z-Wave USB Adapter (Aeon Labs Zâ
 
 I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>switches</i>. 
 
-<b>Presence Detection</b> After various experiments with BLE fob devices, WiFi detection, Google, Owntracks and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted). These methods are also too slow to use to trigger events that need to happen quickly (eg turn on lights when arrive home)... so use a dedicated sensor when I need to do this. I opted to use Bluetooth only as described [Here](#presence).
+<b>Presence Detection</b> After various experiments with BLE fob devices, WiFi detection, Google, Owntracks and BlueTooth detection I decided that all these methods are not reliable (and that BLE is currently immature, not to be trusted). These methods are also too slow to use to trigger events that need to happen quickly (eg turn on lights when arrive home)... so I use a dedicated sensor when I need to do this. I opted to use a combination of Bluetooth and WiFi as described [Here](#presence).
 ([Life360](https://www.home-assistant.io/components/life360/) (introduced in Home Assistant release 0.95) did not track my wife's phone very well) [Owntracks](https://www.home-assistant.io/integrations/owntracks/) didn't work either.
 
 # <a name="top">Contents</a>
@@ -121,10 +121,14 @@ For more details on using homeassistant as an SSH Client to access and control S
 
 # <a name="presence">Presence Detection</a>
 
-For presence detection I have a number of things that work together. A timer called <i>all_home</i> and sensors called <i>all_home, paula and andy</i>. 
+I have had a lot of trouble getting presence detection to work reliably (and stay working over time). The following setup is probably overly complicated because it has evolved significantly since starting this project...
 
-The timer is set to 10 minutes (but this is easily changed by editing the value in <i>timers.yaml</i>. It starts when <i>sensor.all_home</i> changes to <i>yes</i>.
+For presence detection I have a number of things that work together. A timer called <i>all_home</i> and sensors called <i>all_home, paula and andy</i>.
 
-The sensors <i>paula and andy</i> use bluetooth <i>device_trackers</i> and wifi <i>binary_sensors</i> to determine if mobile phones belonging to my wife or I are present in the house. Here the sensor will be set to <i>home</i> if either the wifi or bluetooth for the 'phone is detected and otherwise the sensor is set to <i>away</i>.
+I also use 10 minute timers to trigger when Paula or Andy's 'phone wifi change state (indicating a change to <i>at home</i> or <i>away</i>) when these timers are </i>active</i> then that person (Andy or Paula) is considered to be <i>at home</i>. This is to deal with the case that 'phones, to save battery power, decide arbitarily to turn off their wifi (for a time) then turn it back on again after a period of time (each manufacturer being different, and Android doesn't seem to let you disable this feature any more). For each person there is an <i>at home</i> and an <i>away</i> timer.
+
+The <i>all_home</i> timer is set to 10 minutes (but this is easily changed by editing the value in <i>timers.yaml</i>. It starts when <i>sensor.all_home</i> changes to <i>yes</i>.
+
+The sensors <i>paula and andy</i> use bluetooth <i>device_trackers</i>, wifi <i>binary_sensors</i> and the <i>at home</i> and <i>away</i> timers to determine if mobile phones belonging to my wife or I are present in the house. Here the sensor will be set to <i>home</i> if either the wifi or bluetooth for the 'phone is detected or either of the <i>at home</i> or <i>away</i> timers is <i>active</i>; otherwise the sensor is set to <i>away</i>.
 
 The sensor <i>all_home</i> is set to <i>yes</i> if both <i>sensor.paula</i> and <i>sensor.andy</i> are set to <i>home</i>.

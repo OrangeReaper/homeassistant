@@ -1,0 +1,8 @@
+alias: Start Timer when paula phone wifi detected
+trigger:
+  platform: state
+  entity_id: binary_sensor.paula_phone_wifi
+  to: "on"
+action:
+  - service: timer.start
+    entity_id: timer.paula_home
