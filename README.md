@@ -16,7 +16,7 @@ I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>swi
 [Lounge](#lounge) | [Mancave](#mancave) | [Kitchen](#kitchen) | [Hallway](#hallway)
 ----------------- | ------------------- | ------------------- | -------------------
 <b>[Welcome Home Automation](#welcomehome)</b> | <b>[PC](#pc)</b> | <b>[Start Automations](#startup)</b> | <b>[Lightwave RF](#lightwave)</b>
-<b>[NAS Drive Integration](#nasdrive)
+<b>[NAS Drive Integration](#nasdrive) | <b>[Printer Ink Monitor](#printerink)</b>
 
 ## <a name="lounge">Lounge</a>
 
@@ -67,7 +67,7 @@ In the kitchen there are two things I control; a *Radio* and *lighting*
 I run Hassio on a Raspberry Pi 3+. This is located in my hallway; it is connected directly to my router which is also in the hall near my front door. I use a Z-Wave *Aeotec Multisensor 6* to realise the motion detection in my hallway. There is also a light in the hallway which is controlled through a LightwaveRF switch.
 
 ### Automations
-1. When movement is detected in the hall, and the sun is down, the light is switched on; the light stays switched on until movement is no longer detected for a period of 1 minute.
+1. When movement is detected in the hall, and the sun is down, the light is switch2020.12.1ed on; the light stays switched on until movement is no longer detected for a period of 1 minute.
 
 ## <a name="welcomehome">Welcome Home Automation</a>
 
@@ -132,3 +132,17 @@ The <i>all_home</i> timer is set to 10 minutes (but this is easily changed by ed
 The sensors <i>paula and andy</i> use bluetooth <i>device_trackers</i>, wifi <i>binary_sensors</i> and the <i>at home</i> and <i>away</i> timers to determine if mobile phones belonging to my wife or I are present in the house. Here the sensor will be set to <i>home</i> if either the wifi or bluetooth for the 'phone is detected or either of the <i>at home</i> or <i>away</i> timers is <i>active</i>; otherwise the sensor is set to <i>away</i>.
 
 The sensor <i>all_home</i> is set to <i>yes</i> if both <i>sensor.paula</i> and <i>sensor.andy</i> are set to <i>home</i>.
+
+## <a name="printerink">Printer Toner Level Monitoring</a>
+
+[Top](#top)
+
+Objective: Have Lovelace display the current Toner level in each Cartridge (as reported by my printer)... even when the printer itself is switched off.
+
+The [IPP Integration](https://www.home-assistant.io/integrations/ipp) reports faithfully the level of toner remaining in my printer... but only when the printer is turned on.
+
+Since HA does not seem to have any way of storing values in global variables, I use automations (one for each toner cartridge) to publish, using MQTT, the levels each time there is a change. MQTT <i>retain</i> is used to permanently store the value (until it changes).
+
+I then use a sensor to keep track of the current value held on the MQTT Server and show this on a gauge in lovelace (one for each toner cartridge).
+
+The printer has to be turned on at least once for this to work (no problem).

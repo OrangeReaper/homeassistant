@@ -17,3 +17,5 @@ duckdns/
 www/
 .google*
 sync.sh
+blueprints/
+custom_components/
