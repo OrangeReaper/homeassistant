@@ -13,9 +13,11 @@
       service: shell_command.excelsior_force_shutdown
 
   - platform: wake_on_lan
-    name: kodi_lounge
+    name: "kodi_lounge"
     mac: "70:85:C2:D5:62:63"
-    host: "192.168.1.115"
+    host: "192.168.1.59"
+    turn_off:
+      service: shell_command.turn_off_plex
     
   - platform: wake_on_lan
     name: enterprise_wol

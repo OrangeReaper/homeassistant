@@ -1,0 +1,8 @@
+alias: Turn Plex Server OFF
+trigger:
+  platform: state
+  entity_id: sensor.plex
+  to: "off"
+action:
+  - data: {}
+    service: script.plex_off

@@ -1,0 +1,8 @@
+alias: Turn Plex Server ON
+trigger:
+  platform: state
+  entity_id: sensor.plex
+  to: "on"
+action:
+  - data: {}
+    service: script.plex_on

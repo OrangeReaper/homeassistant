@@ -46,12 +46,31 @@
           {% if is_state("sensor.harmony_activity", 'BluRay') %}
             on
           {% else %}
-            {% if is_state("sensor.harmony_activity", 'Kodi') %}
+            {% if is_state("sensor.harmony_activity", 'Plex') %}
+              on
+            {% else %}
+              {% if is_state("sensor.harmony_activity", 'Roku') %}
+                on
+              {% else %}
+                off
+              {% endif %}
+            {% endif %}
+          {% endif %}
+
+  - platform: template
+    sensors:
+      plex:
+        value_template: >
+          {% if is_state("sensor.harmony_activity", 'Plex') %}
+            on
+          {% else %}
+            {% if states('sensor.andymote') == "Watch Plex"  %}
               on
             {% else %}
               off
             {% endif %}
           {% endif %}
+
 
   - platform: template
     sensors:
@@ -134,15 +153,15 @@
       mancave_occupied:
         friendly_name: "ManCave Occupied"
         value_template: >-
-          {% if states('binary_sensor.andymote') == "on" %}
-            {% if states('sensor.andymote') == "Off"  %}
-              no
-            {% else %}
-              yes
-            {% endif %}
+          {% if states('sensor.andymote') == "Watch Kodi"  %}
+            yes
           {% else %}
-            no
-          {% endif %} 
+            {% if states('sensor.andymote') == "Watch Amazon"  %}
+              yes
+            {% else %}
+              no
+            {% endif %}
+          {% endif %}
   - platform: template
     sensors:
       mancave_kodi:

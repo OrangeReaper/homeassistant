@@ -29,14 +29,13 @@ cards:
         title: Controls
         show_header_toggle: false
         entities:
-          - switch.unit_lights
-          - switch.picture_light
-          - switch.bass_amp
-          - switch.lounge_kodi_usb
-          - switch.landing_light
-          - light.corner_light
+          - entity: switch.unit_lights
+          - entity: switch.picture_light
+          - entity: switch.bass_amp
+          - entity: switch.kodi_lounge
+            name: Plex
+          - entity: switch.landing_light
+          - entity: light.corner_light
           
-      - type: media-control
-        entity:  media_player.loungekodi
 
 

@@ -1,3 +1,4 @@
   unlock_landing: /config/shell/unlock_landing.sh
   lock_landing: /config/shell/lock_landing.sh
   turn_off_defiant: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa root@192.168.1.185 sudo shutdown -Ph now'
+  turn_off_plex: 'ssh -o UserKnownHostsFile=/config/.ssh/knownhosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa andy@192.168.1.59 sudo /usr/sbin/shutdown -Ph now; exit 0'

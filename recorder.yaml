@@ -35,7 +35,7 @@
       - device_tracker.dnpxxbm9kxk2
       - binary_sensor.lounge_radio
       - binary_sensor.aeon_labs_zw100_multisensor_6_sensor
-      - binary_sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_sensor
+#      - binary_sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_sensor
       - binary_sensor.paula_phone_wifi
       - binary_sensor.andy_phone_wifi
       - automation.Start_Timer_when_paula_phone_wifi_detected
