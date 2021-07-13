@@ -1,0 +1,18 @@
+alias: Radio To Internet
+trigger:
+  - platform: time
+    at: "20:58:00"
+action:
+  - data:
+      entity_id: media_player.roberts_radio
+    entity_id: media_player.roberts_radio
+    service: media_player.turn_on
+  - data:
+      entity_id: media_player.roberts_radio
+      source: 'Internet radio'
+    service: media_player.select_source
+  - delay: '00:00:05'
+  - data:
+      entity_id: media_player.roberts_radio
+    entity_id: media_player.roberts_radio
+    service: media_player.turn_off

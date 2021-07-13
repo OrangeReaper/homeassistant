@@ -16,7 +16,8 @@ cards:
           - binary_sensor.youview
         state_image:
           "PowerOff": /local/poweroff.png
-          "Kodi": /local/kodi.png
+          "Plex": /local/plex.png
+          "Roku": /local/roku.png
           "Radio": /local/radio.png
           "BluRay": /local/bluray.png
           "Watch TV": /local/tv.png
@@ -36,6 +37,15 @@ cards:
             name: Plex
           - entity: switch.landing_light
           - entity: light.corner_light
+            name: Corner Light
+          - entity: switch.lounge_kodi_usb
+            name: Plex USB
           
-
-
+      - type: button
+        name: Mount Plex USB
+        icon: "mdi:harddisk"
+        icon_height: 50px
+        show_state: false
+        tap_action:
+          action:
+            service: shell_command.plex_mount_all

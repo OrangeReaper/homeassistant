@@ -46,7 +46,7 @@ switch: !include switches.yaml
 alexa: !include alexa.yaml
 panel_custom: !include custompanels.yaml
 device_tracker: !include device_tracker.yaml
-hive: !include hive.yaml
+#hive: !include hive.yaml
 shell_command: !include shell_commands.yaml
 recorder: !include recorder.yaml
 timer: !include timers.yaml

@@ -78,7 +78,7 @@ cards:
           - type: gauge
             name: Hive Batt
             unit: '%'
-            entity: sensor.hive_battery
+            entity: sensor.hive_temperature_battery_level
             severity:
               red: 0
               yellow: 45

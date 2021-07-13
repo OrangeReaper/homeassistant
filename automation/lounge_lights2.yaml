@@ -11,6 +11,4 @@ condition:
   - condition: template
     value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.lounge_lights_2.attributes.last_triggered) | int > 43200 }}'
 action:
-
-action:
   - service: script.turn_on_lounge_lights

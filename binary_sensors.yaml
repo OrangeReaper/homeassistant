@@ -1,21 +1,46 @@
   - platform: ping
+    host: 192.168.1.10
+    name: lounge_radio
+    scan_interval: 30
+    count: 3
+  - platform: ping
+    host: 192.168.1.14
+    name: mc_bluray
+    scan_interval: 30
+    count: 1
+  - platform: ping
+    host: 192.168.1.30
+    name: youview
+    scan_interval: 30
+    count: 1
+  - platform: ping
+    host: 192.168.1.40
+    name: printer
+    scan_interval: 30
+    count: 1
+  - platform: ping
     host: 192.168.1.50
     name: mc_kodi
     scan_interval: 30
     count: 1
   - platform: ping
-    host: 192.168.1.105
-    name: mc_bluray
+    host: 192.168.1.78
+    name: paula_phone_wifi
     scan_interval: 30
     count: 1
   - platform: ping
-    host: 192.168.1.121
-    name: lounge_amp
+    host: 192.168.1.82
+    name: lounge_tv
     scan_interval: 30
     count: 1
   - platform: ping
-    host: 192.168.1.185
-    name: defiant
+    host: 192.168.1.90
+    name: andy_phone_wifi
+    scan_interval: 30
+    count: 3
+  - platform: ping
+    host: 192.168.1.110
+    name: andymote
     scan_interval: 30
     count: 1
   - platform: ping
@@ -34,18 +59,8 @@
     scan_interval: 30
     count: 1
   - platform: ping
-    host: 192.168.1.90
-    name: andy_phone_wifi
-    scan_interval: 30
-    count: 3
-  - platform: ping
-    host: 192.168.1.75
-    name: paula_phone_wifi
-    scan_interval: 30
-    count: 1
-  - platform: ping
-    host: 192.168.1.189
-    name: discovery
+    host: 192.168.1.121
+    name: lounge_amp
     scan_interval: 30
     count: 1
   - platform: ping
@@ -54,23 +69,13 @@
     scan_interval: 30
     count: 1
   - platform: ping
-    host: 192.168.1.99
-    name: lounge_tv
+    host: 192.168.1.185
+    name: defiant
     scan_interval: 30
     count: 1
   - platform: ping
-    host: 192.168.1.110
-    name: andymote
-    scan_interval: 30
-    count: 1
-  - platform: ping
-    host: 192.168.1.30
-    name: youview
-    scan_interval: 30
-    count: 1
-  - platform: ping
-    host: 192.168.1.40
-    name: printer
+    host: 192.168.1.189
+    name: discovery
     scan_interval: 30
     count: 1
   - platform: ping
@@ -78,8 +83,3 @@
     name: mywiki
     scan_interval: 30
     count: 1
-  - platform: ping
-    host: 192.168.1.24
-    name: lounge_radio
-    scan_interval: 30
-    count: 3

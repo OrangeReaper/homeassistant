@@ -3,7 +3,7 @@ Welcome to my personal [Home Assistant](https://home-assistant.io) configuration
  
 All the automations included in this repository are working with Hass.io (Home Assistant 2020.12.1) and are provided for information and guidance and with no guarantees; They are updated as and when I add or modify my home assistant implementation at home. 
 
-Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant powered system. 
+Prior to introducing [Home Assistant](https://home-assistant.io) into my home I was using [Lightwave RF Gen 1](https://www.home-assistant.io/components/lightwave/) hub with various switches and lighting control (described below) around the house; I also had a [Tuya](https://www.home-assistant.io/components/tuya/) compatible HowiseAcc Smart WiFi Power Strip; these have been integrated into my Home Assistant system. 
 
 Home assistant runs on a Raspberry Pi 3+ with a Z-Wave USB Adapter (Aeon Labs Z‐Stick Gen5) to allow the Pi to act as a Z-Wave Hub.
 
@@ -24,15 +24,21 @@ I use Z-Wave <i>sensors</i> and either [Lightwave RF](#lightwave) or Tuya <i>swi
 
 In the lounge there are two things I control; a *media system* and *lighting*
 
-The media system consists of a TV, BluRay Player, HTPC Kodi Box, AV Amplifier, PVR and Bass Amp. All these devices are controlled using a [Logitech Harmony Elite](https://www.logitech.com/en-us/product/harmony-elite?crid=60) remote control. The devices are connected to my network so are 'detectable' using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). The Harmony Remote is [integrated into Home Assistant](https://www.home-assistant.io/integrations/harmony/). The Bass Amp is seperately powered (controlled by a LightwaveRF switch). The Kodi Box has an attached USB Drive which is also powered via a LightwaveRF switch). I use a sensor located outside to measure how dark it is and flag when *its dark*.
+The media system consists of a TV, BluRay Player, Plex Server, Roku streaming stick, AV Amplifier, PVR and Bass Amp. All these devices are controlled using a [Logitech Harmony Elite](https://www.logitech.com/en-us/product/harmony-elite?crid=60) remote control. The devices are connected to my network so are 'detectable' using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). The Harmony Remote is [integrated into Home Assistant](https://www.home-assistant.io/integrations/harmony/). 
+
+The Bass Amp is seperately powered (controlled by a LightwaveRF switch). 
+
+The Plex Server has an attached USB Drive which is also powered via a LightwaveRF switch) the USB is switched on before the Plex Server when this is selected on the Harmony Remote. The USB Drive can be manually switched on and off using Lovelace switches; it can also be manually mounted using Lovelace. 
+
+I use a sensor located outside to measure how dark it is and flag when *its dark*.
 
 ### Automations
 1. When it's dark, and we are at home, the lights switch on if the TV is switched on.
 2. When we are at home, if the TV is switched on, if the outside sensor then detects that it is dark then the lights are switched on.
-3. The Bass Amp is turned on and off in sympathy with the AV Amplifier.
-4. The Kodi Box is switched on (using Wake on Lan) when the Harmony Remote changes it's current activity to "Kodi"
-5. The Kodi Box is switched off when the Harmony Remote changes it's current activity to something other than "Kodi"
-6. The Kodi USB Drive is turned on and off in sympathy with the Kodi Box. 
+3. The Bass Amp is turned on and off whenever BluRay, Plex or Roku is selected on the Harmony.
+4. The Plex Server is switched on (using Wake on Lan) when the Harmony Remote changes it's current activity to "Plex"
+5. The Plex Server is switched off when the Harmony Remote changes it's current activity to something other than "Plex"
+6. The Plex Server USB Drive is turned on and off in sympathy with the Plex Server. 
 
 ## <a name="mancave">Mancave</a>
 
@@ -40,16 +46,13 @@ The media system consists of a TV, BluRay Player, HTPC Kodi Box, AV Amplifier, P
 
 In my mancave there are two things I control; a *media system* and *lighting*
 
-The *media system* consists of a TV, BluRay Player, Kodi Box and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). The Kodi Box has an attached USB Drive one of which is powered on & off using a Tuya switch.
+The *media system* consists of a TV, BluRay Player, Amazon Stick and AV Amplifier. All devices except the AV Amplifier are connected to my network and are 'detectable' using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/).
 
 I use my own Android App [AndyMOTE](https://andymote.abondservices.com/) to control devices in my *media system* (replacing their IR Remote Controls). [AndyMOTE](https://andymote.abondservices.com/) connects to an MQTT server to publish it's current 'state' to Home Assistant (or other components).
-
-The *Kodi Box* itself is a Raspberry Pi 4; as Raspberry Pis cannot be switched on using Wake on Lan (like in the Lounge) an automated script (Not part of HA) does this using MQTT (See [Application Note Here](https://andymote.abondservices.com/mqtt.html#an).)
 
 ### Automations
 1. When [AndyMOTE](https://andymote.abondservices.com/) indicates (using MQTT) that the media system is being used, if it is dark, the light is turned on; it is turned off 2 minutes after [AndyMOTE](https://andymote.abondservices.com/) indicates that the media system is off.
 2. If the media system is being used (see 1, above) and the outside sensor detects that it is dark then the lights are switched on.
-3. The Kodi USB Drives are turned on and off in sympathy with the Kodi Box. 
 
 ## <a name="kitchen">Kitchen</a>
 
@@ -58,7 +61,9 @@ The *Kodi Box* itself is a Raspberry Pi 4; as Raspberry Pis cannot be switched o
 In the kitchen there are two things I control; a *Radio* and *lighting*
 
 ### Automations
-1. In the morning, when movement is detected in the hall, the Radio is switched on and tuned to our local station
+1. In the morning, when movement is detected in the hall, the Radio is switched on and tuned to our local station.
+2. In the afternoon, the radio input selection is automatically switched to AUX IN and the radio is switched off.
+3. In the late evening the radio input selection is automatically switched to Internet Radio and the radio is switched off.
 
 ## <a name="Hallway">Hallway</a>
 
@@ -83,7 +88,7 @@ The idea of the *Welcome Home* automation is to switch the porch light and the h
 
 I have several USB drives attached to my main PC (Enterprise) and a second PC (Excelsior) which has several USB Drives attached. The PCs and NAS are connected to my network  so are detectable using [binary_sensors](https://www.home-assistant.io/integrations/binary_sensor/). Everything except my main PC is controllable through LightwaveRF or tuya switches.
 
-I have a group: 'computers' which consists of my Main PC (Enterprise) and Second PC (excelsior). 
+I have a group: 'computers' which consists of my Main PC (Enterprise) and Second PC (Excelsior). 
 
 I have two other groups representing usb drives connected to computers (main_pc_usb_drives and excelsior_usb_drives).
 
@@ -104,6 +109,8 @@ When commissioning my Home Assistant system I experienced problems with automati
 A quick note on my experience with Lightwave RF (Gen 1).
 
 My Lightwave RF switches work as expected most of the time, but, occasionally fail to fire (switch on or off when commanded); this can be an issue when using Alexa or the Lightwave RF app and means that the command has to be re-issued sometimes. In order to get round this in Home Automation I usually invoke an on/off command more than once to make sure things get through.
+
+For the Plex USB Drive (where the intent is to be fully automatic) Lovelace includes some manual controls. The USB Drive can be manually switched on and off and there is a button to force the Plex Server to mount the drive. (I could use *udev* to do this -- but I dont)
 
 ## <a name="nasdrive">NAS Drive Integration</a>
 
