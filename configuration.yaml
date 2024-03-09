@@ -36,7 +36,6 @@ automation: !include_dir_list automation/
 script: !include scripts.yaml
 scene: !include scenes.yaml
 lightwave: !include lightwave.yaml
-zwave: !include zwave.yaml
 frontend: !include frontend.yaml
 lovelace: !include lovelace.yaml
 sensor: !include sensors.yaml
@@ -44,16 +43,29 @@ media_player: !include media_players.yaml
 binary_sensor: !include binary_sensors.yaml
 switch: !include switches.yaml
 alexa: !include alexa.yaml
-panel_custom: !include custompanels.yaml
 device_tracker: !include device_tracker.yaml
-#hive: !include hive.yaml
 shell_command: !include shell_commands.yaml
 recorder: !include recorder.yaml
 timer: !include timers.yaml
 logbook: !include logbook.yaml
 logger: !include logger.yaml
 notify: !include notify.yaml
-light: !include light.yaml
+mqtt: !include mqtt.yaml
+panel_iframe: !include tasmota.yaml
+#command_line: !include command_line.yaml
+
+# Check the size of the log file
+command_line:
+  - sensor:
+      name: log_file_size
+      command: "du -k /config/home-assistant.log | cut -f1"
+      unit_of_measurement: 'KB'
+      value_template: '{{ value }}'
+
+
+
+#light: !include light.yaml
 
 # Required for Amazon Echo Integration
 api:
+

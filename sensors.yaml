@@ -1,4 +1,13 @@
-  # Weather prediction
+# Fitbit Integration 
+#  - platform: fitbit
+#    clock_format: 24H
+#    unit_system: metric
+#    monitored_resources:
+#      - "body/weight"
+#      - "devices/battery"
+#      - "activities/steps"
+
+# Weather prediction
   - platform: time_date
     display_options:
       - 'time'
@@ -7,55 +16,67 @@
       - 'date_time_iso'
       - 'time_date'
       - 'time_utc'
-      - 'beat'
 
-  - platform: mqtt
-    name: "andymote"
-    state_topic: "andymote"
-
-  - platform: mqtt
-    name: "magenta"
-    state_topic: "printer/magenta"
-    force_update: true
-  - platform: mqtt
-    name: "black"
-    state_topic: "printer/black"
-    force_update: true
-  - platform: mqtt
-    name: "cyan"
-    state_topic: "printer/cyan"
-    force_update: true
-  - platform: mqtt
-    name: "yellow"
-    state_topic: "printer/yellow"
-    force_update: true
+#Template updated 20-May-2022 to accommodate moving Harmony Remote into Mancave
   - platform: template
     sensors:
       harmony_activity:
         value_template: >
-          {% if is_state("remote.harmony_hub", 'on') %}
-            {{ states.remote.harmony_hub.attributes.current_activity }}
+          {% if is_state_attr('remote.harmony_hub', 'current_activity', 'BluRay') %}
+            BluRay
           {% else %}
-            PowerOff
+            {% if is_state_attr('remote.harmony_hub', 'current_activity', 'Plex') %}
+              Plex
+            {% else %}
+              {% if is_state_attr('remote.harmony_hub', 'current_activity', 'Roku') %}
+                Roku
+              {% else %}
+                {% if is_state_attr('remote.harmony_hub', 'current_activity', 'power_off') %}
+                  PowerOff
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+
+#Change on 21-May-2022 to use state of media player to determine if lounge is occupied
+  - platform: template
+    sensors:
+      lounge_occupied:
+        value_template: >
+          {% if is_state('sensor.any_home', 'no') %}
+            no
+          {% else %}
+            {% if is_state('media_player.living_room', 'playing') %}
+              yes
+            {% else %}
+              no
+            {% endif %}
+          {% endif %}
+
+#Template updated 20-May-2022 to accommodate moving Harmony Remote into Mancave
+  - platform: template
+    sensors:
+      mancave_occupied:
+        value_template: >
+          {% if is_state("sensor.harmony_activity", 'BluRay') %}
+            yes
+          {% else %}
+            {% if is_state("sensor.harmony_activity", 'Plex') %}
+              yes
+            {% else %}
+              {% if is_state("sensor.harmony_activity", 'Roku') %}
+                yes
+              {% else %}
+                no
+              {% endif %}
+            {% endif %}
           {% endif %}
 
   - platform: template
     sensors:
-      bass_amp:
-        value_template: >
-          {% if is_state("sensor.harmony_activity", 'BluRay') %}
-            on
-          {% else %}
-            {% if is_state("sensor.harmony_activity", 'Plex') %}
-              on
-            {% else %}
-              {% if is_state("sensor.harmony_activity", 'Roku') %}
-                on
-              {% else %}
-                off
-              {% endif %}
-            {% endif %}
-          {% endif %}
+      fitbit_changed:
+        value_template: "{{ states.sensor.steps.last_updated }}"
+        device_class: timestamp
 
   - platform: template
     sensors:
@@ -71,7 +92,21 @@
             {% endif %}
           {% endif %}
 
+  - platform: template
+    sensors:
+      enterprise:
+        value_template: >
+          {% if is_state("binary_sensor.enterprise", 'on') %}
+            on
+          {% else %}
+            {% if is_state("binary_sensor.enterprise2", 'on') %}
+              on
+            {% else %}
+              off
+            {% endif %}
+          {% endif %}
 
+#Template updated 10-Nov-2022 to only use Sun Elevation & Time of day to decide
   - platform: template
     sensors:
       dark:
@@ -80,16 +115,17 @@
           {% if (states.sensor.time.state > "09:00") and (states.sensor.time.state < "15:00") %}
             no
           {% else %}
-            {% if states('sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_luminance') | int < 80 %}
-              yes
+            {% if (states.sensor.time.state > "00:00") and (states.sensor.time.state < "07:00") %}
+              no
             {% else %}
-              {% if state_attr('sun.sun', 'elevation') < 0  %}
-                yes
-              {% else %}
+              {% if state_attr('sun.sun', 'elevation') > 0  %}
                 no
+              {% else %}
+                yes
               {% endif %}
             {% endif %}
           {% endif %}
+
   - platform: template
     sensors:
       all_home:
@@ -104,6 +140,22 @@
           {% else %}
             no
           {% endif %}
+
+  - platform: template
+    sensors:
+      any_home:
+        friendly_name: "Someone is Home"
+        value_template: >-
+          {% if is_state('sensor.paula', 'home')  %}
+            yes
+          {% else %}
+            {% if is_state('sensor.andy', 'home') %}
+              yes
+            {% else %}
+              no
+            {% endif %}
+          {% endif %}
+
   - platform: template
     sensors:
       paula:
@@ -113,7 +165,7 @@
                 home
           {% else %}
             {% if is_state('timer.paula_home', 'active')  %}
-                home
+                away
             {% else %}
               {% if is_state('device_tracker.paula_phone_bt', 'home')  %}
                   home
@@ -125,7 +177,8 @@
                 {% endif %}
               {% endif %}
             {% endif %}
-          {% endif %}              
+          {% endif %}
+
   - platform: template
     sensors:
       andy:
@@ -135,7 +188,7 @@
                 home
           {% else %}
             {% if is_state('timer.andy_home', 'active')  %}
-                home
+                away
             {% else %}
               {% if is_state('device_tracker.andy_phone_bt', 'home')  %}
                   home
@@ -148,30 +201,7 @@
               {% endif %}
             {% endif %}
           {% endif %}
-  - platform: template
-    sensors:
-      mancave_occupied:
-        friendly_name: "ManCave Occupied"
-        value_template: >-
-          {% if states('sensor.andymote') == "Watch Kodi"  %}
-            yes
-          {% else %}
-            {% if states('sensor.andymote') == "Watch Amazon"  %}
-              yes
-            {% else %}
-              no
-            {% endif %}
-          {% endif %}
-  - platform: template
-    sensors:
-      mancave_kodi:
-        friendly_name: "ManCave Kodi State"
-        value_template: >-
-          {% if states('sensor.andymote') == "Watch Kodi"  %}
-              on
-          {% else %}
-              off
-          {% endif %}
+
   - platform: template
     sensors:
       porch_pir_battery:
@@ -179,11 +209,13 @@
         value_template: "{{ state_attr('zwave.porch_motion_sensor', 'battery_level')|int|default(75) }}"
         device_class: battery
         unit_of_measurement: '%'
+
   - platform: template
     sensors:
       hive_battery:
         friendly_name: "Hive Battery"
         value_template: '{{ states.climate.hive_temperature.attributes.battery | replace("%","") | int }}'
+
   - platform: template
     sensors:
       nextsunrise:

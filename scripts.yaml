@@ -2,46 +2,42 @@
     sequence:
       - service: homeassistant.turn_on
         data:
-          entity_id: switch.picture_light
-      - delay: 2
-      - service: light.turn_on
-        data:
-          entity_id: light.corner_light
-          brightness: 51
+          entity_id: group.lounge_lights
       - delay: 2
       - service: homeassistant.turn_on
         data:
-          entity_id: switch.unit_lights
-      - delay: 2
-      - service: homeassistant.turn_on
+          entity_id: group.lounge_lights
+
+  turn_off_lounge_lights:
+    sequence:
+      - service: homeassistant.turn_off
         data:
-          entity_id: switch.christmas_tree
+          entity_id: group.lounge_lights
       - delay: 2
-      - service: homeassistant.turn_on
+      - service: homeassistant.turn_off
         data:
-          entity_id: switch.picture_light
-      - delay: 2
-      - service: light.turn_on
-        data:
-          entity_id: light.corner_light
-          brightness: 51
-      - delay: 2
-      - service: homeassistant.turn_on
-        data:
-          entity_id: switch.unit_lights
-      - delay: 2
-      - service: homeassistant.turn_on
-        data:
-          entity_id: switch.christmas_tree
+          entity_id: group.lounge_lights
+
   turn_on_defiant:
     sequence:
       - service: homeassistant.turn_on
         data:
-          entity_id: switch.defiant
+          entity_id: switch.defiant_2
+      - delay: '00:00:02'
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.defiant_2
       - delay: 30
       - service: homeassistant.turn_on
         data:
           entity_id: switch.defiant_wol
+
+  turn_off_defiant:
+    sequence:
+      - service: homeassistant.turn_off
+        data:
+          entity_id: switch.defiant_wol
+
   hall_light_on:
     sequence:
       - service: timer.cancel
@@ -53,29 +49,75 @@
       - service: homeassistant.turn_on
         data:
           entity_id: switch.hall_light
+
   plex_on:
     sequence:
       - service: switch.turn_on
-        data:
-          entity_id: switch.lounge_kodi_usb
+        data: {}
+        target:
+          entity_id: switch.plex_usb
+      - delay: '00:00:02'
+      - service: switch.turn_on
+        data: {}
+        target:
+          entity_id: switch.plex_usb
       - delay: '00:00:02'
       - service: switch.turn_on
         data:
-          entity_id: switch.lounge_kodi_usb
-      - delay: '00:00:02'
-      - service: switch.turn_on
-        data:
-          entity_id: switch.kodi_lounge
+          entity_id: switch.plex_server_wol
+
   plex_off:
     sequence:
       - service: switch.turn_off
         data:
-          entity_id: switch.kodi_lounge
+          entity_id: switch.plex_server_wol
       - delay: '00:00:30'
       - service: switch.turn_off
-        data:
-          entity_id: switch.lounge_kodi_usb
+        data: {}
+        target:
+          entity_id: switch.plex_usb
       - delay: '00:00:10'
       - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.plex_usb
+
+  mount_plex_drive:
+    sequence:
+      - service: shell_command.plex_mount_all
+
+  enterprise_on:
+    sequence:
+      - service: switch.turn_on
         data:
-          entity_id: switch.lounge_kodi_usb
+          entity_id: switch.enterprise_wol
+
+  enterprise_off:
+    sequence:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.enterprise_wol
+
+  excelsior_on:
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.excelsior_wol
+
+  excelsior_off:
+    sequence:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.excelsior_wol
+
+  lexington_on:
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.lexington_wol
+
+  lexington_off:
+    sequence:
+      - service: switch.turn_off
+        data:
+          entity_id: switch.lexington_wol

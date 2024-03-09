@@ -12,3 +12,4 @@
   external_url: !secret external_url
 #  internal_url: "http://hassio.local:8123"
   customize: !include customize.yaml
+  country: !secret country

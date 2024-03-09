@@ -1,0 +1,11 @@
+alias: Enterprise USB Drives OFF
+trigger:
+  platform: state
+  entity_id: sensor.enterprise
+  from: "on"
+  to: "off"
+  for: "00:05:00"
+action:
+  - service: homeassistant.turn_off
+    entity_id: group.main_pc_usb_drives
+

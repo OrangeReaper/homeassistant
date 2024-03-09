@@ -1,2 +1,13 @@
 # the file ui-lovelace.yaml contains the config for lovelace
+#
+# vertical-stack-in-card sourced from:
+# https://github.com/ofekashery/vertical-stack-in-card
+# 
   mode: yaml
+  resources:
+    - type: module
+      url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
+    - type: module
+      url: local/community/custom-sonos-card/custom-sonos-card.js?v=1.0
+    - type: module
+      url: local/community/vertical-stack-in-card/vertical-stack-in-card.js

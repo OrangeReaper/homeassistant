@@ -8,17 +8,10 @@ action:
     entity_id:
       - automation.defiant_switched_off
       - automation.excelsior_switched_off
-      - automation.bass_amp_on
-      - automation.bass_amp_off
-      - automation.lounge_kodi_usb_on
-      - automation.lounge_kodi_usb_off
       - automation.usb_drives_off
-      - automation.mancave_kodi_usb_on
-      - automation.mancave_kodi_usb_off
       - automation.mancave_light_on
       - automation.mancave_light_on_2
       - automation.mancave_light_off
       - automation.radio_on
       - automation.nas_drive_on
-      - automation.nas_drive_off
       - automation.welcome_home_2

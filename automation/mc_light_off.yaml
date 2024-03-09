@@ -3,7 +3,7 @@ trigger:
   platform: state  
   entity_id: sensor.mancave_occupied
   to: "no" 
+  for: '00:00:45'
 action:
-  - delay: '00:00:45'
   - service: switch.turn_off
-    entity_id: switch.05200304bcddc2e0fa9b_1
+    entity_id: switch.mancave_light

@@ -1,0 +1,50 @@
+title: Bedrooms
+id: bedrooms
+path: bedrooms
+icon: mdi:bed
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:mini-media-player
+        name: 'Roberts Radio'
+        entity: media_player.roberts_radio_2
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: 6am Alarm
+            show_state: true
+            tap_action:
+              action: call-service
+              service: automation.toggle
+              target:
+                entity_id: automation.alarm_6am
+              service_data: {}
+            entity: automation.alarm_6am
+            icon_height: 50px
+            icon: mdi:alarm
+          - type: button
+            name: 7am Alarm
+            show_state: true
+            tap_action:  
+              action: call-service
+              service: automation.toggle
+              target:
+                entity_id: automation.alarm_7am
+              service_data: {}
+            entity: automation.alarm_7am
+            icon_height: 50px
+            icon: mdi:alarm
+          - type: button
+            name: Kitchen Radio Auto
+            show_state: true
+            tap_action:  
+              action: call-service
+              service: automation.toggle
+              target:
+                entity_id: automation.radio_on
+              service_data: {}
+            entity: automation.radio_on
+            icon_height: 50px
+            icon: mdi:radio
+
+

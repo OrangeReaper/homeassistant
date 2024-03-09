@@ -5,76 +5,214 @@ icon: mdi:desktop-classic
 cards:
   - type: vertical-stack
     cards:
-    - type: entity-filter
+
+    - type: entities
+      title: Server Status
+      show_header_toggle: false
       entities:
-        - binary_sensor.enterprise
-        - binary_sensor.defiant
         - binary_sensor.discovery
-        - binary_sensor.excelsior
-        - binary_sensor.printer
-        - binary_sensor.mywiki
-      state_filter:
-        - "home"
-        - "on"
+        - binary_sensor.tycho
+        - entity: binary_sensor.plex_server
+          name: saratoga
+        - binary_sensor.pihole
+
+    - type: horizontal-stack
+      cards:
+        - type: button
+          name: Enterprise
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.enterprise_toggle
+            service_data: {}
+          entity: switch.enterprise_toggle
+          icon_height: 50px
+          icon: phu:desktop-computer
+        - type: button
+          name: Lexington
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.lexington_toggle
+            service_data: {}
+          entity: switch.lexington_toggle
+          icon_height: 50px
+          icon: phu:desktop-computer
+        - type: button
+          name: Exelsior
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.excelsior_toggle
+            service_data: {}
+          entity: switch.excelsior_toggle
+          icon_height: 50px
+          icon: phu:desktop-computer
+        - type: button
+          name: Defiant
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.defiant_toggle
+            service_data: {}
+          entity: switch.defiant_toggle
+          icon_height: 50px
+          icon: mdi:server
+
+
+
+
+
+    - type: conditional
+      conditions:
+        - entity: binary_sensor.enterprise
+          state: "on"
       card:
-        type: glance
-        title: What's On
-        show_state: false
+        type: entities
+        title: Enterprise is ON
+        show_header_toggle: false
+        entities:
+          - entity: script.enterprise_off
+            name: Switch Enterprise Off
+    - type: conditional
+      conditions:
+        - entity: binary_sensor.enterprise
+          state: "off"
+      card:
+        type: entities
+        title: Enterprise is OFF
+        show_header_toggle: false
+        entities:
+          - entity: script.enterprise_on
+            name: Switch Enterprise On
+
+    - type: conditional
+      conditions:
+        - entity: binary_sensor.lexington
+          state: "on"
+      card:
+        type: entities
+        title: Lexington is ON
+        show_header_toggle: false
+        entities:
+          - entity: script.lexington_off
+            name: Switch Lexington Off
+    - type: conditional
+      conditions:
+        - entity: binary_sensor.lexington
+          state: "off"
+      card:
+        type: entities
+        title: Lexington is OFF
+        show_header_toggle: false
+        entities:
+          - entity: script.lexington_on
+            name: Switch Lexington On
+
+    - type: conditional
+      conditions:
+        - entity: binary_sensor.excelsior
+          state: "on"
+      card:
+        type: entities
+        title: Excelsior is ON
+        show_header_toggle: false
+        entities:
+          - entity: script.excelsior_off
+            name: Switch Excelsior Off
+    - type: conditional
+      conditions:
+        - entity: binary_sensor.excelsior
+          state: "off"
+      card:
+        type: entities
+        title: Excelsior is OFF
+        show_header_toggle: false
+        entities:
+          - entity: script.excelsior_on
+            name: Switch Excelsior On
 
     - type: entities
-      title: Excelsior
+      title: Enterprise USB Drives
       show_header_toggle: false
       entities:
-        - switch.seagate_1
-        - switch.seagate_2
-        - switch.tv_d_l_disks
-        - switch.05200142b4e62d16937d
+        - entity: switch.tasmota
+          name: USB Group 1
+          icon: mdi:harddisk
+        - entity: switch.jellyfin
+          name: Jellyfin
+          icon: mdi:harddisk
 
-    - type: entities
-      title: Main PC
-      show_header_toggle: false
-      entities:
-        - switch.dual_usbs
+    - type: horizontal-stack
+      cards:
+        - type: button
+          name: Enterprise USB Disks Auto OFF
+          show_state: true
+          tap_action:
+            action: call-service
+            service: automation.toggle
+            target:
+              entity_id: automation.enterprise_usb_drives_off
+            service_data: {}
+          entity: automation.enterprise_usb_drives_off
+          icon_height: 50px
+          icon: mdi:harddisk
 
     - type: entities
       title: Other Controls
       show_header_toggle: false
       entities:
         - switch.pc_light
-        - switch.pi3_dev
 
-    - type: horizontal-stack
+    - type: vertical-stack
+      title: Printer
       cards:
-        - type: gauge
-          name: black
-          theme: card_black_border
-          unit: '%'
-          entity: sensor.black
-          severity:
-            red: 0
-            yellow: 10
-            green: 40
-        - type: gauge
-          name: cyan
-          unit: '%'
-          entity: sensor.cyan
-          severity:
-            red: 0
-            yellow: 10
-            green: 40
-        - type: gauge
-          name: magenta
-          unit: '%'
-          entity: sensor.magenta
-          severity:
-            red: 0
-            yellow: 10
-            green: 40
-        - type: gauge
-          name: yellow
-          unit: '%'
-          entity: sensor.yellow
-          severity:
-            red: 0
-            yellow: 10
-            green: 40
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - sensor.hp_color_laser_150nw
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            name: black
+            theme: card_black_border
+            unit: '%'
+            entity: sensor.black
+            severity:
+              red: 0
+              yellow: 10
+              green: 40
+          - type: gauge
+            name: cyan
+            unit: '%'
+            entity: sensor.cyan
+            severity:
+              red: 0
+              yellow: 10
+              green: 40
+          - type: gauge
+            name: magenta
+            unit: '%'
+            entity: sensor.magenta
+            severity:
+              red: 0
+              yellow: 10
+              green: 40
+          - type: gauge
+            name: yellow
+            unit: '%'
+            entity: sensor.yellow
+            severity:
+              red: 0
+              yellow: 10
+              green: 40
+
+

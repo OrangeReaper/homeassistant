@@ -1,0 +1,56 @@
+title: Saratoga
+id: saratoga
+path: saratoga
+icon: phu:jellyfin
+cards:
+  - type: vertical-stack
+    cards:
+      - type: sensor
+        entity: sensor.saratoga
+        name: Jellyfin Server
+        icon: phu:jellyfin
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: Saratoga
+            show_state: true
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              target:
+                entity_id: switch.s_toggle
+              service_data: {}
+            entity: switch.s_toggle
+            icon_height: 50px
+            icon: phu:jellyfin
+          - type: button
+            name: Saratoga Auto Off
+            show_state: true
+            tap_action:
+              action: call-service
+              service: automation.toggle
+              target:
+                entity_id: automation.plex_auto_off
+              service_data: {}
+            entity: automation.plex_auto_off
+            icon_height: 50px
+            icon: phu:jellyfin
+      - type: entities
+        title: Emergency Controls
+        show_header_toggle: false
+        entities:
+          - entity: switch.plex_server_wol
+            name: Saratoga
+          - entity: switch.plex_usb
+            name: Saratoga USB
+          - entity: script.mount_plex_drive
+            name: Mount Saratoga Drive
+
+#      - type: button
+#        name: Mount Plex USB
+#        icon: "mdi:harddisk"
+#        icon_height: 50px
+#        show_state: false
+#        tap_action:
+#          action:
+#            service: shell_command.plex_mount_all

@@ -1,0 +1,4 @@
+  tasmoadmin:
+    title: Tasmota
+    icon: mdi:lightbulb-on
+    url: https://192.168.1.85:9541

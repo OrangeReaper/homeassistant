@@ -12,4 +12,4 @@ condition:
   for: '00:01:00'
 action:
   - service: switch.turn_on
-    entity_id: switch.05200304bcddc2e0fa9b_1
+    entity_id: switch.mancave_light

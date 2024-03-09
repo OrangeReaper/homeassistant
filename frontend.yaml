@@ -1,3 +1,6 @@
+  extra_module_url:
+    - /local/community/custom-brand-icons/custom-brand-icons.js
+
   themes:
     darkred:
     # Main colors that can be changed

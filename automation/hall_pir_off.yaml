@@ -1,7 +1,7 @@
 alias: hall pir detect off
 trigger:
   platform: state
-  entity_id: binary_sensor.aeon_labs_zw100_multisensor_6_sensor
+  entity_id: binary_sensor.multisensor_6_home_security_motion_detection
   to: "off"
 action:
   - service: timer.start

@@ -1,0 +1,9 @@
+alias: Plex Auto Off
+trigger:
+  platform: state  
+  entity_id: sensor.saratoga
+  to: '0'
+  for: '00:30:00'
+action:
+  - data: {}
+    service: script.plex_off

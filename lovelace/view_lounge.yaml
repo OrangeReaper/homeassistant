@@ -5,47 +5,44 @@ icon: mdi:seat
 cards:
   - type: vertical-stack
     cards:
-      - type: markdown
-        content: "## Currently Watching"
-      - type: picture-entity
-        name: Currently Watching
-        entities:
-          - binary_sensor.lounge_radio
-          - binary_sensor.lounge_tv
-          - binary_sensor.lounge_kodi
-          - binary_sensor.youview
-        state_image:
-          "PowerOff": /local/poweroff.png
-          "Plex": /local/plex.png
-          "Roku": /local/roku.png
-          "Radio": /local/radio.png
-          "BluRay": /local/bluray.png
-          "Watch TV": /local/tv.png
-          "You View": /local/youview.png
-        entity: sensor.harmony_activity
-        show_state: false
-        show_name: false
-        
+      - type: custom:mini-media-player
+        name: TV
+        entity: media_player.lg_webos_tv_94a7
+      - type: custom:mini-media-player
+        name: Plex on TV
+        entity: media_player.plex_plex_for_lg_lg_oled65g16la
+#      - type: custom:sonos-player
+#        name: 'Sonos Speakers'
+#        entityId: media_player.living_room
+#        noMediaText: 'No media selected'
+#        skipAdditionalPlayerSwitches: true
+#        mediaArtworkOverrides: # Show your own selected artwork if certain rules match
+#          - mediaChannelEquals: Planet Rock
+#          - mediaTitleEquals: TV
+#            imageUrl: https://cdn-icons-png.flaticon.com/512/716/716429.png
+#            sizePercentage: 40
+      - type: custom:vertical-stack-in-card
+        title: 'Sonos Speakers'
+        cards:
+          - type: custom:sonos-player
+            mediaArtworkOverrides: # Show your own selected artwork if certain rules match
+            - mediaContentIdEquals: x-rincon-mp3radio://https://stream-mz.planetradio.co.uk/planetrock.mp3?direct=true&aw_0_1st.playerid=BMUK_TuneIn&aw_0_1st.skey=7374499933
+              imageUrl: https://static-media.streema.com/media/cache/3a/72/3a7208ca59725c6a404b769a81bb5cc6.jpg
+            - mediaTitleEquals: TV
+              imageUrl: https://cdn-icons-png.flaticon.com/512/716/716429.png
+              sizePercentage: 40
+          - type: custom:sonos-groups
+          - type: custom:sonos-media-browser
+            layout:
+              mediaItem:
+                width: 15%
+      - type: custom:mini-media-player
+        name: PVR
+        entity: media_player.dmr_pwt550
       - type: entities
         title: Controls
-        show_header_toggle: false
+        show_header_toggle: true
         entities:
-          - entity: switch.unit_lights
-          - entity: switch.picture_light
-          - entity: switch.bass_amp
-          - entity: switch.kodi_lounge
-            name: Plex
+          - entity: switch.standing_lamp
+          - entity: switch.table_lamp
           - entity: switch.landing_light
-          - entity: light.corner_light
-            name: Corner Light
-          - entity: switch.lounge_kodi_usb
-            name: Plex USB
-          
-      - type: button
-        name: Mount Plex USB
-        icon: "mdi:harddisk"
-        icon_height: 50px
-        show_state: false
-        tap_action:
-          action:
-            service: shell_command.plex_mount_all

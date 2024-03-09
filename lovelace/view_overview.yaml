@@ -5,8 +5,13 @@ icon: mdi:home
 cards:
   - type: vertical-stack
     cards:
-      - type: markdown
-        content: "## Who's Home"
+      - type: entities
+        title: Links
+        entities:
+          - type: weblink
+            name: Alternative Home Page
+            url: https://habond.duckdns.org:8123/local/index.html
+            icon: mdi:home
       - type: horizontal-stack
         cards:
           - type: picture-entity
@@ -19,6 +24,14 @@ cards:
               "home": /local/paula.jpg
               "away": /local/paula_bw.jpg
             entity: sensor.paula
+      - type: entities
+        title: Fitbit
+        show_header_toggle: false
+        entities:
+          - entity: sensor.versa_4_battery
+          - entity: sensor.steps
+          - entity: sensor.weight
+          - entity: sensor.fitbit_changed
       - type: horizontal-stack
         cards:
           - type: sensor
@@ -33,9 +46,28 @@ cards:
             entity: sensor.elevation
             graph: none
             name: Curr Elev
-      - type: weather-forecast
-        entity: weather.home
-        name: Lee-on-the-Solent
+      - type: horizontal-stack
+        cards:
+        - type: sensor
+          entity: sensor.lee_on_the_solent_temperature_3_hourly
+          name: Met Office Temp
+          graph: line
+          unit: deg
+        - type: sensor
+          entity: sensor.lee_on_the_solent_probability_of_precipitation_3_hourly
+          name: Met Office Rain Prob
+          graph: line
+          unit: '%'
+      - type: horizontal-stack
+        cards:
+        - type: sensor
+          entity: sensor.lee_on_the_solent_weather_3_hourly
+          name: Weather
+        - type: sensor
+          entity: sensor.lee_on_the_solent_wind_speed_3_hourly
+          name: Wind Speed
+          graph: line
+          unit: mph
       - type: horizontal-stack
         cards:
           - type: thermostat
@@ -45,32 +77,35 @@ cards:
         cards:
           - type: sensor
             icon: mdi:thermometer
-            entity: sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_temperature
+            entity: sensor.pir_motion_sensor_3_air_temperature
             graph: none
             name: Porch Temp
           - type: sensor
             icon: mdi:thermometer
-            entity: sensor.aeon_labs_zw100_multisensor_6_temperature
+            entity: sensor.multisensor_6_air_temperature
             graph: none
             name: Hall Temp
       - type: horizontal-stack
         cards:
           - type: sensor
             icon: mdi:brightness-5
-            entity: sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_luminance
+            entity: sensor.pir_motion_sensor_3_illuminance
             graph: none
             name: Porch Lum
           - type: sensor
             icon: mdi:brightness-5
-            entity: sensor.aeon_labs_zw100_multisensor_6_luminance
+            entity: sensor.multisensor_6_illuminance
             graph: none
             name: Hall Lum
+          - type: sensor
+            entity: sensor.dark
+            name: It's Dark
       - type: horizontal-stack
         cards:
           - type: gauge
             name: Porch PIR Batt
             unit: '%'
-            entity: sensor.shenzhen_neo_electronics_co_ltd_battery_powered_pir_sensor_v2_battery_level
+            entity: sensor.pir_motion_sensor_3_battery_level
             severity:
               red: 0
               yellow: 45

@@ -5,27 +5,17 @@ icon: mdi:bat
 cards:
   - type: vertical-stack
     cards:
-      - type: entity-filter
-        entities:
-          - binary_sensor.andymote
-          - binary_sensor.mc_bluray
-          - binary_sensor.mc_tv
-          - binary_sensor.mc_kodi
-        state_filter:
-          - "home"
-          - "on"
-        card:
-          type: glance
-          title: What's On
-          show_state: false
-
+      - type: media-control
+        entity: media_player.mc_roku_streaming_stick
+      - type: custom:mini-media-player
+        name: Plex
+        icon: mdi:plex
+        entity: media_player.plex_plex_for_roku_mc_roku_streaming_stick
       - type: entities
-        title: Controls
-        show_header_toggle: false
         entities:
-          - switch.05200304bcddc2e0fa9b_1
-          - switch.05200304bcddc2e0fa9b_2
-          - switch.05200304bcddc2e0fa9b_3
-          - switch.05200304bcddc2e0fa9b_4
-
+          - entity: select.harmony_hub_activities
+            name: "Harmony Hub Activity"
+          - switch.mancave_light
+        show_header_toggle: false
+        title: Controls
 

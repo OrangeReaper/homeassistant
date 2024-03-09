@@ -20,3 +20,4 @@ sync.sh
 blueprints/
 custom_components/
 ssl/
+fitbit.conf

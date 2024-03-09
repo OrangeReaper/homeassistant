@@ -1,0 +1,13 @@
+  sensor:
+    - name: "magenta"
+      state_topic: "printer/magenta"
+      force_update: true
+    - name: "black"
+      state_topic: "printer/black"
+      force_update: true
+    - name: "cyan"
+      state_topic: "printer/cyan"
+      force_update: true
+    - name: "yellow"
+      state_topic: "printer/yellow"
+      force_update: true

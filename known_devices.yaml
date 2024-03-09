@@ -1,7 +1,7 @@
 paula_phone_bt:
   hide_if_away: false
   icon:
-  mac: BT_34:29:12:49:D0:79
+  mac: BT_AC:3E:B1:23:F5:B3
   name: Paula's Phone BT
   picture:
   track: true
@@ -9,7 +9,7 @@ paula_phone_bt:
 andy_phone_bt:
   hide_if_away: false
   icon:
-  mac: BT_A4:50:46:10:13:00
+  mac: BT_AC:BE:B1:24:1E:A1
   name: Andy's Phone BT
   picture:
   track: true
