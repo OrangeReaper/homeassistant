@@ -1,5 +1,6 @@
 deps/
 tts/
+*.log.?
 *.log
 *.db*
 secrets.yaml

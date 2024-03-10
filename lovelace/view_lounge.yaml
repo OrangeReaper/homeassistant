@@ -6,39 +6,19 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:mini-media-player
-        name: TV
-        entity: media_player.lg_webos_tv_94a7
-      - type: custom:mini-media-player
-        name: Plex on TV
-        entity: media_player.plex_plex_for_lg_lg_oled65g16la
-#      - type: custom:sonos-player
-#        name: 'Sonos Speakers'
-#        entityId: media_player.living_room
-#        noMediaText: 'No media selected'
-#        skipAdditionalPlayerSwitches: true
-#        mediaArtworkOverrides: # Show your own selected artwork if certain rules match
-#          - mediaChannelEquals: Planet Rock
-#          - mediaTitleEquals: TV
-#            imageUrl: https://cdn-icons-png.flaticon.com/512/716/716429.png
-#            sizePercentage: 40
-      - type: custom:vertical-stack-in-card
-        title: 'Sonos Speakers'
-        cards:
-          - type: custom:sonos-player
-            mediaArtworkOverrides: # Show your own selected artwork if certain rules match
-            - mediaContentIdEquals: x-rincon-mp3radio://https://stream-mz.planetradio.co.uk/planetrock.mp3?direct=true&aw_0_1st.playerid=BMUK_TuneIn&aw_0_1st.skey=7374499933
-              imageUrl: https://static-media.streema.com/media/cache/3a/72/3a7208ca59725c6a404b769a81bb5cc6.jpg
-            - mediaTitleEquals: TV
-              imageUrl: https://cdn-icons-png.flaticon.com/512/716/716429.png
-              sizePercentage: 40
-          - type: custom:sonos-groups
-          - type: custom:sonos-media-browser
-            layout:
-              mediaItem:
-                width: 15%
-      - type: custom:mini-media-player
-        name: PVR
-        entity: media_player.dmr_pwt550
+        name: 'TV'
+#        entity: media_player.lg_webos_tv_94a7
+        entity: media_player.lg_webos_tv_oled65g16la
+
+      - type: custom:sonos-player
+        entityId: media_player.living_room
+        skipAdditionalPlayerSwitches: true
+        styles:
+          media-controls-icon:
+            '--mdc-icon-size': 36px
+          player-container:
+            margin-top: 0rem
+
       - type: entities
         title: Controls
         show_header_toggle: true
@@ -46,3 +26,4 @@ cards:
           - entity: switch.standing_lamp
           - entity: switch.table_lamp
           - entity: switch.landing_light
+
