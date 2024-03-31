@@ -1,0 +1,9 @@
+id: tycho_statechange
+alias: Tycho State Change
+trigger:
+  - platform: mqtt
+    topic: "tycho/status"
+action:
+  - service: notify.persistent_notification
+    data:
+      message: '{{ states("sensor.mqtt_tycho") }}'

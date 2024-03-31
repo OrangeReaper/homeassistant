@@ -10,8 +10,8 @@ cards:
       title: Server Status
       show_header_toggle: false
       entities:
-        - binary_sensor.discovery
-        - binary_sensor.tycho
+        - entity: binary_sensor.192_168_1_235
+          name: Tycho-A
         - entity: binary_sensor.plex_server
           name: saratoga
         - binary_sensor.pihole
@@ -67,102 +67,43 @@ cards:
           icon_height: 50px
           icon: mdi:server
 
-
-
-
-
-    - type: conditional
-      conditions:
-        - entity: binary_sensor.enterprise
-          state: "on"
-      card:
-        type: entities
-        title: Enterprise is ON
-        show_header_toggle: false
-        entities:
-          - entity: script.enterprise_off
-            name: Switch Enterprise Off
-    - type: conditional
-      conditions:
-        - entity: binary_sensor.enterprise
-          state: "off"
-      card:
-        type: entities
-        title: Enterprise is OFF
-        show_header_toggle: false
-        entities:
-          - entity: script.enterprise_on
-            name: Switch Enterprise On
-
-    - type: conditional
-      conditions:
-        - entity: binary_sensor.lexington
-          state: "on"
-      card:
-        type: entities
-        title: Lexington is ON
-        show_header_toggle: false
-        entities:
-          - entity: script.lexington_off
-            name: Switch Lexington Off
-    - type: conditional
-      conditions:
-        - entity: binary_sensor.lexington
-          state: "off"
-      card:
-        type: entities
-        title: Lexington is OFF
-        show_header_toggle: false
-        entities:
-          - entity: script.lexington_on
-            name: Switch Lexington On
-
-    - type: conditional
-      conditions:
-        - entity: binary_sensor.excelsior
-          state: "on"
-      card:
-        type: entities
-        title: Excelsior is ON
-        show_header_toggle: false
-        entities:
-          - entity: script.excelsior_off
-            name: Switch Excelsior Off
-    - type: conditional
-      conditions:
-        - entity: binary_sensor.excelsior
-          state: "off"
-      card:
-        type: entities
-        title: Excelsior is OFF
-        show_header_toggle: false
-        entities:
-          - entity: script.excelsior_on
-            name: Switch Excelsior On
-
-    - type: entities
-      title: Enterprise USB Drives
-      show_header_toggle: false
-      entities:
-        - entity: switch.tasmota
-          name: USB Group 1
-          icon: mdi:harddisk
-        - entity: switch.jellyfin
-          name: Jellyfin
-          icon: mdi:harddisk
-
     - type: horizontal-stack
+      title: Enterprise USB Drives
       cards:
         - type: button
-          name: Enterprise USB Disks Auto OFF
+          name: USB Group 1
           show_state: true
           tap_action:
             action: call-service
-            service: automation.toggle
+            service: switch.toggle
             target:
-              entity_id: automation.enterprise_usb_drives_off
+              entity_id: switch.tasmota
             service_data: {}
-          entity: automation.enterprise_usb_drives_off
+          entity: switch.tasmota
+          icon_height: 50px
+          icon: mdi:harddisk
+        - type: button
+          name: Jellyfin
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.jellyfin
+            service_data: {}
+          entity: switch.jellyfin
+          icon_height: 50px
+          icon: mdi:harddisk
+        - type: button
+          name: Dual USB1
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.dual_usb1
+            service_data: {}
+          entity: switch.dual_usb1
           icon_height: 50px
           icon: mdi:harddisk
 
@@ -171,6 +112,30 @@ cards:
       show_header_toggle: false
       entities:
         - switch.pc_light
+
+    - type: vertical-stack
+      title: Tycho Temperatures
+      cards:
+      - type: horizontal-stack
+        cards:
+        - type: sensor
+          entity: sensor.mqtt_tychocputemp
+          icon: mdi:thermometer
+          name: CPU
+          graph: line
+          unit: deg
+        - type: sensor
+          entity: sensor.mqtt_tychopcitemp
+          icon: mdi:thermometer
+          name: PCI
+          graph: line
+          unit: deg
+        - type: sensor
+          entity: sensor.mqtt_tychoacpitemp
+          icon: mdi:thermometer
+          name: ACPI
+          graph: line
+          unit: deg
 
     - type: vertical-stack
       title: Printer

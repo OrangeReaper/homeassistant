@@ -1,0 +1,9 @@
+id: enterprise_statechange
+alias: Enterprise State Change
+trigger:
+  - platform: mqtt
+    topic: "enterprise/status"
+action:
+  - service: notify.persistent_notification
+    data:
+      message: '{{ states("sensor.mqtt_enterprise") }}'

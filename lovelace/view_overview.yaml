@@ -78,12 +78,12 @@ cards:
           - type: sensor
             icon: mdi:thermometer
             entity: sensor.pir_motion_sensor_3_air_temperature
-            graph: none
+            graph: line
             name: Porch Temp
           - type: sensor
             icon: mdi:thermometer
             entity: sensor.multisensor_6_air_temperature
-            graph: none
+            graph: line
             name: Hall Temp
       - type: horizontal-stack
         cards:

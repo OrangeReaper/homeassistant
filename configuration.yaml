@@ -1,28 +1,27 @@
 
 # Configure a default setup of Home Assistant ie:
-#    Automation
-#    Home Assistant Cloud
-#    Configuration
-#    Frontend
-#    History
-#    Input boolean
-#    Input datetime
-#    Input number
-#    Input select
-#    Input text
-#    Logbook
-#    Map
-#    Mobile App Support
-#    Person
-#    Scene
-#    Scripts
-#    Simple Service Discovery Protocol (SSDP)
-#    Sun
-#    System Health
-#    Updater
-#    Zero-configuration networking (zeroconf)
-#    Zone
-
+# Assist pipeline (assist_pipeline)
+# Backup (backup)
+# Bluetooth (bluetooth)
+# Configuration (config)
+# Conversation (conversation)
+# DHCP discovery (dhcp)
+# Energy (energy)
+# History (history)
+# Home Assistant Alerts (homeassistant_alerts)
+# Home Assistant Cloud (cloud)
+# Image upload (image_upload)
+# Logbook (logbook)
+# Map (map)
+# Media source (media_source)
+# Mobile app support (mobile_app)
+# My Home Assistant (my)
+# Simple Service Discovery Protocol (SSDP) (ssdp)
+# Stream (stream)
+# Sun (sun)
+# USB (usb)
+# Webhooks (webhook)
+# Zero-configuration networking (zeroconf) (zeroconf)
 default_config:
 
 # Text to speech
@@ -68,4 +67,5 @@ command_line:
 
 # Required for Amazon Echo Integration
 api:
+
 

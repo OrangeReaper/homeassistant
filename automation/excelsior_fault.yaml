@@ -1,0 +1,9 @@
+id: excelsior_fault
+alias: Excelsior Fault Report
+trigger:
+  - platform: mqtt
+    topic: "excelsior/fault"
+action:
+  - service: notify.persistent_notification
+    data:
+      message: '{{ states("sensor.mqtt_excelsiorfault") }}'

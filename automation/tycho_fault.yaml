@@ -1,0 +1,9 @@
+id: tycho_fault
+alias: Tycho Fault Report
+trigger:
+  - platform: mqtt
+    topic: "tycho/fault"
+action:
+  - service: notify.persistent_notification
+    data:
+      message: '{{ states("sensor.mqtt_tychofault") }}'

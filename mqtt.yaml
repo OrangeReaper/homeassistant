@@ -11,3 +11,43 @@
     - name: "yellow"
       state_topic: "printer/yellow"
       force_update: true
+    - name: "mqtt_tycho"
+      state_topic: "tycho/status"
+      force_update: true
+    - name: "mqtt_tychofault"
+      state_topic: "tycho/fault"
+      force_update: true
+    - name: "mqtt_enterprise"
+      state_topic: "enterprise/status"
+      force_update: true
+    - name: "mqtt_enterprisefault"
+      state_topic: "enterprise/fault"
+      force_update: true
+    - name: "mqtt_excelsior"
+      state_topic: "excelsior/status"
+      force_update: true
+    - name: "mqtt_excelsiorfault"
+      state_topic: "excelsior/fault"
+      force_update: true
+    - name: "mqtt_tychocputemp"
+      state_topic: "tycho/temps/Package id 0:"
+      force_update: true
+    - name: "mqtt_tychocore0temp"
+      state_topic: "tycho/temps/Core 0:"
+      force_update: true
+    - name: "mqtt_tychocore1temp"
+      state_topic: "tycho/temps/Core 1:"
+      force_update: true
+    - name: "mqtt_tychocore2temp"
+      state_topic: "tycho/temps/Core 2:"
+      force_update: true
+    - name: "mqtt_tychocore3temp"
+      state_topic: "tycho/temps/Core 3:"
+      force_update: true
+    - name: "mqtt_tychopcitemp"
+      state_topic: "tycho/temps/Composite:"
+      force_update: true
+    - name: "mqtt_tychoacpitemp"
+      state_topic: "tycho/temps/temp1:"
+      force_update: true
+

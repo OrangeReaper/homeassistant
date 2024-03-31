@@ -1,0 +1,9 @@
+id: enterprise_fault
+alias: Enterprise Fault Report
+trigger:
+  - platform: mqtt
+    topic: "enterprise/fault"
+action:
+  - service: notify.persistent_notification
+    data:
+      message: '{{ states("sensor.mqtt_enterprisefault") }}'

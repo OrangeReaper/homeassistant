@@ -10,20 +10,24 @@ cards:
 #        entity: media_player.lg_webos_tv_94a7
         entity: media_player.lg_webos_tv_oled65g16la
 
-      - type: custom:sonos-player
-        entityId: media_player.living_room
-        skipAdditionalPlayerSwitches: true
-        styles:
-          media-controls-icon:
-            '--mdc-icon-size': 36px
-          player-container:
-            margin-top: 0rem
+      - type: media-control
+        entity: media_player.living_room
+
+
+
+#      - type: custom:sonos-player
+#        entityId: media_player.living_room
+#        skipAdditionalPlayerSwitches: true
+#        styles:
+#          media-controls-icon:
+#            '--mdc-icon-size': 36px
+#          player-container:
+#            margin-top: 0rem
 
       - type: entities
         title: Controls
         show_header_toggle: true
         entities:
-          - entity: switch.standing_lamp
           - entity: switch.table_lamp
           - entity: switch.landing_light
 

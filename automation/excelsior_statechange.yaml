@@ -1,0 +1,9 @@
+id: excelsior_statechange
+alias: Excelsior State Change
+trigger:
+  - platform: mqtt
+    topic: "excelsior/status"
+action:
+  - service: notify.persistent_notification
+    data:
+      message: '{{ states("sensor.mqtt_excelsior") }}'
