@@ -1,8 +1,8 @@
-id: excelsior_statechange
-alias: Excelsior State Change
+id: lexington_statechange
+alias: Lexington State Change
 trigger:
   - platform: mqtt
-    topic: "excelsior/status"
+    topic: "lexington/status"
 action:
   - service: notify.persistent_notification
     data:

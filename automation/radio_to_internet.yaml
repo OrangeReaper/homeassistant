@@ -9,7 +9,8 @@ action:
     service: media_player.turn_on
   - data:
       entity_id: media_player.roberts_radio_2
-      source: 'DAB'
+#      source: 'DAB'
+      source: 'Internet radio'   
     service: media_player.select_source
   - delay: '00:00:05'
   - data:

@@ -7,8 +7,9 @@ cards:
     cards:
       - type: custom:mini-media-player
         name: 'Roberts Radio'
-        entity: media_player.roberts_radio_2
+        entity: media_player.roberts_radio
       - type: horizontal-stack
+        title: Alarms
         cards:
           - type: button
             name: 6am Alarm
@@ -34,8 +35,12 @@ cards:
             entity: automation.alarm_7am
             icon_height: 50px
             icon: mdi:alarm
+
+      - type: horizontal-stack
+        title: Kitchen Radio
+        cards:
           - type: button
-            name: Kitchen Radio Auto
+            name: To Radio (S-S)
             show_state: true
             tap_action:  
               action: call-service
@@ -46,5 +51,77 @@ cards:
             entity: automation.radio_on
             icon_height: 50px
             icon: mdi:radio
+          - type: button
+            name: To Aux (M-F)
+            show_state: true
+            tap_action:  
+              action: call-service
+              service: automation.toggle
+              target:
+                entity_id: automation.radio_on_m_f
+              service_data: {}
+            entity: automation.radio_on_m_f
+            icon_height: 50px
+            icon: mdi:headphones
 
-
+      - type: horizontal-stack
+        title: Modes
+        cards:
+          - type: button
+            name: On Holiday
+            show_state: true
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              target:
+                entity_id: switch.holiday_mode
+              service_data: {}
+            entity: switch.holiday_mode
+            icon_height: 50px
+            icon: mdi:bag-suitcase-outline
+          - type: button    
+            name: Force Dark
+            show_state: true
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              target:
+                entity_id: switch.force_dark
+              service_data: {}
+            entity: switch.force_dark
+            icon_height: 50px
+            icon: mdi:weather-night
+            
+      - type: horizontal-stack
+        title: Dark Timed
+        cards:
+          - type: button    
+            name: Force Dark (15)
+            show_state: true
+            tap_action:
+              action: call-service
+              service: script.force_dark_timed
+              data:
+                duration: 15
+            icon_height: 50px
+            icon: mdi:weather-night
+          - type: button    
+            name: Force Dark (30)
+            show_state: true
+            tap_action:
+              action: call-service
+              service: script.force_dark_timed
+              data:
+                duration: 30
+            icon_height: 50px
+            icon: mdi:weather-night
+          - type: button    
+            name: Force Dark (60)
+            show_state: true
+            tap_action:
+              action: call-service
+              service: script.force_dark_timed
+              data:
+                duration: 60
+            icon_height: 50px
+            icon: mdi:weather-night

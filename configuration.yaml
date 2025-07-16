@@ -34,24 +34,21 @@ http: !include http.yaml
 automation: !include_dir_list automation/
 script: !include scripts.yaml
 scene: !include scenes.yaml
-lightwave: !include lightwave.yaml
 frontend: !include frontend.yaml
 lovelace: !include lovelace.yaml
 sensor: !include sensors.yaml
 media_player: !include media_players.yaml
 binary_sensor: !include binary_sensors.yaml
 switch: !include switches.yaml
-alexa: !include alexa.yaml
 device_tracker: !include device_tracker.yaml
 shell_command: !include shell_commands.yaml
 recorder: !include recorder.yaml
-timer: !include timers.yaml
-logbook: !include logbook.yaml
+template: !include templates.yaml
+logbook: !include recorder.yaml
 logger: !include logger.yaml
 notify: !include notify.yaml
 mqtt: !include mqtt.yaml
-panel_iframe: !include tasmota.yaml
-#command_line: !include command_line.yaml
+emulated_hue: !include emulated_hue.yaml
 
 # Check the size of the log file
 command_line:
@@ -63,9 +60,5 @@ command_line:
 
 
 
-#light: !include light.yaml
-
-# Required for Amazon Echo Integration
-api:
 
 

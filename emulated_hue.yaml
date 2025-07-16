@@ -1,0 +1,15 @@
+  listen_port: 80
+  expose_by_default: false
+  exposed_domains:
+    - switch
+
+  entities:
+    switch.lexington_toggle:
+      name: "Lexington"
+      hidden: false
+    switch.enterprise_toggle:
+      name: "Enterprise"
+      hidden: false
+    switch.s_toggle:
+      name: "Saratoga"
+      hidden: false

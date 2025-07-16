@@ -40,47 +40,74 @@
 
   hall_light_on:
     sequence:
-      - service: timer.cancel
-        data:
-          entity_id: timer.hall_light_off
       - service: homeassistant.turn_on
         data:
           entity_id: switch.hall_light
-      - service: homeassistant.turn_on
+      - delay: 120
+      - service: script.turn_on
+        entity_id: script.hall_light_off
+
+  hall_light_off:
+    sequence:
+      - service: homeassistant.turn_off
         data:
           entity_id: switch.hall_light
+      - service: script.turn_on
+        entity_id: script.porch_light_off
+
+  landing_light_on:
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.landing_light
+      - delay: 90
+      - service: script.turn_on
+        entity_id: script.landing_light_off
+
+  landing_light_off:
+    sequence:
+      - service: homeassistant.turn_off
+        data:
+          entity_id: switch.landing_light
+
+  porch_light_on:
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.porch_light
+      - service: script.hall_light_on
+
+  porch_light_off:
+    sequence:
+      - service: homeassistant.turn_off
+        data:
+          entity_id: switch.porch_light
+
+  midnight:
+    sequence:
+      - service: script.turn_on
+        entity_id: script.force_dark_off
 
   plex_on:
     sequence:
       - service: switch.turn_on
         data: {}
         target:
-          entity_id: switch.plex_usb
+          entity_id: switch.saratoga_usb
       - delay: '00:00:02'
-      - service: switch.turn_on
-        data: {}
-        target:
-          entity_id: switch.plex_usb
-      - delay: '00:00:02'
-      - service: switch.turn_on
+      - service: wake_on_lan.send_magic_packet
         data:
-          entity_id: switch.plex_server_wol
+          broadcast_port: 9
+          mac: 10:7C:61:22:83:A2
 
   plex_off:
     sequence:
-      - service: switch.turn_off
-        data:
-          entity_id: switch.plex_server_wol
-      - delay: '00:00:30'
+      - service: shell_command.turn_off_plex
+      - delay: '00:03:00'
       - service: switch.turn_off
         data: {}
         target:
-          entity_id: switch.plex_usb
-      - delay: '00:00:10'
-      - service: switch.turn_off
-        data: {}
-        target:
-          entity_id: switch.plex_usb
+          entity_id: switch.saratoga_usb
 
   mount_plex_drive:
     sequence:
@@ -121,3 +148,165 @@
       - service: switch.turn_off
         data:
           entity_id: switch.lexington_wol
+
+  kitchen_radio_off:
+    sequence:
+      - service: media_player.turn_off
+        target:
+          entity_id: media_player.jl_tenor
+        data: {}
+
+  kitchen_radio_on:
+    sequence:
+      - service: media_player.turn_on
+        target:
+          entity_id: media_player.jl_tenor
+        data: {}
+      - service: media_player.volume_set
+        target:
+          entity_id: media_player.jl_tenor
+        data:
+          volume_level: 0.375
+      - service: media_player.select_source
+        target:
+          entity_id: media_player.jl_tenor
+        data:
+          source: 'Internet radio'
+
+  kitchen_radio_aux:
+    sequence:
+      - service: media_player.turn_on
+        target:
+          entity_id: media_player.jl_tenor
+        data: {}
+      - service: media_player.select_source
+        target:
+          entity_id: media_player.jl_tenor
+        data:
+          source: 'AUX in'
+      - service: media_player.volume_set
+        target:
+          entity_id: media_player.jl_tenor
+        data:
+          volume_level: 0.5
+
+  wake_up_alarm:
+    sequence:
+      - service: media_player.turn_on
+        target:
+          entity_id: media_player.roberts_radio
+        data: {}
+      - service: media_player.volume_set
+        target:
+          entity_id: media_player.roberts_radio
+        data:
+          volume_level: 0.31
+      - service: media_player.select_source
+        target:
+          entity_id: media_player.roberts_radio
+        data:
+          source: 'Internet radio'
+
+  force_dark_on:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "homeassistant/modes/force_dark"
+          payload: "on"
+          retain: true
+
+  force_dark_off:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "homeassistant/modes/force_dark"
+          payload: "off"
+          retain: true
+
+  force_dark_timed:
+    description: "Temporarily enable force_dark for a given number of minutes"
+    fields:
+      duration:
+        description: "Time to keep force_dark on (in minutes)"
+        example: 15
+    sequence:
+      - service: script.force_dark_on
+      - delay:
+          minutes: "{{ duration }}"
+      - service: script.force_dark_off
+
+  holiday_mode_on:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "homeassistant/modes/holiday_mode"
+          payload_template: "on"
+          retain: true
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.alarm_7am
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.excelsior_auto_switch_on
+      - service: homeassistant.turn_off
+        data:
+          entity_id: automation.lounge_lights
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.lounge_lights
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.lounge_lights_2
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.mancave_light_on
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.mancave_light_on_2
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.radio_on
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.radio_on_m_f
+      - service: homeassistant.turn_off
+        target:
+          entity_id: automation.radio_to_aux
+
+  holiday_mode_off:
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "homeassistant/modes/holiday_mode"
+          payload_template: "off"
+          retain: true
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.alarm_7am
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.excelsior_auto_switch_on
+      - service: homeassistant.turn_on
+        data:
+          entity_id: automation.lounge_lights
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.lounge_lights
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.lounge_lights_2
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.mancave_light_on
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.mancave_light_on_2
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.radio_on
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.radio_on_m_f
+      - service: homeassistant.turn_on
+        target:
+          entity_id: automation.radio_to_aux

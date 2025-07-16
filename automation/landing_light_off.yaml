@@ -1,0 +1,13 @@
+alias: Turn off landing light (pir)
+id: landing_light_off
+#BELT AND BRACES SWITCH OFF
+trigger:
+  platform: state
+  entity_id: binary_sensor.landing_sensor_motion_detection
+  to: "off"
+  for:
+    seconds: 600
+action:
+  - service: script.landing_light_off
+
+

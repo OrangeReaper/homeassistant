@@ -1,0 +1,9 @@
+id: lexington_fault
+alias: Lexington Fault Report
+trigger:
+  - platform: mqtt
+    topic: "lexington/fault"
+action:
+  - service: notify.persistent_notification
+    data:
+      message: '{{ states("sensor.mqtt_lexingtonfault") }}'

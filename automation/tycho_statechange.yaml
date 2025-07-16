@@ -6,4 +6,4 @@ trigger:
 action:
   - service: notify.persistent_notification
     data:
-      message: '{{ states("sensor.mqtt_tycho") }}'
+      message: '{{ trigger.payload }}'

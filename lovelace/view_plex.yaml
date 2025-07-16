@@ -5,10 +5,13 @@ icon: phu:jellyfin
 cards:
   - type: vertical-stack
     cards:
-      - type: sensor
-        entity: sensor.saratoga
-        name: Jellyfin Server
-        icon: phu:jellyfin
+      - type: entities
+        title: Server Status
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.192_168_1_15
+            name: Saratoga
+            icon: phu:jellyfin
       - type: horizontal-stack
         cards:
           - type: button
@@ -18,11 +21,23 @@ cards:
               action: call-service
               service: switch.toggle
               target:
-                entity_id: switch.s_toggle
+                entity_id: switch.s_toggle2
               service_data: {}
-            entity: switch.s_toggle
+            entity: switch.s_toggle2
             icon_height: 50px
             icon: phu:jellyfin
+          - type: button
+            name: Saratoga USB
+            show_state: true
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              target:
+                entity_id: switch.saratoga_usb
+              service_data: {}
+            entity: switch.saratoga_usb
+            icon_height: 50px
+            icon: mdi:harddisk
           - type: button
             name: Saratoga Auto Off
             show_state: true
@@ -35,22 +50,3 @@ cards:
             entity: automation.plex_auto_off
             icon_height: 50px
             icon: phu:jellyfin
-      - type: entities
-        title: Emergency Controls
-        show_header_toggle: false
-        entities:
-          - entity: switch.plex_server_wol
-            name: Saratoga
-          - entity: switch.plex_usb
-            name: Saratoga USB
-          - entity: script.mount_plex_drive
-            name: Mount Saratoga Drive
-
-#      - type: button
-#        name: Mount Plex USB
-#        icon: "mdi:harddisk"
-#        icon_height: 50px
-#        show_state: false
-#        tap_action:
-#          action:
-#            service: shell_command.plex_mount_all

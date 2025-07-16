@@ -1,11 +1,9 @@
-
 alias: Mancave Light On 2
-initial_state: false
+id: mc_light_on2.yaml
 trigger:
   platform: state
   entity_id: sensor.dark
   to: 'yes'
-  for: '00:01:00'
 condition:
   - condition: state
     entity_id: sensor.mancave_occupied

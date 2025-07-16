@@ -24,14 +24,6 @@ cards:
               "home": /local/paula.jpg
               "away": /local/paula_bw.jpg
             entity: sensor.paula
-      - type: entities
-        title: Fitbit
-        show_header_toggle: false
-        entities:
-          - entity: sensor.versa_4_battery
-          - entity: sensor.steps
-          - entity: sensor.weight
-          - entity: sensor.fitbit_changed
       - type: horizontal-stack
         cards:
           - type: sensor
@@ -48,36 +40,9 @@ cards:
             name: Curr Elev
       - type: horizontal-stack
         cards:
-        - type: sensor
-          entity: sensor.lee_on_the_solent_temperature_3_hourly
-          name: Met Office Temp
-          graph: line
-          unit: deg
-        - type: sensor
-          entity: sensor.lee_on_the_solent_probability_of_precipitation_3_hourly
-          name: Met Office Rain Prob
-          graph: line
-          unit: '%'
-      - type: horizontal-stack
-        cards:
-        - type: sensor
-          entity: sensor.lee_on_the_solent_weather_3_hourly
-          name: Weather
-        - type: sensor
-          entity: sensor.lee_on_the_solent_wind_speed_3_hourly
-          name: Wind Speed
-          graph: line
-          unit: mph
-      - type: horizontal-stack
-        cards:
-          - type: thermostat
-            entity: climate.hive_temperature
-            name: Hive Temp
-      - type: horizontal-stack
-        cards:
           - type: sensor
             icon: mdi:thermometer
-            entity: sensor.pir_motion_sensor_3_air_temperature
+            entity: sensor.porch_sensor_air_temperature
             graph: line
             name: Porch Temp
           - type: sensor
@@ -85,11 +50,16 @@ cards:
             entity: sensor.multisensor_6_air_temperature
             graph: line
             name: Hall Temp
+          - type: sensor
+            icon: mdi:thermometer
+            entity: sensor.landing_sensor_air_temperature
+            graph: line
+            name: Landing Temp
       - type: horizontal-stack
         cards:
           - type: sensor
             icon: mdi:brightness-5
-            entity: sensor.pir_motion_sensor_3_illuminance
+            entity: sensor.porch_sensor_illuminance
             graph: none
             name: Porch Lum
           - type: sensor
@@ -105,15 +75,15 @@ cards:
           - type: gauge
             name: Porch PIR Batt
             unit: '%'
-            entity: sensor.pir_motion_sensor_3_battery_level
+            entity: sensor.porch_sensor_battery_level
             severity:
               red: 0
               yellow: 45
               green: 85
           - type: gauge
-            name: Hive Batt
+            name: Landing PIR Batt
             unit: '%'
-            entity: sensor.hive_temperature_battery_level
+            entity: sensor.landing_sensor_battery_level
             severity:
               red: 0
               yellow: 45

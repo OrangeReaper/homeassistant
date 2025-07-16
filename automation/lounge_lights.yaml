@@ -1,9 +1,9 @@
 alias: Lounge Lights
+id: lounge_lights
 trigger:
   platform: state
   entity_id: sensor.dark
   to: 'yes'
-  for: '00:02:00'
 condition:
   condition: state
   entity_id: sensor.lounge_occupied

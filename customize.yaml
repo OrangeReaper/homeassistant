@@ -7,44 +7,6 @@ switch.dual_usbs:
 switch.excelsior:
   assumed_state: true
   icon: mdi:nas
-switch.fridge:
-  assumed_state: true
-  icon: mdi:fridge
-switch.hall_light:
-  assumed_state: true
-  icon: mdi:lightbulb
-switch.led_lights:
-  assumed_state: true
-  icon: mdi:lightbulb
-switch.landing_light:
-  assumed_state: true
-  icon: mdi:lightbulb
-switch.pc_light:
-  assumed_state: true
-  icon: mdi:lightbulb
-switch.picture_light:
-  assumed_state: true
-  icon: mdi:lightbulb
-switch.porch_light:
-  assumed_state: true
-  icon: mdi:lightbulb
-switch.seagate_1:
-  assumed_state: true
-  icon: mdi:harddisk
-switch.seagate_2:
-  assumed_state: true
-  icon: mdi:harddisk
-switch.standing_light:
-  assumed_state: true
-  icon: mdi:lightbulb
-switch.tv_d_l_disks:
-  assumed_state: true
-  icon: mdi:harddisk
-switch.unit_lights:
-  assumed_state: true
-  icon: mdi:lightbulb
-automation.lounge_lights:
-  icon: mdi:lightbulb
 binary_sensor.enterprise:
   icon: mdi:desktop-tower
 binary_sensor.mc_bluray:
@@ -71,20 +33,12 @@ binary_sensor.discovery:
   icon: mdi:server
 binary_sensor.excelsior:
   icon: mdi:nas
-binary_sensor.andymote:
-  icon: mdi:server
 sensor.porch_temperature:
   unit_of_measurement: °C
 sensor.hall_temperature:
   unit_of_measurement: °C
-device_tracker.andy_andyphone:
-  entity_picture: local/andy.jpg
-device_tracker.paula_paulaphone:
-  entity_picture: local/paula.jpg
 person.andy_bond:
   entity_picture: local/andy.jpg
 person.paula_bond:
   entity_picture: local/paula.jpg
-switch.tasmota:
-  friendly_name: PC_USB_Group1
-  icon: mdi:harddisk
+

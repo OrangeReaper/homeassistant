@@ -1,9 +1,8 @@
 id: welcome_home
 alias: Welcome Home 2
-initial_state: false
 trigger:
   platform: state
-  entity_id: binary_sensor.pir_motion_sensor_3_home_security_motion_detection
+  entity_id: binary_sensor.porch_sensor_motion_detection
   to: "on"
 condition:
   condition: and
@@ -14,12 +13,4 @@ condition:
       entity_id: sensor.dark
       state: 'yes'
 action:
-  - service: switch.turn_on
-    entity_id: switch.porch_light
-  - service: script.hall_light_on
-  - delay: '00:00:01'
-  - service: switch.turn_on
-    entity_id: switch.porch_light
-  - service: script.hall_light_on
-  - service: timer.start
-    entity_id: timer.hall_light_off
+  - service: script.porch_light_on

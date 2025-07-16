@@ -1,0 +1,15 @@
+alias: Turn on landing light on pir detect
+id: landing_light_on
+trigger:
+  platform: state
+  entity_id: binary_sensor.pir_motion_temperature_light_sensor_motion_detection
+  to: "on"
+mode: restart
+condition:
+  condition: state
+  entity_id: sensor.dark
+  state: 'yes'
+action:
+  - service: script.landing_light_on
+
+

@@ -1,0 +1,10 @@
+alias: Computers Off
+id: computers_off
+trigger:
+  platform: state
+  entity_id: group.computers
+  to: 'off'
+  for: '00:10:00'
+action:
+  - service: switch.turn_off
+    entity_id: switch.pc_speaker

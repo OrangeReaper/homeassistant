@@ -5,14 +5,14 @@ icon: mdi:alpha-g-box
 cards:
   - type: vertical-stack
     cards:
-      - type: media-control
-        entity: media_player.roku_streaming_stick
       - type: entity-filter
         entities:
-          - entity: binary_sensor.multisensor_6_home_security_motion_detection
+          - entity: binary_sensor.multisensor_6_motion_detection
             name: "Hall"
-          - entity: binary_sensor.pir_motion_sensor_3_home_security_motion_detection
+          - entity: binary_sensor.porch_sensor_motion_detection
             name: "Porch"
+          - entity: binary_sensor.pir_motion_temperature_light_sensor_motion_detection
+            name: "Landing"
         state_filter:
           - "on"
           - "off"
@@ -21,18 +21,45 @@ cards:
           title: Movement
           show_state: true
       - type: entities
-        title: Controls
+        title: Hall & Landing
         show_header_toggle: false
         entities:
           - switch.hall_light
-          - switch.porch_light
+          - switch.landing_light
       - type: entities
         title: Kitchen Lights
         show_header_toggle: true
         entities:
-          - switch.led_lights
+          - switch.kitchen_leds
           - switch.kitchen_units
           - switch.kitchen_lamp
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: Kitchen Radio
+            show_state: true
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              target:
+                entity_id: switch.kitchen_radio_toggle
+              service_data: {}
+            entity: switch.kitchen_radio_toggle
+            icon_height: 50px
+            icon: mdi:radio
+
+          - type: button
+            name: Radio Aux
+            show_state: true
+            tap_action:
+              action: call-service
+              service: switch.toggle
+              target:
+                entity_id: switch.kitchen_radio_aux_toggle
+              service_data: {}
+            entity: switch.kitchen_radio_aux_toggle
+            icon_height: 50px
+            icon: mdi:headphones
       - type: custom:mini-media-player
         name: 'Kitchen Radio'
         entity: media_player.jl_tenor

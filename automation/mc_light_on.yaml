@@ -1,6 +1,5 @@
-
 alias: Mancave light ON
-initial_state: false
+id: mc_light_on
 trigger:
   platform: state  
   entity_id: sensor.mancave_occupied
@@ -9,7 +8,6 @@ condition:
   condition: state
   entity_id: sensor.dark
   state: 'yes'
-  for: '00:01:00'
 action:
   - service: switch.turn_on
     entity_id: switch.mancave_light

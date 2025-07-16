@@ -1,4 +1,5 @@
 alias: Radio Off
+id: radio_off
 trigger:
   - platform: time
     at: "08:30:00"

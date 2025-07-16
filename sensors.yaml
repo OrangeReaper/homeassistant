@@ -1,13 +1,4 @@
-# Fitbit Integration 
-#  - platform: fitbit
-#    clock_format: 24H
-#    unit_system: metric
-#    monitored_resources:
-#      - "body/weight"
-#      - "devices/battery"
-#      - "activities/steps"
 
-# Weather prediction
   - platform: time_date
     display_options:
       - 'time'
@@ -43,14 +34,10 @@
     sensors:
       lounge_occupied:
         value_template: >
-          {% if is_state('sensor.any_home', 'no') %}
-            no
+          {% if is_state('media_player.living_room', 'playing') %}
+            yes
           {% else %}
-            {% if is_state('media_player.living_room', 'playing') %}
-              yes
-            {% else %}
-              no
-            {% endif %}
+            no
           {% endif %}
 
 #Template updated 20-May-2022 to accommodate moving Harmony Remote into Mancave
@@ -74,22 +61,12 @@
 
   - platform: template
     sensors:
-      fitbit_changed:
-        value_template: "{{ states.sensor.steps.last_updated }}"
-        device_class: timestamp
-
-  - platform: template
-    sensors:
       plex:
         value_template: >
           {% if is_state("sensor.harmony_activity", 'Plex') %}
             on
           {% else %}
-            {% if states('sensor.andymote') == "Watch Plex"  %}
-              on
-            {% else %}
-              off
-            {% endif %}
+            off
           {% endif %}
 
   - platform: template
@@ -112,8 +89,8 @@
       dark:
         friendly_name: "It's Dark"
         value_template: >-
-          {% if (states.sensor.time.state > "09:00") and (states.sensor.time.state < "15:00") %}
-            no
+          {% if is_state("sensor.mqtt_force_dark", 'on') %}
+            yes
           {% else %}
             {% if (states.sensor.time.state > "00:00") and (states.sensor.time.state < "07:00") %}
               no
@@ -161,20 +138,16 @@
       paula:
         friendly_name: "Paula"
         value_template: >-
-          {% if is_state('timer.paula_away', 'active')  %}
+          {% if is_state('device_tracker.paula_pixel_7', 'active')  %}
                 home
           {% else %}
-            {% if is_state('timer.paula_home', 'active')  %}
-                away
+            {% if is_state('sensor.paula_pixel_7_wi_fi_ip_address', '192.168.1.14')  %}
+                home
             {% else %}
-              {% if is_state('device_tracker.paula_phone_bt', 'home')  %}
-                  home
+              {% if is_state('binary_sensor.paula_phone_wifi', 'on')  %}
+                home
               {% else %}
-                {% if is_state('binary_sensor.paula_phone_wifi', 'on')  %}
-                  home
-                {% else %}
-                  away
-                {% endif %}
+                away
               {% endif %}
             {% endif %}
           {% endif %}
@@ -184,20 +157,16 @@
       andy:
         friendly_name: "Andy"
         value_template: >-
-          {% if is_state('timer.andy_away', 'active')  %}
+          {% if is_state('device_tracker.pixel_7', 'active')  %}
                 home
           {% else %}
-            {% if is_state('timer.andy_home', 'active')  %}
-                away
+            {% if is_state('sensor.andy_pixel_7_wifi_ip_address', '192.168.1.90')  %}
+                home
             {% else %}
-              {% if is_state('device_tracker.andy_phone_bt', 'home')  %}
-                  home
+              {% if is_state('binary_sensor.andy_phone_wifi', 'on')  %}
+                home
               {% else %}
-                {% if is_state('binary_sensor.andy_phone_wifi', 'on')  %}
-                  home
-                {% else %}
-                  away
-                {% endif %}
+                away
               {% endif %}
             {% endif %}
           {% endif %}

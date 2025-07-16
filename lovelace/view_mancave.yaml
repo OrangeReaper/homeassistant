@@ -5,12 +5,6 @@ icon: mdi:bat
 cards:
   - type: vertical-stack
     cards:
-      - type: media-control
-        entity: media_player.mc_roku_streaming_stick
-      - type: custom:mini-media-player
-        name: Plex
-        icon: mdi:plex
-        entity: media_player.plex_plex_for_roku_mc_roku_streaming_stick
       - type: entities
         entities:
           - entity: select.harmony_hub_activities

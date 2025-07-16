@@ -1,23 +1,9 @@
 alias: Radio To Aux
+
 trigger:
   - platform: time
     at: "15:32:00"
 action:
-  - data:
-      entity_id: media_player.jl_tenor
-    entity_id: media_player.jl_tenor
-    service: media_player.turn_on
-  - data:
-      entity_id: media_player.jl_tenor
-      volume_level: 0.5
-    entity_id: media_player.jl_tenor
-    service: media_player.volume_set
-  - data:
-      entity_id: media_player.jl_tenor
-      source: 'AUX in'
-    service: media_player.select_source
+  - service: script.kitchen_radio_aux
   - delay: '00:00:05'
-  - data:
-      entity_id: media_player.jl_tenor
-    entity_id: media_player.jl_tenor
-    service: media_player.turn_off
+  - service: script.kitchen_radio_off

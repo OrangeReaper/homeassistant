@@ -1,0 +1,12 @@
+alias: tycho hot
+id: tycho_hot
+trigger:
+  platform: mqtt
+  topic: 'tycho/temps/Composite:'
+condition:
+  - condition: template
+    value_template: "{{ trigger.payload | float(0) > 55 }}"
+action:
+  - service: notify.persistent_notification
+    data:
+      message: "Warning: Tycho: Temperature High"

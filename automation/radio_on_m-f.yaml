@@ -1,5 +1,5 @@
-alias: Radio On
-id: radio_on
+alias: Radio On M-F
+id: radio_on_m-f
 trigger:
   platform: state
   entity_id: binary_sensor.multisensor_6_motion_detection
@@ -9,17 +9,21 @@ condition:
     after: 07:00:00
     before: 08:59:59
     weekday:
-      - sat
-      - sun
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
   - condition: template
-    value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.radio_on.attributes.last_triggered) | int > 7260 }}'
+    value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.radio_on_m_f.attributes.last_triggered) | int > 7260 }}'
 action:
   - service: switch.toggle
     target:
-      entity_id: switch.kitchen_radio_toggle
+      entity_id: switch.kitchen_radio_aux_toggle
   - delay: '00:00:10'
   - service: media_player.volume_set
     target:
       entity_id: media_player.jl_tenor
     data:
       volume_level: 0.5
+

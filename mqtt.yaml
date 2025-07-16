@@ -1,53 +1,90 @@
   sensor:
     - name: "magenta"
+      unique_id: mqtt_magenta
       state_topic: "printer/magenta"
       force_update: true
     - name: "black"
+      unique_id: mqtt_black
       state_topic: "printer/black"
       force_update: true
     - name: "cyan"
+      unique_id: mqtt_cyan
       state_topic: "printer/cyan"
       force_update: true
     - name: "yellow"
+      unique_id: mqtt_yellow
       state_topic: "printer/yellow"
       force_update: true
     - name: "mqtt_tycho"
+      unique_id: mqtt_tycho
       state_topic: "tycho/status"
       force_update: true
     - name: "mqtt_tychofault"
+      unique_id: mqtt_tychofault
       state_topic: "tycho/fault"
       force_update: true
     - name: "mqtt_enterprise"
+      unique_id: mqtt_enterprise
       state_topic: "enterprise/status"
       force_update: true
     - name: "mqtt_enterprisefault"
+      unique_id: mqtt_enterprisefault
       state_topic: "enterprise/fault"
       force_update: true
+    - name: "mqtt_lexington"
+      unique_id: mqtt_lexington
+      state_topic: "lexington/status"
+      force_update: true
+    - name: "mqtt_lexingtonfault"
+      unique_id: mqtt_lexingtonfault
+      state_topic: "lexington/fault"
+      force_update: true
     - name: "mqtt_excelsior"
+      unique_id: mqtt_excelsior
       state_topic: "excelsior/status"
       force_update: true
     - name: "mqtt_excelsiorfault"
+      unique_id: mqtt_excelsiorfault
       state_topic: "excelsior/fault"
       force_update: true
     - name: "mqtt_tychocputemp"
+      unique_id: mqtt_tychocputemp
       state_topic: "tycho/temps/Package id 0:"
       force_update: true
     - name: "mqtt_tychocore0temp"
+      unique_id: mqtt_tychocore0temp
       state_topic: "tycho/temps/Core 0:"
       force_update: true
     - name: "mqtt_tychocore1temp"
+      unique_id: mqtt_tychocore1temp
       state_topic: "tycho/temps/Core 1:"
       force_update: true
     - name: "mqtt_tychocore2temp"
+      unique_id: mqtt_tychocore2temp
       state_topic: "tycho/temps/Core 2:"
       force_update: true
     - name: "mqtt_tychocore3temp"
+      unique_id: mqtt_tychocore3temp
       state_topic: "tycho/temps/Core 3:"
       force_update: true
     - name: "mqtt_tychopcitemp"
+      unique_id: mqtt_tychopcitemp
       state_topic: "tycho/temps/Composite:"
       force_update: true
     - name: "mqtt_tychoacpitemp"
+      unique_id: mqtt_tychacpitemp
       state_topic: "tycho/temps/temp1:"
+      force_update: true
+    - name: "mqtt_tychodrivetemp"
+      unique_id: mqtt_tychodrivetemp
+      state_topic: "tycho/temps/usbDrveTemp"
+      force_update: true
+    - name: "mqtt_holiday_mode"
+      unique_id: mqtt_holiday_mode
+      state_topic: "homeassistant/modes/holiday_mode"
+      force_update: true
+    - name: "mqtt_force_dark"
+      unique_id: mqtt_force_dark
+      state_topic: "homeassistant/modes/force_dark"
       force_update: true
 

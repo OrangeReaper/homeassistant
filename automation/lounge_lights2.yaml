@@ -1,4 +1,5 @@
 alias: Lounge Lights 2
+id: lounge_lights2
 trigger:
   platform: state  
   entity_id: sensor.lounge_occupied
@@ -7,7 +8,6 @@ condition:
   - condition: state
     entity_id: sensor.dark
     state: 'yes'
-    for: '00:02:00'
   - condition: template
     value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.lounge_lights_2.attributes.last_triggered) | int > 43200 }}'
 action:

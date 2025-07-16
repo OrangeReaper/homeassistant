@@ -1,7 +1,7 @@
   lounge_lights:
     name: Lounge Lights
     entities:
-      - switch.table_lamp
+      - switch.lounge_lamp
 #      - switch.standing_lamp
 
   main_pc_usb_drives:
@@ -10,10 +10,10 @@
       - switch.jellyfin
       - switch.pc_light
       - switch.tasmota
+      - switch.dual_usb1
+      - switch.lex_usb_bak
   computers:
     name: Computers
     entities:
       - binary_sensor.enterprise
-      - binary_sensor.excelsior
-   
-    
+      - binary_sensor.lexington

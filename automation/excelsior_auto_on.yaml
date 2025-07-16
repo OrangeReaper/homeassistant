@@ -1,4 +1,5 @@
 alias: Excelsior Auto Switch On
+id: excelsior_auto_on
 trigger:
   platform: time
   # Military time format. This trigger will fire at 4:00 AM

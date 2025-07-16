@@ -1,8 +1,0 @@
-alias: hall pir detect off
-trigger:
-  platform: state
-  entity_id: binary_sensor.multisensor_6_home_security_motion_detection
-  to: "off"
-action:
-  - service: timer.start
-    entity_id: timer.hall_light_off

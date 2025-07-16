@@ -1,4 +1,5 @@
 alias: Plex Auto Off
+id: plex_auto_off
 trigger:
   platform: state  
   entity_id: sensor.saratoga

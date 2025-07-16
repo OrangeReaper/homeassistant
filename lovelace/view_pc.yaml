@@ -12,10 +12,10 @@ cards:
       entities:
         - entity: binary_sensor.192_168_1_235
           name: Tycho-A
-        - entity: binary_sensor.plex_server
-          name: saratoga
-        - binary_sensor.pihole
-
+        - entity: binary_sensor.192_168_1_15
+          name: Saratoga
+        - entity: binary_sensor.192_168_1_96
+          name: Pi Hole
     - type: horizontal-stack
       cards:
         - type: button
@@ -25,9 +25,9 @@ cards:
             action: call-service
             service: switch.toggle
             target:
-              entity_id: switch.enterprise_toggle
+              entity_id: switch.enterprise_toggle2
             service_data: {}
-          entity: switch.enterprise_toggle
+          entity: switch.enterprise_toggle2
           icon_height: 50px
           icon: phu:desktop-computer
         - type: button
@@ -37,9 +37,9 @@ cards:
             action: call-service
             service: switch.toggle
             target:
-              entity_id: switch.lexington_toggle
+              entity_id: switch.lexington_toggle2
             service_data: {}
-          entity: switch.lexington_toggle
+          entity: switch.lexington_toggle2
           icon_height: 50px
           icon: phu:desktop-computer
         - type: button
@@ -71,15 +71,15 @@ cards:
       title: Enterprise USB Drives
       cards:
         - type: button
-          name: USB Group 1
+          name: USB Grp 1
           show_state: true
           tap_action:
             action: call-service
             service: switch.toggle
             target:
-              entity_id: switch.tasmota
+              entity_id: switch.pc_usb_group1
             service_data: {}
-          entity: switch.tasmota
+          entity: switch.pc_usb_group1
           icon_height: 50px
           icon: mdi:harddisk
         - type: button
@@ -95,7 +95,7 @@ cards:
           icon_height: 50px
           icon: mdi:harddisk
         - type: button
-          name: Dual USB1
+          name: Dual USB
           show_state: true
           tap_action:
             action: call-service
@@ -106,12 +106,46 @@ cards:
           entity: switch.dual_usb1
           icon_height: 50px
           icon: mdi:harddisk
+        - type: button
+          name: Lex Bak
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.lex_usb_bak
+            service_data: {}
+          entity: switch.lex_usb_bak
+          icon_height: 50px
+          icon: mdi:harddisk
 
-    - type: entities
-      title: Other Controls
-      show_header_toggle: false
-      entities:
-        - switch.pc_light
+    - type: horizontal-stack
+      title: PC Controls
+      cards:
+        - type: button
+          name: Light
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.pc_light
+            service_data: {}
+          entity: switch.pc_light
+          icon_height: 50px
+          icon: mdi:lightbulb
+        - type: button
+          name: Speaker
+          show_state: true
+          tap_action:
+            action: call-service
+            service: switch.toggle
+            target:
+              entity_id: switch.pc_speaker
+            service_data: {}
+          entity: switch.pc_speaker
+          icon_height: 50px
+          icon: mdi:speaker
 
     - type: vertical-stack
       title: Tycho Temperatures
@@ -143,7 +177,7 @@ cards:
       - type: entities
         show_header_toggle: false
         entities:
-          - sensor.hp_color_laser_150nw
+          - binary_sensor.192_168_1_40
       - type: horizontal-stack
         cards:
           - type: gauge

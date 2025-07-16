@@ -1,6 +1,6 @@
 # Empty Log file if size > 4 MB
 alias: 'Empty Log File'
-initial_state: 'on'
+id: empty_log_file
 trigger:
   - platform: template
     value_template: "{{ states.sensor.log_file_size.state | int > 4096 }}"

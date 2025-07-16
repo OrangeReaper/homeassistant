@@ -1,0 +1,16 @@
+alias: Excelsior Auto Switch Off
+id: excelsior_auto_off
+trigger:
+  platform: time
+  # Military time format. This trigger will fire at 09:00 AM
+  at: '09:00:00'
+condition:
+  condition: state
+  entity_id: binary_sensor.192_168_1_111
+  state: "on"
+action:
+  - service: switch.turn_off
+    entity_id: switch.excelsior_wol
+  - service: notify.persistent_notification
+    data:
+      message: "Error: Excelsior: Did not Switch off; Computer shutdown forced"

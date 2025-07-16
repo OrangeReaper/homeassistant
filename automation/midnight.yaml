@@ -1,0 +1,8 @@
+alias: Midnight
+id : midnight
+trigger:
+  platform: time
+  # Military time format. This trigger will fire at Midnight AM
+  at: '00:00:00'
+action:
+  - service: script.midnight
