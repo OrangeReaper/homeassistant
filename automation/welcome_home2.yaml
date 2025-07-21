@@ -4,6 +4,7 @@ trigger:
   platform: state
   entity_id: binary_sensor.porch_sensor_motion_detection
   to: "on"
+mode: restart
 condition:
   condition: and
   conditions:

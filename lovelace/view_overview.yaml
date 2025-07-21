@@ -50,11 +50,18 @@ cards:
             entity: sensor.multisensor_6_air_temperature
             graph: line
             name: Hall Temp
+      - type: horizontal-stack
+        cards:
           - type: sensor
             icon: mdi:thermometer
             entity: sensor.landing_sensor_air_temperature
             graph: line
             name: Landing Temp
+          - type: sensor
+            icon: mdi:thermometer
+            entity: sensor.hive_current_temperature
+            graph: line
+            name: Hive Temp
       - type: horizontal-stack
         cards:
           - type: sensor
@@ -84,6 +91,14 @@ cards:
             name: Landing PIR Batt
             unit: '%'
             entity: sensor.landing_sensor_battery_level
+            severity:
+              red: 0
+              yellow: 45
+              green: 85
+          - type: gauge
+            name: Hive Batt
+            unit: '%'
+            entity: sensor.hive_temperature_battery_level
             severity:
               red: 0
               yellow: 45

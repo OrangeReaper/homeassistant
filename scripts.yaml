@@ -3,17 +3,9 @@
       - service: homeassistant.turn_on
         data:
           entity_id: group.lounge_lights
-      - delay: 2
-      - service: homeassistant.turn_on
-        data:
-          entity_id: group.lounge_lights
 
   turn_off_lounge_lights:
     sequence:
-      - service: homeassistant.turn_off
-        data:
-          entity_id: group.lounge_lights
-      - delay: 2
       - service: homeassistant.turn_off
         data:
           entity_id: group.lounge_lights
@@ -74,14 +66,14 @@
     sequence:
       - service: homeassistant.turn_on
         data:
-          entity_id: switch.porch_light
+          entity_id: light.porch_light
       - service: script.hall_light_on
 
   porch_light_off:
     sequence:
       - service: homeassistant.turn_off
         data:
-          entity_id: switch.porch_light
+          entity_id: light.porch_light
 
   midnight:
     sequence:
@@ -148,6 +140,20 @@
       - service: switch.turn_off
         data:
           entity_id: switch.lexington_wol
+
+  update_pc:
+    sequence:
+        - service: script.turn_on
+          entity_id: script.plex_on
+        - delay: '00:15:00'
+        - service: script.turn_on
+          entity_id: script.lexington_on
+        - delay: '00:15:00'
+        - service: script.turn_on
+          entity_id: script.plex_off
+        - delay: '00:15:00'
+        - service: script.turn_on
+          entity_id: script.lexington_off
 
   kitchen_radio_off:
     sequence:

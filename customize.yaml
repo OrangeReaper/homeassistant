@@ -1,3 +1,17 @@
+switch.hall_light:
+  icon: mdi:lightbulb
+switch.landing_light:
+  icon: mdi:lightbulb
+switch.kitchen_leds:
+  icon: mdi:lightbulb
+switch.kitchen_units:
+  icon: mdi:lightbulb
+switch.kitchen_lamp:
+  icon: mdi:lightbulb
+switch.mancave_light:
+  icon: mdi:lightbulb
+switch.lounge_lamp:
+  icon: mdi:lightbulb
 switch.defiant:
   assumed_state: true
   icon: mdi:nas

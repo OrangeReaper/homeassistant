@@ -1,0 +1,12 @@
+alias: "Weekly PC Update"
+id: weekly_pc_update
+trigger:
+  - platform: time
+    at: "02:00:00"
+condition:
+  - condition: time
+    weekday:
+      - sun
+action:
+  - service: script.update_pc
+mode: single

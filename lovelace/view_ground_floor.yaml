@@ -26,6 +26,7 @@ cards:
         entities:
           - switch.hall_light
           - switch.landing_light
+          - light.porch_light
       - type: entities
         title: Kitchen Lights
         show_header_toggle: true

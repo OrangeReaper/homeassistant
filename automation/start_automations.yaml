@@ -7,8 +7,6 @@ action:
   - service: automation.turn_on
     entity_id:
       - automation.defiant_switched_off
-      - automation.excelsior_switched_off
-      - automation.usb_drives_off
       - automation.mancave_light_on
       - automation.mancave_light_on_2
       - automation.mancave_light_off
