@@ -14,7 +14,12 @@ cards:
 
       - type: entities
         title: Controls
-        show_neader_toggle: false
+        show_header_toggle: true
         entities:
           - entity: switch.lounge_lamp
+          - entity: light.floor_lamp
+          
+      - type: light
+        entity: light.floor_lamp
+        name: Floor Lamp
 

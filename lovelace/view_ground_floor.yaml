@@ -27,6 +27,7 @@ cards:
           - switch.hall_light
           - switch.landing_light
           - light.porch_light
+          - switch.stair_cupboard
       - type: entities
         title: Kitchen Lights
         show_header_toggle: true
@@ -34,6 +35,7 @@ cards:
           - switch.kitchen_leds
           - switch.kitchen_units
           - switch.kitchen_lamp
+          - switch.little_light
       - type: horizontal-stack
         cards:
           - type: button

@@ -2,7 +2,7 @@
     name: Lounge Lights
     entities:
       - switch.lounge_lamp
-#      - switch.standing_lamp
+      - light.floor_lamp
 
   main_pc_usb_drives:
     name: MainPC USB Drives
@@ -15,5 +15,6 @@
   computers:
     name: Computers
     entities:
-      - binary_sensor.enterprise
-      - binary_sensor.lexington
+      - binary_sensor.192_168_1_113
+      - binary_sensor.192_168_1_188
+

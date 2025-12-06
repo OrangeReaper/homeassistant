@@ -16,6 +16,8 @@ cards:
           name: Saratoga
         - entity: binary_sensor.192_168_1_96
           name: Pi Hole
+        - entity: binary_sensor.hive_hub_status
+          name: Hive Hub
     - type: horizontal-stack
       cards:
         - type: button
@@ -184,7 +186,7 @@ cards:
             name: black
             theme: card_black_border
             unit: '%'
-            entity: sensor.black
+            entity: sensor.hp_color_laser_150nw_black_toner_s_n_crum_240426a5e3d
             severity:
               red: 0
               yellow: 10
@@ -192,7 +194,7 @@ cards:
           - type: gauge
             name: cyan
             unit: '%'
-            entity: sensor.cyan
+            entity: sensor.hp_color_laser_150nw_cyan_toner_s_n_crum_240426a6203
             severity:
               red: 0
               yellow: 10
@@ -200,7 +202,7 @@ cards:
           - type: gauge
             name: magenta
             unit: '%'
-            entity: sensor.magenta
+            entity: sensor.hp_color_laser_150nw_magenta_toner_s_n_crum_240426a4a9b
             severity:
               red: 0
               yellow: 10
@@ -208,7 +210,7 @@ cards:
           - type: gauge
             name: yellow
             unit: '%'
-            entity: sensor.yellow
+            entity: sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_240426a5e0b
             severity:
               red: 0
               yellow: 10

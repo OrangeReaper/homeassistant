@@ -1,0 +1,10 @@
+alias: Paula coming home
+description: 'Triggers when Paula is on her way home'
+trigger:
+  - platform: state
+    entity_id: sensor.home_paula_direction_of_travel
+    to: 'towards'
+action:
+  - service: script.tts_say
+    data:
+      message: 'Coming Home'

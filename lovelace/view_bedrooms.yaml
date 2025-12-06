@@ -8,33 +8,12 @@ cards:
       - type: custom:mini-media-player
         name: 'Roberts Radio'
         entity: media_player.roberts_radio
-      - type: horizontal-stack
-        title: Alarms
-        cards:
-          - type: button
-            name: 6am Alarm
-            show_state: true
-            tap_action:
-              action: call-service
-              service: automation.toggle
-              target:
-                entity_id: automation.alarm_6am
-              service_data: {}
-            entity: automation.alarm_6am
-            icon_height: 50px
-            icon: mdi:alarm
-          - type: button
-            name: 7am Alarm
-            show_state: true
-            tap_action:  
-              action: call-service
-              service: automation.toggle
-              target:
-                entity_id: automation.alarm_7am
-              service_data: {}
-            entity: automation.alarm_7am
-            icon_height: 50px
-            icon: mdi:alarm
+      - type: entities
+        title: Controls
+        show_header_toggle: false
+        entities:
+          - entity: switch.cat_lamp
+            icon: mdi:lightbulb
 
       - type: horizontal-stack
         title: Kitchen Radio

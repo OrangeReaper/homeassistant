@@ -19,9 +19,7 @@ condition:
         true
       {% endif %}
 action:
-  - service: switch.toggle
-    target:
-      entity_id: switch.kitchen_radio_toggle
+  - service: script.kitchen_radio_on
   - delay: '00:00:10'
   - service: media_player.volume_set
     target:

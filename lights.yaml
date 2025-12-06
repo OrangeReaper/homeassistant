@@ -1,0 +1,6 @@
+  - platform: group
+    name: Floor Lamp
+    entities:
+      - light.lp1
+      - light.lp2
+      - light.lp3

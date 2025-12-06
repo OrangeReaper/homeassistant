@@ -1,1 +1,166 @@
-[]
+- id: '1764932420291'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - action: climate.set_temperature
+    metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+  mode: single
+- id: '1764932421531'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - action: climate.set_temperature
+    metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+  mode: single
+- id: '1764932422144'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - action: climate.set_temperature
+    metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+  mode: single
+- id: '1764932424140'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - action: climate.set_temperature
+    metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+  mode: single
+- id: '1764932425035'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - action: climate.set_temperature
+    metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+  mode: single
+- id: '1764932425222'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - action: climate.set_temperature
+    metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+  mode: single
+- id: '1764932425494'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - action: climate.set_temperature
+    metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+  mode: single
+- id: '1764932646904'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+    action: climate.set_temperature
+  mode: single
+- id: '1764932661876'
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+    action: climate.set_temperature
+  mode: single
+- id: HiveON
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+    action: climate.set_temperature
+  mode: single
+- id: HiveON
+  alias: Hive ON
+  description: ''
+  triggers: []
+  conditions: []
+  actions:
+  - metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+    action: climate.set_temperature
+  mode: single
+- id: '1764932893550'
+  alias: HiveON
+  description: ''
+  triggers:
+  - trigger: time
+    at: '11:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    - sun
+  conditions: []
+  actions:
+  - action: climate.set_temperature
+    metadata: {}
+    data:
+      temperature: 22
+    target:
+      device_id: c15f0b845bebdb5025728c5e3599de27
+  mode: single

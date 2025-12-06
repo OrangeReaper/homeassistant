@@ -13,3 +13,6 @@
     switch.s_toggle:
       name: "Saratoga"
       hidden: false
+    switch.kitchen_lamp:
+      name: "Kitchen Lamp"
+      hidden: false

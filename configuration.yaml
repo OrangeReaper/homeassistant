@@ -1,4 +1,3 @@
-
 # Configure a default setup of Home Assistant ie:
 # Assist pipeline (assist_pipeline)
 # Backup (backup)
@@ -38,25 +37,19 @@ frontend: !include frontend.yaml
 lovelace: !include lovelace.yaml
 sensor: !include sensors.yaml
 media_player: !include media_players.yaml
-binary_sensor: !include binary_sensors.yaml
+#{LEGACY}binary_sensor: !include binary_sensors.yaml
 switch: !include switches.yaml
 device_tracker: !include device_tracker.yaml
 shell_command: !include shell_commands.yaml
 recorder: !include recorder.yaml
+history:
 template: !include templates.yaml
+light: !include lights.yaml
 logbook: !include recorder.yaml
 logger: !include logger.yaml
 notify: !include notify.yaml
 mqtt: !include mqtt.yaml
 emulated_hue: !include emulated_hue.yaml
-
-# Check the size of the log file
-command_line:
-  - sensor:
-      name: log_file_size
-      command: "du -k /config/home-assistant.log | cut -f1"
-      unit_of_measurement: 'KB'
-      value_template: '{{ value }}'
 
 
 

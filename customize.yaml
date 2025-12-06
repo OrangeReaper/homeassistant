@@ -2,6 +2,8 @@ switch.hall_light:
   icon: mdi:lightbulb
 switch.landing_light:
   icon: mdi:lightbulb
+switch.little_light:
+  icon: mdi:lightbulb
 switch.kitchen_leds:
   icon: mdi:lightbulb
 switch.kitchen_units:
@@ -12,6 +14,8 @@ switch.mancave_light:
   icon: mdi:lightbulb
 switch.lounge_lamp:
   icon: mdi:lightbulb
+switch.stair_cupboard:
+  icon: mdi:lightbulb
 switch.defiant:
   assumed_state: true
   icon: mdi:nas
@@ -21,26 +25,16 @@ switch.dual_usbs:
 switch.excelsior:
   assumed_state: true
   icon: mdi:nas
-binary_sensor.enterprise:
-  icon: mdi:desktop-tower
 binary_sensor.mc_bluray:
   icon: mdi:disc-player
 binary_sensor.tycho:
   icon: mdi:server
 binary_sensor.mc_tv:
   icon: mdi:television
-device_tracker.paula_phone_bt:
-  icon: mdi:bluetooth
-binary_sensor.paula_phone_wifi:
-  icon: mdi:wifi
 media_player.roberts_radio_2:
   icon: mdi:radio
 binary_sensor.printer:
   icon: mdi:printer
-device_tracker.andy_phone_bt:
-  icon: mdi:bluetooth
-binary_sensor.andy_phone_wifi:
-  icon: mdi:wifi
 binary_sensor.defiant:
   icon: mdi:nas
 binary_sensor.discovery:

@@ -1,3 +1,22 @@
+  tts_say:
+    alias: 'Say Message'
+    fields:
+      message:
+        name: 'Message to Speak'
+        description: 'the text'
+        required: true
+        selector:
+          text:
+    sequence:
+      - service: tts.speak
+        data:
+          message: "{{ message }}"
+          media_player_entity_id: media_player.tycho_squeezelite
+          options:
+            voice: en_GB-northern_english_male-medium
+        target:
+          entity_id: tts.piper
+
   turn_on_lounge_lights:
     sequence:
       - service: homeassistant.turn_on
@@ -73,6 +92,13 @@
     sequence:
       - service: homeassistant.turn_off
         data:
+          entity_id: light.porch_light
+          
+  porch_light_toggle:
+    alias: "Porch Light Toggle"
+    sequence:
+      - service: light.toggle
+        target:
           entity_id: light.porch_light
 
   midnight:
@@ -194,7 +220,7 @@
         target:
           entity_id: media_player.jl_tenor
         data:
-          volume_level: 0.5
+          volume_level: 0.66
 
   wake_up_alarm:
     sequence:
@@ -246,7 +272,7 @@
       - service: mqtt.publish
         data:
           topic: "homeassistant/modes/holiday_mode"
-          payload_template: "on"
+          payload: "on"
           retain: true
       - service: homeassistant.turn_off
         target:
@@ -284,7 +310,7 @@
       - service: mqtt.publish
         data:
           topic: "homeassistant/modes/holiday_mode"
-          payload_template: "off"
+          payload: "off"
           retain: true
       - service: homeassistant.turn_on
         target:
@@ -307,7 +333,7 @@
       - service: homeassistant.turn_on
         target:
           entity_id: automation.mancave_light_on_2
-      - service: homeassistant.turn_on
+      - service: homeassistant.turn_off
         target:
           entity_id: automation.radio_on
       - service: homeassistant.turn_on

@@ -1,6 +1,0 @@
-# Check the size of the log file
-  - sensor:
-      name: log_file_size
-      command: "du -k /config/home-assistant.log | cut -f1"
-      unit_of_measurement: 'KB'
-      value_template: '{{ value }}'

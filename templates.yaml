@@ -1,1 +1,327 @@
+  - binary_sensor:
+    - unique_id: kitchen_radio_radio_state
+      name: kitchen_radio_radio_state
+      device_class: power
+      default_entity_id: binary_sensor.kitchen_radio_radio_state
+      state: '{{ is_state(''binary_sensor.kitchen_radio_state'', ''on'') and is_state(''sensor.kitchen_radio_mode'', ''radio'') }}'
 
+  - binary_sensor:
+    - unique_id: kitchen_radio_aux_state
+      name: kitchen_radio_aux_state
+      device_class: power
+      default_entity_id: binary_sensor.kitchen_radio_aux_state
+      state: '{{ is_state(''binary_sensor.kitchen_radio_state'', ''on'') and is_state(''sensor.kitchen_radio_mode'', ''aux'') }}'
+
+  - binary_sensor:
+    - unique_id: kitchen_radio_state
+      name: kitchen_radio_state
+      device_class: power
+      default_entity_id: binary_sensor.kitchen_radio_state
+      state: '{{ not is_state(''media_player.jl_tenor'', ''off'') }}'
+
+  - sensor:
+    - unique_id: kitchen_radio_mode
+      name: kitchen_radio_mode
+      default_entity_id: sensor.kitchen_radio_mode
+      state: >
+        {% set src = state_attr('media_player.jl_tenor', 'source') %}
+        {% if src  == 'AUX in' %}
+          aux
+        {% elif src == 'Internet radio' %}
+          radio
+        {% else %}
+          other
+        {% endif %}"
+
+  - sensor:
+    - default_entity_id: sensor.harmony_activity
+      name: harmony_activity
+      state: >
+        {% if is_state_attr('remote.harmony_hub', 'current_activity', 'BluRay') %}
+          BluRay
+        {% else %}
+          {% if is_state_attr('remote.harmony_hub', 'current_activity', 'Plex') %}
+            Plex
+          {% else %}
+            {% if is_state_attr('remote.harmony_hub', 'current_activity', 'Roku') %}
+              Roku
+            {% else %}
+              {% if is_state_attr('remote.harmony_hub', 'current_activity', 'power_off') %}
+                PowerOff
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.lounge_occupied
+      name: lounge_occupied
+      state: >
+        {% if is_state('media_player.living_room', 'playing') %}
+          yes
+        {% else %}
+          no
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.mancave_occupied
+      name: mancave_occupied
+      state: >
+        {% if is_state("sensor.harmony_activity", 'BluRay') %}
+          yes
+        {% else %}
+          {% if is_state("sensor.harmony_activity", 'Plex') %}
+            yes
+          {% else %}
+            {% if is_state("sensor.harmony_activity", 'Roku') %}
+              yes
+            {% else %}
+              no
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.plex
+      name: plex
+      state: >
+        {% if is_state("sensor.harmony_activity", 'Plex') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.enterprise
+      name: enterprise
+      state: >
+        {% if is_state("binary_sensor.192.168.1.113", 'on') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.dark
+      name: "It's Dark"
+      state: >-
+        {% if is_state("sensor.mqtt_force_dark", 'on') %}
+          yes
+        {% else %}
+          {% if (states.sensor.time.state > "00:00") and (states.sensor.time.state < "10:00") %}
+            no
+          {% else %}
+            {% if state_attr('sun.sun', 'elevation') > 0  %}
+              no
+            {% else %}
+              yes
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.all_home
+      name: "All Home"
+      state: >-
+        {% if is_state('sensor.paula', 'home')  %}
+          {% if is_state('sensor.andy', 'home') %}
+            yes
+          {% else %}
+            no
+          {% endif %}
+        {% else %}
+          no
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.any_home
+      name: "Someone is Home"
+      state: >-
+        {% if is_state('sensor.paula', 'home')  %}
+          yes
+        {% else %}
+          {% if is_state('sensor.andy', 'home') %}
+            yes
+          {% else %}
+            no
+          {% endif %}
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.paula
+      name: "Paula"
+      state: >-
+        {% if is_state('device_tracker.paula_pixel_7', 'home')  %}
+              home
+        {% else %}
+          {% if is_state('sensor.paula_pixel_7_wi_fi_ip_address', '192.168.1.14')  %}
+              home
+          {% else %}
+            {% if is_state('binary_sensor.paula_phone_wifi', 'on')  %}
+              home
+            {% else %}
+              away
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.andy
+      name: "Andy"
+      state: >-
+        {% if is_state('device_tracker.pixel_7', 'home')  %}
+              home
+        {% else %}
+          {% if is_state('sensor.andy_pixel_7_wifi_ip_address', '192.168.1.90')  %}
+              home
+          {% else %}
+            {% if is_state('binary_sensor.andy_phone_wifi', 'on')  %}
+              home
+            {% else %}
+              away
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+  - sensor:
+    - default_entity_id: sensor.hive_current_temperature
+      name: "Hive Current Temperature"
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('climate.hive_temperature', 'current_temperature') }}"
+
+  - sensor:
+    - default_entity_id: sensor.nextsunrise
+      name: 'Next Sunrise'
+      state: >
+        {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %I:%M%p') | replace(" 0", "") }}
+#      icon_template: mdi:weather-sunset-up
+
+  - sensor:
+    - default_entity_id: sensor.nextsunset
+      name: 'Next Sunset'
+      state: >
+        {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %I:%M%p') | replace(" 0", "") }}
+#      icon_template: mdi:weather-sunset-down
+
+  - sensor:
+    - default_entity_id: sensor.elevation
+      name: 'Sun Elevation'
+      state: >
+        {{ state_attr('sun.sun','elevation') }}
+
+# NB used by emulated hue value_template LIES about the status
+# means that Alexa doesn't complain that Saratoga isn't responding
+  - switch:
+    - default_entity_id: switch.s_toggle
+      name: s_toggle
+      state: '{{ is_state(''binary_sensor.192_168_1_15'', ''off'') }}'
+      turn_on:
+      - action: script.plex_on
+      turn_off:
+      - action: script.plex_off
+
+# NB used by Lovelace value_template tells the TRUTH about the status
+  - switch:
+    - default_entity_id: switch.s_toggle2
+      name: s_toggle2
+      state: '{{ is_state(''binary_sensor.192_168_1_15'', ''on'') }}'
+      turn_on:
+      - action: script.plex_on
+      turn_off:
+      - action: script.plex_off
+
+  - switch:
+    - default_entity_id: switch.holiday_mode
+      name: holiday_mode
+      state: '{{ is_state(''sensor.mqtt_holiday_mode'', ''on'') }}'
+      turn_on:
+      - action: script.holiday_mode_on
+      turn_off:
+      - action: script.holiday_mode_off
+
+  - switch:
+    - default_entity_id: switch.force_dark
+      name: force_dark
+      state: '{{ is_state(''sensor.mqtt_force_dark'', ''on'') }}'
+      turn_on:
+      - action: script.force_dark_on
+      turn_off:
+      - action: script.force_dark_off
+
+# NB used by emulated hue value_template LIES about the status
+# means that Alexa doesn't complain that Enterprise isn't responding
+  - switch:
+    - default_entity_id: switch.enterprise_toggle
+      name: enterprise_toggle
+      state: '{{ is_state(''binary_sensor.192_168_1_113'', ''off'') }}'
+    - turn_on:
+      - action: script.enterprise_on
+      turn_off:
+      - action: script.enterprise_off
+
+# NB used by Lovelace value_template tells the TRUTH about the status
+  - switch:
+    - default_entity_id: switch.enterprise_toggle2
+      name: enterprise_toggle2
+      state: "{{ is_state('binary_sensor.192_168_1_113', 'on') }}"
+      turn_on:
+        action: script.enterprise_on
+      turn_off:
+        action: script.enterprise_off
+
+# NB used by emulated hue value_template LIES about the status
+# means that Alexa doesn't complain that Lexington isn't responding
+  - switch:
+    - default_entity_id: switch.lexington_toggle
+      name: lexington_toggle
+      state: '{{ is_state(''binary_sensor.192_168_1_188'', ''off'') }}'
+      turn_on:
+      - action: script.lexington_on
+      turn_off:
+      - action: script.lexington_off
+
+# NB used by Lovelace value_template tells the TRUTH about the status
+  - switch:
+    - default_entity_id: switch.lexington_toggle2
+      name: lexington_toggle2
+      state: '{{ is_state(''binary_sensor.192_168_1_188'', ''on'') }}'
+      turn_on:
+      - action: script.lexington_on
+      turn_off:
+      - action: script.lexington_off
+
+  - switch:
+    - default_entity_id: switch.excelsior_toggle
+      name: excelsior_toggle
+      state: '{{ is_state(''binary_sensor.192_168_1_111'', ''on'') }}'
+      turn_on:
+      - action: script.excelsior_on
+      turn_off:
+      - action: script.excelsior_off
+
+  - switch:
+    - default_entity_id: switch.defiant_toggle
+      name: defiant_toggle
+      state: '{{ is_state(''binary_sensor.192_168_1_185'', ''on'') }}'
+      turn_on:
+      - action: script.turn_on_defiant
+      turn_off:
+      - action: script.turn_off_defiant
+
+  - switch:
+    - default_entity_id: switch.kitchen_radio_toggle
+      name: kitchen_radio_toggle
+      state: '{{ is_state(''binary_sensor.kitchen_radio_radio_state'', ''on'') }}'
+      turn_on:
+      - action: script.kitchen_radio_on
+      turn_off:
+      - action: script.kitchen_radio_off
+
+  - switch:
+    - default_entity_id: switch.kitchen_radio_aux_toggle
+      name: kitchen_radio_aux_toggle
+      state: '{{ is_state(''binary_sensor.kitchen_radio_aux_state'', ''on'') }}'
+      turn_on:
+      - action: script.kitchen_radio_aux
+      turn_off:
+      - action: script.kitchen_radio_off

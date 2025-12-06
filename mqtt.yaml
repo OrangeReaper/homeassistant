@@ -31,6 +31,14 @@
       unique_id: mqtt_enterprisefault
       state_topic: "enterprise/fault"
       force_update: true
+    - name: "mqtt_saratoga"
+      unique_id: mqtt_saratoga
+      state_topic: "saratoga/status"
+      force_update: true
+    - name: "mqtt_saratogafault"
+      unique_id: mqtt_saratogafault
+      state_topic: "saratoga/fault"
+      force_update: true
     - name: "mqtt_lexington"
       unique_id: mqtt_lexington
       state_topic: "lexington/status"
@@ -86,5 +94,13 @@
     - name: "mqtt_force_dark"
       unique_id: mqtt_force_dark
       state_topic: "homeassistant/modes/force_dark"
+      force_update: true
+
+  binary_sensor:
+    - name: "MQTT Porch Switch"
+      unique_id: mqtt_porch_switch
+      state_topic: "stat/tasmota_D19590/SWITCH1"
+      payload_on: "1"
+      payload_off: "0"
       force_update: true
 

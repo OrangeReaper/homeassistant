@@ -1,12 +1,17 @@
-#  db_url: mysql://hass:{KES}trel@192.168.1.93/homeassistant?charset=utf8
+# include,  If set, all other entities will not be recorded
   include:
     domains:
        - automation
        - sensor
+       - binary_sensor
+       - switch
+       - light
+       - script
+       - device_tracker
+    entity_globs:
+      - sensor.mqtt_tycho*temp
   exclude:
     entities:
-      - device_tracker.galaxy_tab_a
-      - device_tracker.paula_ipad
       - sensor.date_time
       - sensor.time_date
       - sensor.date_time_iso
@@ -14,21 +19,20 @@
       - sensor.time
       - sensor.time_utc
       - sensor.yr_symbol
-      - sun.sun
-      - weather.dark_sky
-      - weather.home
-#      - sensor.hive_battery
       - sensor.time_to_next_sunset
       - sensor.dark_offset
       - sensor.night_length_today
       - sensor.elevation
-      - device_tracker.dnpxxbm9kxk2
-      - binary_sensor.paula_phone_wifi
-      - binary_sensor.andy_phone_wifi
       - sensor.multisensor_6_last_seen
       - sensor.pir_motion_sensor_3_last_seen
       - sensor.landing_sensor_last_seen
-      - device_tracker.andy_phone_bt
-      - device_tracker.paula_phone_bt
+      - sensor.node_7_last_seen
+      - sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_240426a5e0b
+      - sensor.hp_color_laser_150nw_cyan_toner_s_n_crum_240426a6203
+      - sensor.hp_color_laser_150nw_black_toner_s_n_crum_240426a5e3d
+      - sensor.hp_color_laser_150nw_magenta_toner_s_n_crum_240426a4a9b
     entity_globs:
       - sensor.mqtt*
+      - sensor.*last_seen
+      - sensor.*energy_totalstarttime
+      - sensor.*ip_address

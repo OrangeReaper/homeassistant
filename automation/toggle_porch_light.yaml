@@ -1,0 +1,8 @@
+alias: "Toggle Porch Light"
+id: toggle_porch_light
+trigger:
+  - platform: state
+    entity_id: binary_sensor.mqtt_porch_switch
+    to: "off"
+action:
+  - service: script.porch_light_toggle

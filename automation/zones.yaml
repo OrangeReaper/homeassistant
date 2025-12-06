@@ -1,0 +1,32 @@
+alias: Zone Detector
+mode: single
+
+trigger:
+  - platform: state
+    entity_id:
+      - zone.whiteley
+      - zone.titchfield
+      - zone.peel_common
+      - zone.hilsea
+      - zone.hedge_end
+      - zone.grange_road
+      - zone.fareham
+      - zone.boarhunt
+      # Add more non-home zones here
+    from: '0'
+    to: '1'
+
+condition:
+  - condition: state
+    entity_id: sensor.andy
+    state: 'home'
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sensor.paula
+        state: 'home'
+
+action:
+  - service: script.tts_say
+    data:
+      message: "Zone activity detected"

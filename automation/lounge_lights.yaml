@@ -6,7 +6,7 @@ trigger:
   to: 'yes'
 condition:
   condition: state
-  entity_id: sensor.lounge_occupied
+  entity_id: sensor.any_home
   state: "yes"
 action:
   - service: script.turn_on_lounge_lights
