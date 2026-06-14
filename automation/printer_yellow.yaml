@@ -1,16 +1,14 @@
-alias: printer yellow
+alias: "Printer Yellow"
 id: printer_yellow
 trigger:
-  platform: event
-  event_type: state_changed
-  event_data:
-    entity_id: sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_190702a2119
+  - platform: state
+    entity_id: sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_240426a5e0b
 condition:
   - condition: template
-    value_template: "{{ not is_state('sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_190702a2119', 'unavailable') }}"
+    value_template: "{{ not is_state('sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_240426a5e0b', 'unavailable') }}"
 action:
-  service: mqtt.publish
-  data:
-    topic: "printer/yellow"
-    payload: "{{ states('sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_190702a2119') }}"
-    retain: true
+  - action: mqtt.publish
+    data:
+      topic: "printer/yellow"
+      payload: "{{ states('sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_240426a5e0b') }}"
+      retain: true

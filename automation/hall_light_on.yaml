@@ -1,15 +1,26 @@
-alias: Turn on hall light on pir detect
-id: hall_light_on.yaml
-trigger:
-  platform: state
-  entity_id: binary_sensor.multisensor_6_motion_detection
-  to: "on"
+alias: Hall light motion control
+id: hall_light_motion_control
 mode: restart
-condition: 
-  condition: state 
-  entity_id: sensor.dark
-  state: 'yes'
+
+trigger:
+  - platform: state
+    entity_id: binary_sensor.multisensor_6_motion_detection
+    to: "on"
+
+condition:
+  - condition: state
+    entity_id: sensor.dark
+    state: 'yes'
+
 action:
-  - service: script.hall_light_on
+  - action: script.hall_light_on
 
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.multisensor_6_motion_detection
+        to: "off"
+        for:
+          minutes: 1
 
+  - action: script.hall_light_off
+  - action: script.porch_light_off

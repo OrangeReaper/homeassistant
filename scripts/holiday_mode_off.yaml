@@ -1,0 +1,28 @@
+  holiday_mode_off:
+    sequence:
+      - action: mqtt.publish
+        data:
+          topic: "homeassistant/modes/holiday_mode"
+          payload: "off"
+          retain: true
+      - action: homeassistant.turn_on
+        target:
+          entity_id: automation.excelsior_auto_switch_on
+      - action: homeassistant.turn_on
+        target:
+          entity_id: automation.lounge_lights
+      - action: homeassistant.turn_on
+        target:
+          entity_id: automation.lounge_lights
+      - action: homeassistant.turn_on
+        target:
+          entity_id: automation.lounge_lights_2
+      - action: homeassistant.turn_on
+        target:
+          entity_id: automation.mancave_light_on
+      - action: homeassistant.turn_on
+        target:
+          entity_id: automation.mancave_light_on_2
+      - action: homeassistant.turn_on
+        target:
+          entity_id: automation.radio_to_aux

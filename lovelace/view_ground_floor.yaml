@@ -13,6 +13,8 @@ cards:
             name: "Porch"
           - entity: binary_sensor.pir_motion_temperature_light_sensor_motion_detection
             name: "Landing"
+          - entity: binary_sensor.stair_sensor_motion_detection
+            name: "Stairs"
         state_filter:
           - "on"
           - "off"
@@ -36,33 +38,21 @@ cards:
           - switch.kitchen_units
           - switch.kitchen_lamp
           - switch.little_light
-      - type: horizontal-stack
-        cards:
-          - type: button
-            name: Kitchen Radio
-            show_state: true
-            tap_action:
-              action: call-service
-              service: switch.toggle
-              target:
-                entity_id: switch.kitchen_radio_toggle
-              service_data: {}
-            entity: switch.kitchen_radio_toggle
-            icon_height: 50px
-            icon: mdi:radio
 
-          - type: button
-            name: Radio Aux
-            show_state: true
-            tap_action:
-              action: call-service
-              service: switch.toggle
-              target:
-                entity_id: switch.kitchen_radio_aux_toggle
-              service_data: {}
-            entity: switch.kitchen_radio_aux_toggle
-            icon_height: 50px
-            icon: mdi:headphones
-      - type: custom:mini-media-player
+
+#      - type: custom:mini-media-player
+      - type: media-control
         name: 'Kitchen Radio'
         entity: media_player.jl_tenor
+
+      - type: history-graph
+        title: Kitchen Radio Connectivity
+        entities:
+          - entity: binary_sensor.192_168_1_180
+        hours_to_show: 24
+        refresh_interval: 30
+
+#      - type: custom:mini-media-player
+      - type: media-control
+        name: 'Kitchen TV'
+        entity: media_player.24_sharp_roku_tv

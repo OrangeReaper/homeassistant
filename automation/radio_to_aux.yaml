@@ -1,9 +1,0 @@
-alias: Radio To Aux
-
-trigger:
-  - platform: time
-    at: "15:32:00"
-action:
-  - service: script.kitchen_radio_aux
-  - delay: '00:00:05'
-  - service: script.kitchen_radio_off

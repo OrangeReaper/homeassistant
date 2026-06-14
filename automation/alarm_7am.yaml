@@ -1,8 +1,0 @@
-alias: Alarm 7am
-id: alarm_7am
-trigger:
-  platform: time
-  # Military time format. This trigger will fire at 7:00 AM
-  at: '06:58:00'
-action:
-  - service: script.wake_up_alarm

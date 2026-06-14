@@ -1,0 +1,14 @@
+  unit_lights_off:
+    alias: "Unit Lights Off"
+    mode: single
+    sequence:
+      - repeat:
+          count: 5
+          sequence:
+            - action: remote.send_command
+              target:
+                entity_id: remote.broadlink_remote
+              data:
+                device: unit_lights
+                command: "off"
+            - delay: "00:00:03"

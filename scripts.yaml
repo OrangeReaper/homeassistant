@@ -22,12 +22,95 @@
       - service: homeassistant.turn_on
         data:
           entity_id: group.lounge_lights
+      - service: script.turn_on
+        target:
+          entity_id: script.unit_lights_on
 
   turn_off_lounge_lights:
     sequence:
       - service: homeassistant.turn_off
         data:
           entity_id: group.lounge_lights
+      - service: script.turn_on
+        target:
+          entity_id: script.unit_lights_off
+
+  unit_lights_on:
+    alias: "Unit Lights On"
+    mode: queued
+    max: 5
+    sequence:
+      - repeat:
+          count: 5
+          sequence:
+            - action: remote.send_command
+              target:
+                entity_id: remote.broadlink_remote
+              data:
+                device: unit_lights
+                command: "on"
+            - delay: "00:00:02"
+
+  unit_lights_off:
+    alias: "Unit Lights Off"
+    mode: queued
+    max: 5
+    sequence:
+      - repeat:
+          count: 5
+          sequence:
+            - action: remote.send_command
+              target:
+                entity_id: remote.broadlink_remote
+              data:
+                device: unit_lights
+                command: "off"
+            - delay: "00:00:02"
+
+  lounge_tv_on:
+    alias: "Lounge TV On"
+    mode: restart
+    sequence:
+      - repeat:
+          count: 5
+          sequence:
+            - service: remote.send_command
+              target:
+                entity_id: remote.broadlink_remote
+              data:
+                device: lg_tv
+                command: "on"
+            - delay: "00:00:00.2"
+
+  lounge_tv_off:
+    alias: "Lounge TV Off"
+    mode: restart
+    sequence:
+      - repeat:
+          count: 5
+          sequence:
+            - service: remote.send_command
+              target:
+                entity_id: remote.broadlink_remote
+              data:
+                device: lg_tv
+                command: "off"
+            - delay: "00:00:00.2"
+
+  panasonic_dmr_off:
+    alias: "Panasonic DMR Off"
+    mode: restart
+    sequence:
+      - repeat:
+          count: 5
+          sequence:
+            - service: remote.send_command
+              target:
+                entity_id: remote.broadlink_remote
+              data:
+                device: panasonic_pmr
+                command: "off"
+            - delay: "00:00:00.2"
 
   turn_on_defiant:
     sequence:
@@ -54,9 +137,6 @@
       - service: homeassistant.turn_on
         data:
           entity_id: switch.hall_light
-      - delay: 120
-      - service: script.turn_on
-        entity_id: script.hall_light_off
 
   hall_light_off:
     sequence:
@@ -65,6 +145,18 @@
           entity_id: switch.hall_light
       - service: script.turn_on
         entity_id: script.porch_light_off
+
+  stair_light_on:
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.stair_cupboard
+
+  stair_light_off:
+    sequence:
+      - service: homeassistant.turn_off
+        data:
+          entity_id: switch.stair_cupboard
 
   landing_light_on:
     sequence:
@@ -86,7 +178,9 @@
       - service: homeassistant.turn_on
         data:
           entity_id: light.porch_light
-      - service: script.hall_light_on
+      - service: automation.trigger
+        target:
+          entity_id: automation.hall_light_motion_control
 
   porch_light_off:
     sequence:
@@ -100,11 +194,6 @@
       - service: light.toggle
         target:
           entity_id: light.porch_light
-
-  midnight:
-    sequence:
-      - service: script.turn_on
-        entity_id: script.force_dark_off
 
   plex_on:
     sequence:
@@ -206,16 +295,32 @@
           source: 'Internet radio'
 
   kitchen_radio_aux:
+    mode: restart
     sequence:
+      # Try to wake the device
       - service: media_player.turn_on
         target:
           entity_id: media_player.jl_tenor
-        data: {}
+
+      # Give the radio time to come online
+      - delay: "00:00:05"
+
+      # Wait until HA sees it as available/on
+      - wait_template: >
+          {{ states('media_player.jl_tenor') != 'off'
+             and states('media_player.jl_tenor') != 'unavailable' }}
+        timeout: "00:00:15"
+        continue_on_timeout: true
+
+      # Now change source
       - service: media_player.select_source
         target:
           entity_id: media_player.jl_tenor
         data:
-          source: 'AUX in'
+          source: "AUX in"
+
+      - delay: "00:00:01"
+
       - service: media_player.volume_set
         target:
           entity_id: media_player.jl_tenor
@@ -276,9 +381,6 @@
           retain: true
       - service: homeassistant.turn_off
         target:
-          entity_id: automation.alarm_7am
-      - service: homeassistant.turn_off
-        target:
           entity_id: automation.excelsior_auto_switch_on
       - service: homeassistant.turn_off
         data:
@@ -295,12 +397,6 @@
       - service: homeassistant.turn_off
         target:
           entity_id: automation.mancave_light_on_2
-      - service: homeassistant.turn_off
-        target:
-          entity_id: automation.radio_on
-      - service: homeassistant.turn_off
-        target:
-          entity_id: automation.radio_on_m_f
       - service: homeassistant.turn_off
         target:
           entity_id: automation.radio_to_aux
@@ -314,9 +410,6 @@
           retain: true
       - service: homeassistant.turn_on
         target:
-          entity_id: automation.alarm_7am
-      - service: homeassistant.turn_on
-        target:
           entity_id: automation.excelsior_auto_switch_on
       - service: homeassistant.turn_on
         data:
@@ -333,12 +426,6 @@
       - service: homeassistant.turn_on
         target:
           entity_id: automation.mancave_light_on_2
-      - service: homeassistant.turn_off
-        target:
-          entity_id: automation.radio_on
-      - service: homeassistant.turn_on
-        target:
-          entity_id: automation.radio_on_m_f
       - service: homeassistant.turn_on
         target:
           entity_id: automation.radio_to_aux

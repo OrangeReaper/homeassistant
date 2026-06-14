@@ -1,0 +1,16 @@
+  kitchen_radio_on:
+    sequence:
+      - action: media_player.turn_on
+        target:
+          entity_id: media_player.jl_tenor
+        data: {}
+      - action: media_player.volume_set
+        target:
+          entity_id: media_player.jl_tenor
+        data:
+          volume_level: 0.375
+      - action: media_player.select_source
+        target:
+          entity_id: media_player.jl_tenor
+        data:
+          source: 'Internet radio'

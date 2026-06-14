@@ -1,0 +1,12 @@
+id: 'heartbeat_jl_tenor_radio'
+alias: "Heartbeat: JL Tenor Radio"
+description: "Manually triggers a ping check every minute to prevent flapping"
+trigger:
+  - platform: time_pattern
+    minutes: "/1"
+condition: []
+action:
+  - action: homeassistant.update_entity
+    target:
+      entity_id: binary_sensor.192_168_1_180
+mode: single

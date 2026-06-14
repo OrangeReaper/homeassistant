@@ -1,0 +1,18 @@
+alias: Panasonic Off
+id: "panasonic_off"
+mode: single
+
+trigger:
+  - platform: state
+    entity_id: media_player.lg_webos_tv_94a7
+    attribute: source
+    for:
+      minutes: 1
+
+condition:
+  - condition: template
+    value_template: >
+      {{ state_attr('media_player.lg_webos_tv_94a7', 'source') != 'Panasonic DVD Player' }}
+
+action:
+  - action: script.panasonic_dmr_off

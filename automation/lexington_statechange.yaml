@@ -4,6 +4,6 @@ trigger:
   - platform: mqtt
     topic: "lexington/status"
 action:
-  - service: notify.persistent_notification
+  - action: notify.persistent_notification
     data:
-      message: '{{ trigger.payload }}'
+      message: "{{ trigger.payload }}"

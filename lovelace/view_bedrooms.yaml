@@ -16,34 +16,6 @@ cards:
             icon: mdi:lightbulb
 
       - type: horizontal-stack
-        title: Kitchen Radio
-        cards:
-          - type: button
-            name: To Radio (S-S)
-            show_state: true
-            tap_action:  
-              action: call-service
-              service: automation.toggle
-              target:
-                entity_id: automation.radio_on
-              service_data: {}
-            entity: automation.radio_on
-            icon_height: 50px
-            icon: mdi:radio
-          - type: button
-            name: To Aux (M-F)
-            show_state: true
-            tap_action:  
-              action: call-service
-              service: automation.toggle
-              target:
-                entity_id: automation.radio_on_m_f
-              service_data: {}
-            entity: automation.radio_on_m_f
-            icon_height: 50px
-            icon: mdi:headphones
-
-      - type: horizontal-stack
         title: Modes
         cards:
           - type: button

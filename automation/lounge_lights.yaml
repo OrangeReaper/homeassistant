@@ -1,12 +1,25 @@
 alias: Lounge Lights
 id: lounge_lights
+
 trigger:
-  platform: state
-  entity_id: sensor.dark
-  to: 'yes'
+  - platform: state
+    entity_id: sensor.dark
+    to: "yes"
+
+  - platform: state
+    entity_id: sensor.any_home
+    to: "yes"
+
 condition:
-  condition: state
-  entity_id: sensor.any_home
-  state: "yes"
+  - condition: state
+    entity_id: sensor.dark
+    state: "yes"
+
+  - condition: state
+    entity_id: sensor.any_home
+    state: "yes"
+
 action:
-  - service: script.turn_on_lounge_lights
+  - action: script.turn_on_lounge_lights
+  - action: script.unit_lights_on
+

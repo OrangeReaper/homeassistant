@@ -1,0 +1,8 @@
+  plex_off:
+    sequence:
+      - action: shell_command.turn_off_plex
+      - delay: '00:03:00'
+      - action: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.saratoga_usb

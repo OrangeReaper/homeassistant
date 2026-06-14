@@ -1,0 +1,11 @@
+  force_dark_timed:
+    description: "Temporarily enable force_dark for a given number of minutes"
+    fields:
+      duration:
+        description: "Time to keep force_dark on (in minutes)"
+        example: 15
+    sequence:
+      - action: script.force_dark_on
+      - delay:
+          minutes: "{{ duration }}"
+      - action: script.force_dark_off

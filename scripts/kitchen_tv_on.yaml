@@ -1,0 +1,57 @@
+  kitchen_tv_on:
+    alias: "Kitchen TV On"
+    mode: single
+    sequence:
+      - choose:
+      # After midday (12:00 onwards) → ITV1
+          - conditions:
+              - condition: time
+                after: "12:00:00"
+            sequence:
+              - action: select.select_option
+                target:
+                  entity_id: select.24_sharp_roku_tv_channel
+                data:
+                  option: "ITV1 (3)"
+
+          # Before midday → ITV1+1
+          - conditions:
+              - condition: time
+                before: "12:00:00"
+            sequence:
+              - action: select.select_option
+                target:
+                  entity_id: select.24_sharp_roku_tv_channel
+                data:
+                  option: "ITV1+1 (251)"
+
+      # Always trigger the radio automation
+      #- action: script.kitchen_radio_aux
+
+      - repeat:
+          count: 5
+          sequence:
+            # Try to wake the device
+            - action: media_player.turn_on
+              target:
+                entity_id: media_player.jl_tenor
+
+            - delay: "00:00:03"
+
+      # Give the radio time to come online
+      - delay: "00:00:02"
+
+      # Now change source
+      - action: media_player.select_source
+        target:
+          entity_id: media_player.jl_tenor
+        data:
+          source: "AUX in"
+
+      - delay: "00:00:01"
+
+      - action: media_player.volume_set
+        target:
+          entity_id: media_player.jl_tenor
+        data:
+          volume_level: 0.7

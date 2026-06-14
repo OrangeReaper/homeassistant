@@ -1,17 +1,21 @@
-id: welcome_home
-alias: Welcome Home 2
-trigger:
-  platform: state
-  entity_id: binary_sensor.porch_sensor_motion_detection
-  to: "on"
+alias: Porch light motion control
+id: porch_light_motion_control
 mode: restart
+
+trigger:
+  - platform: state
+    entity_id: binary_sensor.porch_sensor_motion_detection
+    to: "on"
+
 condition:
-  condition: and
-  conditions:
-    - condition: time
-      before: '23:59:59'
-    - condition: state
-      entity_id: sensor.dark
-      state: 'yes'
+  - condition: state
+    entity_id: sensor.dark
+    state: 'yes'
+
 action:
-  - service: script.porch_light_on
+  - action: script.porch_light_on
+
+  - delay: "00:05:00"
+
+  - action: script.porch_light_off
+  - action: script.hall_light_off

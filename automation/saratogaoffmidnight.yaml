@@ -1,12 +1,11 @@
-alias: saratoga off at midnight
+alias: Saratoga off at midnight
 id: saratoga_off_at_midnight
 trigger:
-  platform: time
-  at: '00:00:00'
+  - platform: time
+    at: "00:00:00"
 condition:
-  condition: state
-  entity_id: binary_sensor.plex_server
-  state: "on"
+  - condition: state
+    entity_id: binary_sensor.plex_server
+    state: "on"
 action:
-  - data: {}
-    service: script.plex_off
+  - action: script.plex_off

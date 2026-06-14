@@ -1,0 +1,6 @@
+ porch_light_toggle:
+    alias: "Porch Light Toggle"
+    sequence:
+      - action: light.toggle
+        target:
+          entity_id: light.porch_light

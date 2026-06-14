@@ -1,0 +1,18 @@
+  tts_say:
+    alias: 'Say Message'
+    fields:
+      message:
+        name: 'Message to Speak'
+        description: 'the text'
+        required: true
+        selector:
+          text:
+    sequence:
+      - action: tts.speak
+        data:
+          message: "{{ message }}"
+          media_player_entity_id: media_player.tycho_squeezelite
+          options:
+            voice: en_GB-northern_english_male-medium
+        target:
+          entity_id: tts.piper

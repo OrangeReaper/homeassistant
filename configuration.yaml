@@ -31,7 +31,7 @@ group: !include groups.yaml
 homeassistant: !include homeassistant.yaml
 http: !include http.yaml
 automation: !include_dir_list automation/
-script: !include scripts.yaml
+script: !include_dir_list scripts
 scene: !include scenes.yaml
 frontend: !include frontend.yaml
 lovelace: !include lovelace.yaml

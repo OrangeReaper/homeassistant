@@ -5,4 +5,4 @@ trigger:
     entity_id: binary_sensor.mqtt_porch_switch
     to: "off"
 action:
-  - service: script.porch_light_toggle
+  - action: script.porch_light_toggle

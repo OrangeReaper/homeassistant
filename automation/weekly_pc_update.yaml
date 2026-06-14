@@ -8,5 +8,12 @@ condition:
     weekday:
       - sun
 action:
-  - service: script.update_pc
+  - action: script.plex_on
+  - delay: "00:15:00"
+  - action: script.lexington_on
+  - delay: "00:15:00"
+  - action: script.plex_off
+  - delay: "00:15:00"
+  - action: script.lexington_off
+
 mode: single

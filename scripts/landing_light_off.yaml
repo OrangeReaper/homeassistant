@@ -1,0 +1,5 @@
+  landing_light_off:
+    sequence: 
+      - action: homeassistant.turn_off
+        target: 
+          entity_id: switch.landing_light

@@ -1,4 +1,10 @@
   - binary_sensor:
+      - name: Internet Status
+        state: >
+          {{ is_state('binary_sensor.8_8_8_8', 'on')
+             or is_state('binary_sensor.1_1_1_1', 'on') }}
+
+  - binary_sensor:
     - unique_id: kitchen_radio_radio_state
       name: kitchen_radio_radio_state
       device_class: power
@@ -108,7 +114,7 @@
         {% if is_state("sensor.mqtt_force_dark", 'on') %}
           yes
         {% else %}
-          {% if (states.sensor.time.state > "00:00") and (states.sensor.time.state < "10:00") %}
+          {% if (states.sensor.time.state >= "23:00") or (states.sensor.time.state < "10:00") %}
             no
           {% else %}
             {% if state_attr('sun.sun', 'elevation') > 0  %}
@@ -151,18 +157,10 @@
     - default_entity_id: sensor.paula
       name: "Paula"
       state: >-
-        {% if is_state('device_tracker.paula_pixel_7', 'home')  %}
-              home
+        {% if is_state('binary_sensor.paula_phone_wifi', 'on')  %}
+          home
         {% else %}
-          {% if is_state('sensor.paula_pixel_7_wi_fi_ip_address', '192.168.1.14')  %}
-              home
-          {% else %}
-            {% if is_state('binary_sensor.paula_phone_wifi', 'on')  %}
-              home
-            {% else %}
-              away
-            {% endif %}
-          {% endif %}
+          away
         {% endif %}
 
   - sensor:
@@ -230,6 +228,64 @@
       turn_off:
       - action: script.plex_off
 
+# Used by Lovelace value_template tells the TRUTH about the status
+  - switch:
+    - name: kitchentv_toggle
+      state: "{{ not is_state('media_player.24_sharp_roku_tv', 'off') }}"
+      turn_on:
+        - service: media_player.turn_on
+          target:
+            entity_id: media_player.24_sharp_roku_tv
+        - delay: "00:00:10"
+        - service: script.kitchen_tv_on
+      turn_off:
+        - service: media_player.turn_off
+          target:
+            entity_id: 
+              - media_player.24_sharp_roku_tv
+              - media_player.jl_tenor
+
+  - switch:
+    - name: lounge_tv_alexa_switch
+      state: "{{ is_state('media_player.living_room_tv', 'off') }}"
+      turn_on:
+        service: script.turn_on
+        target:
+          entity_id: script.lounge_tv_on
+      turn_off:
+        service: media_player.turn_off
+        target:
+          entity_id: media_player.lg_webos_tv_94a7
+
+# Used by Lovelace value_template tells the TRUTH about the status
+  - switch:
+    - name: mancavetv_toggle
+      state: "{{ not is_state('remote.harmony_hub', 'off') }}"
+      turn_on:
+        - service: remote.turn_on
+          target:
+            entity_id: remote.harmony_hub
+          data:
+            activity: Roku
+        - service: media_player.turn_on
+          target:
+            entity_id: media_player.den_tv
+      turn_off:
+        - service: remote.turn_off
+          target:
+            entity_id: remote.harmony_hub
+        - service: media_player.turn_off
+          target:
+            entity_id: media_player.den_tv
+
+  - switch:
+    - name: "Unit Lights"
+      unique_id: unit_lights_broadlink_switch  # Allows you to edit name/icon in UI later
+      turn_on:
+        - action: script.unit_lights_on
+      turn_off:
+        - action: script.unit_lights_off
+
   - switch:
     - default_entity_id: switch.holiday_mode
       name: holiday_mode
@@ -250,14 +306,30 @@
 
 # NB used by emulated hue value_template LIES about the status
 # means that Alexa doesn't complain that Enterprise isn't responding
+#  - switch:
+#    - default_entity_id: switch.enterprise_toggle
+#      name: enterprise_toggle
+#      state: '{{ is_state(''binary_sensor.192_168_1_113'', ''off'') }}'
+#      turn_on:
+#      - action: script.enterprise_on
+#      turn_off:
+#      - action: script.enterprise_off
+
+# Used by emulated hue - Instant response so Alexa never complains
   - switch:
     - default_entity_id: switch.enterprise_toggle
       name: enterprise_toggle
-      state: '{{ is_state(''binary_sensor.192_168_1_113'', ''off'') }}'
-    - turn_on:
-      - action: script.enterprise_on
+      state: "{{ is_state('input_boolean.enterprise_alexa_state', 'on') }}"
+      turn_on:
+        - action: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.enterprise_alexa_state
+        - action: script.enterprise_on
       turn_off:
-      - action: script.enterprise_off
+        - action: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.enterprise_alexa_state
+        - action: script.enterprise_off
 
 # NB used by Lovelace value_template tells the TRUTH about the status
   - switch:

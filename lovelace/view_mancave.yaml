@@ -12,4 +12,25 @@ cards:
           - switch.mancave_light
         show_header_toggle: false
         title: Controls
+  - type: horizontal-stack
+    cards:
+      - type: button
+        name: TV
+        show_state: true
+        tap_action:
+          action: call-service
+          service: switch.toggle
+          target:
+            entity_id: switch.mancavetv_toggle
+          service_data: {}
+        entity: switch.mancavetv_toggle
+        icon_height: 50px
+        icon: mdi:television-classic
+
+
+
+
+
+
+
 

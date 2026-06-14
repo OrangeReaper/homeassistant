@@ -1,12 +1,12 @@
 alias: Enterprise USB Drives OFF
 id: enterprise_usb_hdd_off
 trigger:
-  platform: state
-  entity_id: sensor.enterprise
-  from: "on"
-  to: "off"
-  for: "00:15:00"
+  - platform: state
+    entity_id: sensor.enterprise
+    from: "on"
+    to: "off"
+    for: "00:15:00"
 action:
-  - service: homeassistant.turn_off
-    entity_id: group.main_pc_usb_drives
-
+  - action: homeassistant.turn_off
+    target:
+      entity_id: group.main_pc_usb_drives

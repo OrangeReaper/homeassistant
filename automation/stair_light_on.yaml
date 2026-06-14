@@ -1,0 +1,20 @@
+alias: Stair light motion control
+id: stair_light_motion_control
+mode: restart
+
+trigger:
+  - platform: state
+    entity_id: binary_sensor.stair_sensor_motion_detection
+    to: "on"
+
+action:
+  - action: script.stair_light_on
+
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.stair_sensor_motion_detection
+        to: "off"
+        for:
+          minutes: 1
+
+  - action: script.stair_light_off

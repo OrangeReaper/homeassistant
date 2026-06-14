@@ -1,0 +1,14 @@
+  panasonic_dmr_off:
+    alias: "Panasonic DMR Off"
+    mode: restart
+    sequence:
+      - repeat:
+          count: 5
+          sequence:
+            - action: remote.send_command
+              target:
+                entity_id: remote.broadlink_remote
+              data:
+                device: panasonic_pmr
+                command: "off"
+            - delay: "00:00:00.2"

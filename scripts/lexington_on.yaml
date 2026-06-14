@@ -1,0 +1,5 @@
+  lexington_on:
+    sequence:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.lexington_wol

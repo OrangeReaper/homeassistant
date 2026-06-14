@@ -1,0 +1,13 @@
+  update_pc:
+    sequence:
+        - action: script.turn_on
+          entity_id: script.plex_on
+        - delay: '00:15:00'
+        - action: script.turn_on
+          entity_id: script.lexington_on
+        - delay: '00:15:00'
+        - action: script.turn_on
+          entity_id: script.plex_off
+        - delay: '00:15:00'
+        - action: script.turn_on
+          entity_id: script.lexington_off

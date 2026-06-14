@@ -1,16 +1,14 @@
-alias: printer black
+alias: "Printer Black"
 id: printer_black
 trigger:
-  platform: event
-  event_type: state_changed
-  event_data:
-    entity_id: sensor.hp_color_laser_150nw_black_toner_s_n_crum_190702a13cf
+  - platform: state
+    entity_id: sensor.hp_color_laser_150nw_black_toner_s_n_crum_240426a5e3d
 condition:
   - condition: template
-    value_template: "{{ not is_state('sensor.hp_color_laser_150nw_black_toner_s_n_crum_190702a13cf', 'unavailable') }}"
+    value_template: "{{ not is_state('sensor.hp_color_laser_150nw_black_toner_s_n_crum_240426a5e3d', 'unavailable') }}"
 action:
-  service: mqtt.publish
-  data:
-    topic: "printer/black"
-    payload: "{{ states('sensor.hp_color_laser_150nw_black_toner_s_n_crum_190702a13cf') }}"
-    retain: true
+  - action: mqtt.publish
+    data:
+      topic: "printer/black"
+      payload: "{{ states('sensor.hp_color_laser_150nw_black_toner_s_n_crum_240426a5e3d') }}"
+      retain: true

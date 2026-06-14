@@ -1,10 +1,11 @@
 alias: Mancave Light OFF
 id: mc_light_off
 trigger:
-  platform: state  
-  entity_id: sensor.mancave_occupied
-  to: "no" 
-  for: '00:00:45'
+  - platform: state
+    entity_id: sensor.mancave_occupied
+    to: "no"
+    for: "00:00:45"
 action:
-  - service: switch.turn_off
-    entity_id: switch.mancave_light
+  - action: switch.turn_off
+    target:
+      entity_id: switch.mancave_light

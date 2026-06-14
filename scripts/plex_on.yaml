@@ -1,0 +1,11 @@
+  plex_on:
+    sequence:
+      - action: switch.turn_on
+        data: {}
+        target:
+          entity_id: switch.saratoga_usb
+      - delay: '00:00:02'
+      - action: wake_on_lan.send_magic_packet
+        data:
+          broadcast_port: 9
+          mac: 10:7C:61:22:83:A2

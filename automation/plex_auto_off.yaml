@@ -1,10 +1,9 @@
 alias: Plex Auto Off
 id: plex_auto_off
 trigger:
-  platform: state  
-  entity_id: sensor.saratoga_active_clients
-  to: '0'
-  for: '00:30:00'
+  - platform: state   
+    entity_id: sensor.saratoga_active_clients
+    to: '0'
+    for: '00:30:00'
 action:
-  - data: {}
-    service: script.plex_off
+  - action: script.plex_off

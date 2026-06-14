@@ -1,13 +1,30 @@
-alias: Mancave light ON
+alias: "Mancave Light ON"
 id: mc_light_on
+mode: single
+
 trigger:
-  platform: state  
-  entity_id: sensor.mancave_occupied
-  to: "yes"
+  # Trigger 1: You walk into the room
+  - platform: state
+    entity_id: sensor.mancave_occupied
+    to: "yes"
+    id: "mc_occupied"
+
+  # Trigger 2: It gets dark outside while you're already inside
+  - platform: state
+    entity_id: sensor.dark
+    to: "yes"
+    id: "it_got_dark"
+
 condition:
-  condition: state
-  entity_id: sensor.dark
-  state: 'yes'
+  # Both conditions MUST be true for the light to turn on
+  - condition: state
+    entity_id: sensor.mancave_occupied
+    state: "yes"
+  - condition: state
+    entity_id: sensor.dark
+    state: "yes"
+
 action:
-  - service: switch.turn_on
-    entity_id: switch.mancave_light
+  - action: switch.turn_on
+    target:
+      entity_id: switch.mancave_light

@@ -1,0 +1,5 @@
+  excelsior_off:
+    sequence:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.excelsior_wol

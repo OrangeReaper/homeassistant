@@ -4,7 +4,6 @@ trigger:
   - platform: time
     at: "08:30:00"
 action:
-  - data:
+  - action: media_player.turn_off
+    target:
       entity_id: media_player.roberts_radio_2
-    entity_id: media_player.roberts_radio_2
-    service: media_player.turn_off

@@ -1,0 +1,5 @@
+  stair_light_on:
+    sequence:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.stair_cupboard

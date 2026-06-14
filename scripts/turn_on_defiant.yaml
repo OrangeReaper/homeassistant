@@ -1,0 +1,13 @@
+  turn_on_defiant:
+    sequence:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.defiant_2
+      - delay: '00:00:02'
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.defiant_2
+      - delay: 30
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.defiant_wol

@@ -1,0 +1,5 @@
+  turn_off_defiant:
+    sequence:
+      - action: homeassistant.turn_off
+        target:
+          entity_id: switch.defiant_wol

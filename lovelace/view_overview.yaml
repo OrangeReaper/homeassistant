@@ -34,10 +34,6 @@ cards:
             entity: sensor.nextsunset
             graph: none
             name: Next Sunset
-          - type: sensor
-            entity: sensor.elevation
-            graph: none
-            name: Curr Elev
       - type: horizontal-stack
         cards:
           - type: sensor
@@ -81,6 +77,7 @@ cards:
         cards:
           - type: gauge
             name: Porch PIR Batt
+            needle: true
             unit: '%'
             entity: sensor.porch_sensor_battery_level
             severity:
@@ -89,6 +86,7 @@ cards:
               green: 85
           - type: gauge
             name: Landing PIR Batt
+            needle: true
             unit: '%'
             entity: sensor.landing_sensor_battery_level
             severity:
@@ -97,10 +95,16 @@ cards:
               green: 85
           - type: gauge
             name: Hive Batt
+            needle: true
             unit: '%'
             entity: sensor.hive_temperature_battery_level
             severity:
               red: 0
               yellow: 45
               green: 85
-
+      - type: history-graph
+        title: Internet Stability
+        entities:
+          - entity: binary_sensor.internet_status
+        hours_to_show: 24
+        refresh_interval: 30

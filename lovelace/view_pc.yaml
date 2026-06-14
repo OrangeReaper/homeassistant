@@ -184,6 +184,7 @@ cards:
         cards:
           - type: gauge
             name: black
+            needle: true
             theme: card_black_border
             unit: '%'
             entity: sensor.hp_color_laser_150nw_black_toner_s_n_crum_240426a5e3d
@@ -193,6 +194,7 @@ cards:
               green: 40
           - type: gauge
             name: cyan
+            needle: true
             unit: '%'
             entity: sensor.hp_color_laser_150nw_cyan_toner_s_n_crum_240426a6203
             severity:
@@ -201,6 +203,7 @@ cards:
               green: 40
           - type: gauge
             name: magenta
+            needle: true
             unit: '%'
             entity: sensor.hp_color_laser_150nw_magenta_toner_s_n_crum_240426a4a9b
             severity:
@@ -209,6 +212,7 @@ cards:
               green: 40
           - type: gauge
             name: yellow
+            needle: true
             unit: '%'
             entity: sensor.hp_color_laser_150nw_yellow_toner_s_n_crum_240426a5e0b
             severity:

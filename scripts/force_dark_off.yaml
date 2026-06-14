@@ -1,0 +1,7 @@
+  force_dark_off:
+    sequence:
+      - action: mqtt.publish
+        data:
+          topic: "homeassistant/modes/force_dark"
+          payload: "off"
+          retain: true

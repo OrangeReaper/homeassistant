@@ -1,3 +1,31 @@
 #  - platform: frontier_silicon
 #    name: "Roberts Radio"
 #    host: 192.168.1.118
+  - platform: universal
+    name: "Living Room TV"
+    children:
+      - media_player.lg_webos_tv_94a7
+    commands:
+      turn_on:
+        service: script.lounge_tv_on
+
+      # Adding turn_off explicitly allows 'toggle' to function
+      turn_off:
+        service: media_player.turn_off
+        target:
+          entity_id: media_player.lg_webos_tv_94a7
+
+    # This logic forces "unavailable" to show as "off"
+    state_template: >
+      {% if is_state('media_player.lg_webos_tv_94a7', 'unavailable') or is_state('media_player.lg_webos_tv_94a7', 'unknown') %}
+        off
+      {% else %}
+        on
+      {% endif %}
+
+    # This ensures the volume and state still come from the real TV
+    attributes:
+      state: media_player.lg_webos_tv_94a7
+      volume_level: media_player.lg_webos_tv_94a7|volume_level
+      source: media_player.lg_webos_tv_94a7|source
+      source_list: media_player.lg_webos_tv_94a7|source_list

@@ -3,7 +3,14 @@
 # vertical-stack-in-card sourced from:
 # https://github.com/ofekashery/vertical-stack-in-card
 # 
-  mode: yaml
+  resource_mode: yaml
+  dashboards:
+    lovelace:
+      mode: yaml
+      filename: ui-lovelace.yaml
+      title: Overview
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
   resources:
     - type: module
       url: local/community/mini-media-player/mini-media-player-bundle.js?v=1.16.9
